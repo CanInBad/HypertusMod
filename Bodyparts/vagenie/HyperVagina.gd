@@ -1,11 +1,8 @@
-extends BodypartVagina
+extends "res://Modules/Z_Hypertus/Misc/ModBodypartVagina.gd"
 
 func _init():
 	visibleName = "hyperable vagina"
 	id = "vaginahyperable"
-	var hyperVagOrificeClass = load("res://Modules/Z_Hypertus/Bodyparts/Orifices/HyperVaginaOrifice.gd")
-	orifice = hyperVagOrificeClass.new()
-	orifice.bodypart = weakref(self)
 
 func getCompatibleSpecies():
 	return [Species.Any]
@@ -22,14 +19,9 @@ func getLewdAdjective():
 	return ""
 
 func getLewdDescriptionAndName():
-	# var text = getLewdSizeAdjective() + " " + getLewdAdjective() + " " + getLewdName()
-	# return text
-	return "hyper dimensional vagina"
-
-func getAttributesText():
-	var curAttribute = .getAttributesText()
-	curAttribute.append(["Bluespace anomalies", "Yes"])
-	return curAttribute
+	var text = getLewdSizeAdjective() + " " + getLewdAdjective() + " " + getLewdName()
+	return text
+	# return "hyper dimensional vagina"
 
 func getTraits():
 	return {

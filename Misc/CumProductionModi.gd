@@ -23,5 +23,10 @@ func getProductionSpeedPerHour() -> float:
 
 	return (getCapacity() / 3.0) * mult
 
+func afterMilked():
+	var pc = getCharacter()
+	if pc.hadPerk("Perk.HyperPenisFillAfterMill"):
+		fillPercent(75.0)
+
 func getFluidSource():
 	return FluidSource.Penis
