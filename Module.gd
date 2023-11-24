@@ -64,18 +64,17 @@ func _init():
 		"res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/FluffMaleBreasts.gd"
 	])
 	# var _test = universalBodyPartsCompactLayer(bodyparts,"CellblockModule",[])
-
 	var _listCompactLayers = {
-		"Knotted Horse Cock": _a,
-		"Synth Species": _b,
-		"Fluffy Parts": _c,
+		"Knotted Horse Cock": [_a,"AverageAce"],
+		"Synth Species": [_b,"AverageAce"],
+		"Fluffy Parts": [_c,"AverageAce & Max-Maxou"],
 		# "non test": _test,
 	}
-	if true in _listCompactLayers.values():
+	if true in _listCompactLayers.values()[0]:
 		Log.print("  ### "+id+": at least a compatibility layer is activated, in summary we have:")
 		for item in _listCompactLayers:
-			if _listCompactLayers[item]:
-				Log.print("    - "+item)
+			if _listCompactLayers[item][0]:
+				Log.print("    - "+item+", by: "+_listCompactLayers[item][1])
 
 var shouldLogPrint = false
 
