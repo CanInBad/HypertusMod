@@ -1,8 +1,8 @@
 extends PerkBase
 
 func _init():
-	id = "Perk.CumProduBuff2"
-	skillGroup = Skill.CumLover
+	id = "Perk.HyperProduBuff2"
+	skillGroup = "Skill.Hyper"
 
 func getVisibleName():
 	return "Hyperspermia Ⅱ"

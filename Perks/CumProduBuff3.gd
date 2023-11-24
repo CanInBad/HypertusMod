@@ -1,8 +1,8 @@
 extends PerkBase
 
 func _init():
-	id = "Perk.CumProduBuff3"
-	skillGroup = Skill.CumLover
+	id = "Perk.HyperProduBuff3"
+	skillGroup = "Skill.Hyper"
 
 func getVisibleName():
 	return "Hyperspermia Ⅲ"
@@ -16,6 +16,12 @@ func getMoreDescription():
 func getRequiredPerks():
 	return [Perk.CumStud, Perk.CumStudV2, "Perk.CumProduBuff1", "Perk.CumProduBuff2"]
 
+func hiddenWhenLocked() -> bool:
+	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")
+	if !penisPartHas:
+		return true
+	return false
+	
 func getSkillTier():
 	return 2
 
@@ -31,8 +37,3 @@ func getBuffs():
 		buff("Buff.CumPenisCapacityBuff", [100]),
 	]
 
-func hiddenWhenLocked() -> bool:
-	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")
-	if !penisPartHas:
-		return true
-	return false
