@@ -44,9 +44,11 @@ func _init():
 	skills = [
 		"res://Modules/Z_Hypertus/Skill/Hyper.gd",
 	]
+
 	# var _a = knottedHorseCockCompactLayer(bodyparts)
 	# var _b = synthCompactLayer(bodyparts)
 	# var _c = fluffyPartsCompactLayer(bodyparts)
+
 	var _a = universalBodyPartsCompactLayer(bodyparts,"Knotted Horse Cock",[
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/KnottedEquinePenis.gd",
 		# "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/KnottedEquinePenis.gd",
@@ -70,12 +72,13 @@ func _init():
 		# "non test": _test,
 	}
 	if true in _listCompactLayers.values():
-		Log.print("    "+"[b]"+id+":[/b] "+"Atleast a compatibility layer is activated, in summary we have:")
+		Log.print("  ### "+id+": at least a compatibility layer is activated, in summary we have:")
 		for item in _listCompactLayers:
 			if _listCompactLayers[item]:
 				Log.print("    - "+item)
 
-var shouldLogPrint = true
+var shouldLogPrint = false
+
 func logPrintOnDemand(txt):
 	if shouldLogPrint:
 		Log.print(txt)
