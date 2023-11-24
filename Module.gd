@@ -63,11 +63,16 @@ func _init():
 		"res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/FluffBreasts.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/FluffMaleBreasts.gd"
 	])
+	var _d = universalBodyPartsCompactLayer(bodyparts,"Avali Species",[
+		"res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/AvaliBreasts.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/AvaliMaleBreasts.gd"
+	]) # I was going to have a panic attack because I just remebered that there are 2 versions, glad they use the same ID
 	# var _test = universalBodyPartsCompactLayer(bodyparts,"CellblockModule",[])
 	var _listCompactLayers = {
 		"Knotted Horse Cock": [_a,"AverageAce"],
 		"Synth Species": [_b,"AverageAce"],
 		"Fluffy Parts": [_c,"AverageAce & Max-Maxou"],
+		"Avali Species (both version)": [_d, "AverageAce"]
 		# "non test": _test,
 	}
 	if true in _listCompactLayers.values()[0]:
