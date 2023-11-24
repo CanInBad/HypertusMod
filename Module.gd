@@ -20,7 +20,15 @@ func _init():
 	# "res://Modules/Z_Hypertus/Perks/CriticalLust.gd",
 
 	buffs = [
-	]
+		"Modules/Z_Hypertus/Buffs/HyperVaginaResistanceBuff.gd",
+		"Modules/Z_Hypertus/Buffs/HyperAnusCapacityBuff.gd",
+		"Modules/Z_Hypertus/Buffs/HyperAnusElasticityBuff.gd",
+		"Modules/Z_Hypertus/Buffs/HyperAnusResistanceBuff.gd",
+		"Modules/Z_Hypertus/Buffs/HyperBreastsFlatCapacityBuff.gd",
+		"Modules/Z_Hypertus/Buffs/HyperBreastsIncreaseTimerMultiplyer.gd",
+		"Modules/Z_Hypertus/Buffs/HyperVaginaCapacityBuff.gd",
+		"Modules/Z_Hypertus/Buffs/HyperVaginaElasticityBuff.gd",
+		]
 	# "res://Modules/Z_Hypertus/Buffs/PhysicalDamageBuffRNG.gd",
 	# "res://Modules/Z_Hypertus/Buffs/LustDamageBuffRNG.gd",
 	bodyparts = [
