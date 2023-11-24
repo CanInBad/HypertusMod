@@ -1,11 +1,11 @@
 extends PerkBase
 
 func _init():
-	id = "Perk.HyperProduBuff3"
-	skillGroup = "Skill.Hyper"
+	id = "Perk.HyperCum3"
+	skillGroup = "Hyper"
 
 func getVisibleName():
-	return "Hyperspermia Ⅲ"
+	return "Hyper Cum"
 
 func getVisibleDescription():
 	return "Your balls fills up faster by 120%"
@@ -14,7 +14,7 @@ func getMoreDescription():
 	return "Damn, bet you can end the world hunger at this point."
 
 func getRequiredPerks():
-	return [Perk.CumStud, Perk.CumStudV2, "Perk.CumProduBuff1", "Perk.CumProduBuff2"]
+	return [Perk.BreedCumProduction, Perk.BreedCumProductionV2, "Perk.HyperCum1", "Perk.HyperCum2"]
 
 func hiddenWhenLocked() -> bool:
 	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")
@@ -29,11 +29,11 @@ func getCost():
 	return 16
 
 func getPicture():
-	return "res://Modules/Z_Hypertus/Images/Perks/CumProduBuff2.png"
+	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
 
 func getBuffs():
 	return [
-		buff("Buff.CumPenisProductionBuff", [120]),
-		buff("Buff.CumPenisCapacityBuff", [100]),
+		buff(Buff.PenisCumProductionBuff, [120]),
+		buff(Buff.PenisBallsVolumeBuff, [100]),
 	]
 

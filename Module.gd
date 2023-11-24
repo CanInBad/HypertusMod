@@ -11,6 +11,10 @@ func _init():
 	author = "CanInBad"
 	
 	perks = [
+		"res://Modules/Z_Hypertus/Perks/HyperCum1.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperCum2.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperCum3.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperCum4.gd",
 	]
 
 	buffs = [
@@ -32,10 +36,10 @@ func _init():
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/EquinePenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/FelinePenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/HumanPenis.gd",
-		"res://Modules/Z_Hypertus/Bodyparts/bob/HyperableBreasts.gd",
-		"res://Modules/Z_Hypertus/Bodyparts/vagenie/HyperVagina.gd",
-		"res://Modules/Z_Hypertus/Bodyparts/donkey/Anus.gd",
-		"res://Modules/Z_Hypertus/Bodyparts/donkey/AnusWomb.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Breasts/HyperableBreasts.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Vagina/HyperVagina.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Anus/HyperAnus.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Anus/HyperAnusWomb.gd",
 	]
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
@@ -48,7 +52,7 @@ func _init():
 		"res://Modules/Z_Hypertus/Skill/Hyper.gd",
 	]
 
-	var _listCompactLayers = {
+	var _listBodyPartsCompactLayers = {
 		"Knotted Horse Cock": {
 			"moduleid": "Knotted Horse Cock",
 			"author":   "AverageAce",
@@ -71,8 +75,8 @@ func _init():
 			"moduleid": "Fluffy Bodyparts",
 			"author":   "AverageAce & Max-Maxou",
 			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/FluffBreasts.gd",
-				"res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/FluffMaleBreasts.gd"
+				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffBreasts.gd",
+				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffMaleBreasts.gd"
 			],
 			"enabled": false,
 		},
@@ -80,15 +84,15 @@ func _init():
 			"moduleid": "Avali Species",
 			"author":   "AverageAce",
 			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/AvaliBreasts.gd",
-				"res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/AvaliMaleBreasts.gd"
+				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliBreasts.gd",
+				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliMaleBreasts.gd"
 			],
 			"enabled": false,
 		},
 		# "non test": _test,
 	}
-	universalBodyPartsCompactLayer(bodyparts,_listCompactLayers)
-	announceCurrentEnabledCompactLayer(_listCompactLayers)
+	universalBodyPartsCompactLayer(bodyparts,_listBodyPartsCompactLayers)
+	announceCurrentEnabledCompactLayer(_listBodyPartsCompactLayers)
 
 var shouldLogPrint = true
 
@@ -127,6 +131,7 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 				total = len(files)
 			else:
 				logErrorOnDemand(id+": "+moduleName+": |BODYCOMPACT| there aren\'t any file paths in files array, will assume total -1")
+				total = -1
 
 			if total > 0:
 				for item in files:

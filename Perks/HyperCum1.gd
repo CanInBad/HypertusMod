@@ -1,11 +1,11 @@
 extends PerkBase
 
 func _init():
-	id = "Perk.HyperProduBuff"
-	skillGroup = "Skill.Hyper"
+	id = "Perk.HyperCum1"
+	skillGroup = "Hyper"
 
 func getVisibleName():
-	return "Hyperspermia Ⅰ"
+	return "Excessive Cum Ⅰ"
 
 func getVisibleDescription():
 	return "Your balls fills up faster by 30%"
@@ -14,20 +14,20 @@ func getMoreDescription():
 	return "You won't believe it, flat increase by 30%???? crazy."
 
 func getRequiredPerks():
-	return [Perk.CumStud, Perk.CumStudV2]
+	return [Perk.BreedCumProduction]
 
 func getSkillTier():
-	return 2
+	return 0
 
 func getCost():
 	return 4
 
 func getPicture():
-	return "res://Modules/Z_Hypertus/Images/Perks/CumProduBuff1.png"
+	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
 
 func getBuffs():
 	return [
-		buff("Buff.CumPenisProductionBuff", [30])
+		buff(Buff.PenisCumProductionBuff, [30])
 	]
 
 func hiddenWhenLocked() -> bool:

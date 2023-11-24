@@ -1,4 +1,4 @@
-extends "res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/AvaliBreasts.gd"
+extends "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliBreasts.gd"
 
 func _init():
 	visibleName = "Hyperable Avali Male breasts"

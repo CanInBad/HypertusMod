@@ -1,4 +1,4 @@
-extends "res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/FluffBreasts.gd"
+extends "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffBreasts.gd"
 
 func _init():
 	visibleName = "hyperable fluffy flat chest"

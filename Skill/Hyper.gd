@@ -1,7 +1,7 @@
 extends SkillBase
 
 func _init():
-	id = "Skill.Hyper"
+	id = "Hyper" # aughhhhh
 
 func getShortName():
 	return "Hyper"
