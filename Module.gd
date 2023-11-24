@@ -87,7 +87,7 @@ func _init():
 		},
 		# "non test": _test,
 	}
-	universalBodyPartsCompactLayerNew(bodyparts,_listCompactLayers)
+	universalBodyPartsCompactLayer(bodyparts,_listCompactLayers)
 	announceCurrentEnabledCompactLayer(_listCompactLayers)
 
 var shouldLogPrint = true
@@ -114,7 +114,7 @@ func announceCurrentEnabledCompactLayer(theDict:Dictionary):
 		return true
 	return false
 
-func universalBodyPartsCompactLayerNew(bodyparts:Array, theDict:Dictionary):
+func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 	for modindex in theDict.keys():
 		if theDict[modindex]["moduleid"] in GlobalRegistry.getModules():
 			var curIndex = theDict[modindex]
@@ -160,53 +160,3 @@ func universalBodyPartsCompactLayerNew(bodyparts:Array, theDict:Dictionary):
 				else:
 					logPrintOnDemand(id+": ## "+moduleName+" bodyparts compatibility layer successfully activated! ##\n")
 				curIndex["enabled"] = true
-
-
-func universalBodyPartsCompactLayer(bodyparts:Array, moduleName:String, files:Array, supposeTotal := 0):
-	if moduleName in GlobalRegistry.getModules():
-		var sum = 0
-		var total:int
-
-		if supposeTotal != 0:
-			total = int(supposeTotal)
-		else:
-			if len(files) > 0: 
-				total = len(files)
-			else: # hopefully includes 0
-				logErrorOnDemand(id+": "+moduleName+": |BODYCOMPACT| there aren\'t any file paths in files array, will assume total -1")
-				total = -1
-		
-		if total > 0:
-			for i in files:
-				var fileName = i.get_file()
-				if fileClass.file_exists(i):
-					if not(i in bodyparts):
-						bodyparts.append(i)
-						if i in bodyparts:
-							logPrintOnDemand(id+": "+moduleName+": "+fileName+" bodypart compatibility layer activated!")
-							sum += 1
-					else:
-						logErrorOnDemand(id+": "+moduleName+": "+fileName+" already exists in the bodyparts array!")
-						total -= 1
-				else:
-					logErrorOnDemand(id+": ERROR! "+moduleName+"\'s file: \""+i+"\" do not exist!")
-					total -= 1
-		
-		# i love the fact that ranges cannot be inside of switch statment
-		
-		if sum != total:
-			if sum == 0:
-				logErrorOnDemand(id+": ## "+moduleName+" bodypart(s) compatibility layer fail to load ##\n")
-				return false
-			if sum < total and sum > 0:
-				logErrorOnDemand(id+": ## "+moduleName+" bodypart(s) compatibility layer partially loaded ##\n")
-				return false
-			logErrorOnDemand(id+": ## "+moduleName+" bodypart(s) compatibility layer ..... you know you shouldn't set supposeTotal right? its there for me to learn default value in function\n")
-			return false
-		else:
-			if total == 1:
-				logPrintOnDemand(id+": ## "+moduleName+" a bodypart compatibility layer successfully activated! ##\n")
-			else:
-				logPrintOnDemand(id+": ## "+moduleName+" bodyparts compatibility layer successfully activated! ##\n")
-			return true
-	return false
