@@ -72,7 +72,7 @@ func _init():
 		"Knotted Horse Cock": [_a,"AverageAce"],
 		"Synth Species": [_b,"AverageAce"],
 		"Fluffy Parts": [_c,"AverageAce & Max-Maxou"],
-		"Avali Species (both version)": [_d, "AverageAce"]
+		"Avali Species (both version)": [_d, "AverageAce"],
 		# "non test": _test,
 	}
 	if true in _listCompactLayers.values()[0]:
@@ -81,7 +81,7 @@ func _init():
 			if _listCompactLayers[item][0]:
 				Log.print("    - "+item+", by: "+_listCompactLayers[item][1])
 
-var shouldLogPrint = false
+var shouldLogPrint = true
 
 func logPrintOnDemand(txt):
 	if shouldLogPrint:

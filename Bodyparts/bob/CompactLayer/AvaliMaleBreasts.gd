@@ -1,8 +1,8 @@
 extends "res://Modules/Z_Hypertus/Bodyparts/bob/CompactLayer/AvaliBreasts.gd"
 
 func _init():
-	visibleName = "Avali Male breasts"
-	id = "avaliMalebreasts"
+	visibleName = "Hyperable Avali Male breasts"
+	id = "avaliMalebreastshyperable"
 	size = breastSizeModClass.FOREVER_FLAT
 
 func getLewdAdjective():
