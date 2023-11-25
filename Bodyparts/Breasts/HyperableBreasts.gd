@@ -28,11 +28,9 @@ func getDoll3DScene():
 #		return "res://Player/Player3D/Parts/Breasts/BreastsCurvy/BreastsCurvy.tscn"
 #	return "res://Player/Player3D/Parts/Breasts/BreastsBig/BreastsBig.tscn"
 
-func getAttributesText():
-	return [
-		["Breast size", breastSizeModClass.breastSizeToString(getSize())],
-		["Bluespace anomalies", "Yes"],
-	]
+# func getBreastsScale():
+# 	var thesize = getSize()
+# 	return breastSizeModClass.breastSizeToBoneScale(thesize)
 
 func getTooltipInfo():
 	var result = []

@@ -3,7 +3,7 @@ extends "res://Modules/Z_Hypertus/Misc/ModBodypartPenis.gd"
 func _init():
 	visibleName = "hyperable dragon penis"
 	id = "dragonpenismhyper"
-	lengthCM = 22
+	# lengthCM = 22
 	pickedGColor = Color.red
 	pickedBColor = Color.darkred
 

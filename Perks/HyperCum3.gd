@@ -8,13 +8,13 @@ func getVisibleName():
 	return "Hyper Cum"
 
 func getVisibleDescription():
-	return "Your balls fills up faster by 120%"
+	return "Your balls refills and holds 175% more"
 
 func getMoreDescription():
-	return "Damn, bet you can end the world hunger at this point."
+	return "\"After a while, I kinda liked this...\"\nYour balls vibrates violently when they're empty."
 
 func getRequiredPerks():
-	return [Perk.BreedCumProduction, Perk.BreedCumProductionV2, "Perk.HyperCum1", "Perk.HyperCum2"]
+	return [Perk.BreedCumProduction, Perk.BreedCumProductionV2, Perk.BreedCumVolume, Perk.BreedCumVolumeV2, "Perk.HyperCum1", "Perk.HyperCum2"]
 
 func hiddenWhenLocked() -> bool:
 	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")
@@ -33,7 +33,7 @@ func getPicture():
 
 func getBuffs():
 	return [
-		buff(Buff.PenisCumProductionBuff, [120]),
-		buff(Buff.PenisBallsVolumeBuff, [100]),
+		buff(Buff.PenisCumProductionBuff, [175]),
+		buff(Buff.PenisBallsVolumeBuff, [175]),
 	]
 

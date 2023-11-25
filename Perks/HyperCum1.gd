@@ -8,13 +8,13 @@ func getVisibleName():
 	return "Excessive Cum Ⅰ"
 
 func getVisibleDescription():
-	return "Your balls fills up faster by 30%"
+	return "Your balls refills and holds 50% more"
 
 func getMoreDescription():
-	return "You won't believe it, flat increase by 30%???? crazy."
+	return "\"I sure hope the contract I signed before coming here covered this\"\nThe balls, they're rumbling occasionally."
 
 func getRequiredPerks():
-	return [Perk.BreedCumProduction]
+	return [Perk.BreedCumProduction, Perk.BreedCumVolume]
 
 func getSkillTier():
 	return 0
@@ -27,7 +27,8 @@ func getPicture():
 
 func getBuffs():
 	return [
-		buff(Buff.PenisCumProductionBuff, [30])
+		buff(Buff.PenisCumProductionBuff, [50]),
+		buff(Buff.PenisBallsVolumeBuff,   [50]),
 	]
 
 func hiddenWhenLocked() -> bool:

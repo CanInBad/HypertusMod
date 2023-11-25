@@ -144,7 +144,8 @@ func processTime(_seconds: int):
 		updateAppearance()
 
 func getBreastsScale():
-	return 1.0
+	var thesize = getSize()
+	return breastSizeModClass.breastSizeToBoneScale(thesize)
 
 # For animations
 func getBreastsAdjustScale():

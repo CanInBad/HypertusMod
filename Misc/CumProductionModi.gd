@@ -21,7 +21,7 @@ func getProductionSpeedPerHour() -> float:
 	if(pc != null):
 		mult += pc.getCustomAttribute(BuffAttribute.PenisCumProduction)
 
-	return (getCapacity() / 3.0) * mult
+	return (getCapacity() / 4.0) * mult
 
 func afterMilked():
 	var pc = getCharacter()

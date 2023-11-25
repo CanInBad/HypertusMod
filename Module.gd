@@ -4,6 +4,7 @@ var fileClass = File.new()
 func getFlags():
 	return {
 		"HyperPenisCustomSize": flag(FlagType.Number),
+		"HyperPenisExperiencedExpansion": flag(FlagType.Bool)
 	}
 
 func _init():
@@ -15,6 +16,7 @@ func _init():
 		"res://Modules/Z_Hypertus/Perks/HyperCum2.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperCum3.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperCum4.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperPenisPlus1.gd"
 	]
 
 	buffs = [
@@ -43,6 +45,7 @@ func _init():
 	]
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
+		"res://Modules/Z_Hypertus/Scenes/HyperIncreasePPLength.gd",
 	]
 	events = [
 		"res://Modules/Z_Hypertus/Events/CustomizationButton.gd",
