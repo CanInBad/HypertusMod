@@ -1,5 +1,7 @@
 extends PerkBase
 
+var sayParser = SayParser.new()
+
 func _init():
 	id = "Perk.HyperCum1"
 	skillGroup = "Hyper"
@@ -11,7 +13,7 @@ func getVisibleDescription():
 	return "Your balls refills and holds 50% more"
 
 func getMoreDescription():
-	return "\"I sure hope the contract I signed before coming here covered this\"\nThe balls, they're rumbling occasionally."
+	return sayParser.processString("[say=pc]I sure hope the contract I signed before coming here covered this[/say]\nThe balls, they're rumbling occasionally.")
 
 func getRequiredPerks():
 	return [Perk.BreedCumProduction, Perk.BreedCumVolume]

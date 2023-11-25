@@ -4,8 +4,13 @@ var fileClass = File.new()
 func getFlags():
 	return {
 		"HyperPenisCustomSize": flag(FlagType.Number),
-		"HyperPenisExperiencedExpansion": flag(FlagType.Bool)
+		"HyperPenisExperiencedExpansion": flag(FlagType.Bool),
+		"HyperPenisExpansionAmount": flag(FlagType.Number),
 	}
+
+# func resetFlagsOnNewDay(): # so it turns out that sleeping always set to the new day
+# 	if GM.main.getModuleFlag(id,"HyperPenisExpansionAmount",0)!=0: # I kinda want to just if GM.main.getModuleFlag(id,"HyperPenisExpansionAmount",0): but idk if it is true or not
+# 		GM.main.setModuleFlag(id, "HyperPenisExpansionAmount", 0)
 
 func _init():
 	id = "Hypertus"
@@ -16,7 +21,9 @@ func _init():
 		"res://Modules/Z_Hypertus/Perks/HyperCum2.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperCum3.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperCum4.gd",
-		"res://Modules/Z_Hypertus/Perks/HyperPenisPlus1.gd"
+
+		"res://Modules/Z_Hypertus/Perks/HyperPenisIncrease1.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperPenisDecrease1.gd",
 	]
 
 	buffs = [
@@ -45,11 +52,12 @@ func _init():
 	]
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
-		"res://Modules/Z_Hypertus/Scenes/HyperIncreasePPLength.gd",
+		"res://Modules/Z_Hypertus/Scenes/HyperChangePPLength.gd",
 	]
 	events = [
 		"res://Modules/Z_Hypertus/Events/CustomizationButton.gd",
 		"res://Modules/Z_Hypertus/Events/NewDayGainHyperXP.gd",
+		"res://Modules/Z_Hypertus/Events/AfterGotHyperPenisLengthChange.gd",
 	]
 	skills = [
 		"res://Modules/Z_Hypertus/Skill/Hyper.gd",

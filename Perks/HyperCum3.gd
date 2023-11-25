@@ -1,5 +1,7 @@
 extends PerkBase
 
+var sayParser = SayParser.new()
+
 func _init():
 	id = "Perk.HyperCum3"
 	skillGroup = "Hyper"
@@ -11,10 +13,10 @@ func getVisibleDescription():
 	return "Your balls refills and holds 175% more"
 
 func getMoreDescription():
-	return "\"After a while, I kinda liked this...\"\nYour balls vibrates violently when they're empty."
+	return sayParser.processString("[say=pc]After a while, I kinda liked this...[/say]\nYour balls vibrates violently when they're empty.")
 
 func getRequiredPerks():
-	return [Perk.BreedCumProduction, Perk.BreedCumProductionV2, Perk.BreedCumVolume, Perk.BreedCumVolumeV2, "Perk.HyperCum1", "Perk.HyperCum2"]
+	return [Perk.BreedCumProductionV2, Perk.BreedCumVolumeV2, "Perk.HyperCum2"]
 
 func hiddenWhenLocked() -> bool:
 	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")

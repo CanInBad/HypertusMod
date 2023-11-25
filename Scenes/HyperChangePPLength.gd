@@ -3,38 +3,39 @@ extends SceneBase
 var amtToAddPPSize:int
 
 func _init():
-	sceneID = "HyperIncreasePPLength"
+	sceneID = "HyperChangePPLength"
 
 func _initScene(_args = []):
-	if(_args.size() > 0):
-		amtToAddPPSize = _args[0]
-	else:
-		amtToAddPPSize = 0
+		amtToAddPPSize = GM.main.getFlag("Hypertus.HyperPenisExpansionAmount",0)
+
+func playAnimationNoFade(sceneID, actionID, args = {}):
+	if(GM.ui != null):
+		GM.ui.getStage3d().play(sceneID, actionID, args, true, false)
 
 func _run():
-	print(state)
 	var penis = GM.pc.getBodypart(BodypartSlot.Penis)
 	match state:
 		"afterResize":
+			sayn("After that, you can finally sleep")
 			if !GM.main.getFlag("Hypertus.HyperPenisExperiencedExpansion", false):
-				addButton("Ok...?","That was weird...","end")
+				setModuleFlag("Hypertus","HyperPenisExperiencedExpansion",true)
+				addButton("Ok...?","That was weird...","endScene")
 			else:
-				addButton("Ok!","I wish I could experience it again","end")
+				addButton("Ok!","I wish I could experience it again","endScene")
 
-		_:#this includes "" state
-			print(amtToAddPPSize)
-			playAnimation(StageScene.Solo, "stand")
+		_: #this includes "" state
+			playAnimationNoFade(StageScene.Sleeping, "sleep", {bodyState={naked=true}})
 			if amtToAddPPSize == 0:
 				addMessage("Hmmm... looks like the devloper forgot to set agrument for this scene or they're trying to add/remove 0 pp length")
 				addButton("Ok...?","That was weird...","end")
 
 			else:
-				addButton("Continue","Continue","resize")
+				sayn("Before you go to bed, there is something keeping you awake")
 				var adjTexts = ["stretching","expand","increasing in size"]
 				if amtToAddPPSize<0:
 					adjTexts = ["low-pitch","shrink","decreasing in size"]
 				if !GM.main.getFlag("Hypertus.HyperPenisExperiencedExpansion", false): # Never experienced expansion
-
+					addButton("Continue","Continue","resize")
 					var possibleInnerTexts = [
 						"You feels some air moving around your "+ penis.getLewdName() +"...",
 						"You heard some "+adjTexts[0]+" noise from down there...",
@@ -50,34 +51,23 @@ func _run():
 						"Is my "+penis.getLewdName()+" "+adjTexts[1]+"ing?",
 						"Is my "+penis.getLewdName()+" "+adjTexts[2]+"?",
 					]
-					for i in len(possibleSayTexts):
-						if not (possibleSayTexts[i].begins_with("\"") and possibleSayTexts[i].ends_with("\"")):
-							possibleSayTexts[i] = possibleSayTexts[i].insert(0,"\"")
-							# possibleSayTexts[i] += "\""
-							possibleSayTexts[i] = possibleSayTexts[i].insert(len(possibleSayTexts[i]),"\"")
-
 					var sel = RNG.pick([1,2]) # pick between 2 type of messages, general vibe and you say something
 					match sel:
 						1:addMessage(RNG.pick(possibleInnerTexts))
-						2:sayn(RNG.pick(possibleSayTexts))
+						2:sayn("[say=pc]"+RNG.pick(possibleSayTexts)+"[/say]")
 						_:addMessage("How is this possible")
 
 				# addMessage(RNG.pick(text1)),
 				# sayn(RNG.pick(text2))
 				else: # already experienced it
+					addButton("Continue","Continue","resize")
 					var possibleSayTexts   = [
 						"Oh boy, this better feel good!",
 						"I sure hope it doesn\'t hurt like last time...",
 						"Here it comes!"
 					]
 					# since the player had experience they don't have involuntary feelings
-					for i in possibleSayTexts:
-						if not (i.begins_with("\"") and i.ends_with("\"")):
-							i.insert(1,"\"")
-							# i += "\""
-							i.append("\"") # I don't know if it works like python or not
-					
-					sayn(RNG.pick(possibleSayTexts)) 
+					sayn("[say=pc]"+RNG.pick(possibleSayTexts)+"[/say]")
 					# the addbutton is near else that check amtToAddPPSize
 					
 
@@ -85,10 +75,10 @@ func _react(_action: String, _args):
 	var penis = GM.pc.getBodypart(BodypartSlot.Penis)
 	match _action:
 		"resize":
+			playAnimation(StageScene.Sleeping, "sleep", {bodyState={naked=true}})
 			var text = "what???"
 			penis.setLength(int(ceil((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))
 			GM.pc.addLust(int(ceil((GM.pc.lustThreshold()*amtToAddPPSize/100.0) + GM.pc.getLust())))
-			playAnimation(StageScene.Solo, "stand")
 			if amtToAddPPSize>0:
 				text = "larger"
 			elif amtToAddPPSize<0:
@@ -97,7 +87,9 @@ func _react(_action: String, _args):
 				text = "this shouldn't happen.... (please tell the dev)"
 			addMessage("You feels like your "+penis.getLewdName()+" just got "+text)
 			setState("afterResize")
-		"end":
+			return
+		"endScene":
+			setModuleFlag("Hypertus","HyperPenisExpansionAmount",0)
 			endScene()
 	setState(_action)
 
