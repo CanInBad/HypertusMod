@@ -21,8 +21,9 @@ func getPerkTiers():
 	return [
 		[0],
 		[5],
-		[10],
-		[15]
+		[15],
+		[30],
+		[50]
 	]
 
 # func hyperSyncFunc():

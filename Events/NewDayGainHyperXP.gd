@@ -151,7 +151,7 @@ func react(_triggerID, _args):
 		if   hadPartsN >= 1 and sum >= 1:
 			addMessage("Received Hyper XP: "+ str((sum * sum * 3 * hadPartsN))+"\n")
 			player.addSkillExperience("Hyper", sum * sum * 3 * hadPartsN)
-			player.addSkillExperience("HyperSize", sum * sum * 3 * hadPartsN)
+			# player.addSkillExperience("HyperSize", sum * sum * 3 * hadPartsN)
 		elif hadPartsN >= 1 and sum == 0:
 			addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
 	else:

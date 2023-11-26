@@ -14,14 +14,15 @@ func getVisibleDescription():
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]*turns into a cow*[/say]\n" \
-	+ " ___________________________\n"
-	+"< damn guess we\'re cows now >\n"
-	+" ---------------------------\n"
-	+"		\\   ^__^\n"
-	+"		 \\  (oo)\\_______\n"
-	+"			(__)\\       )\\/\\\n"
-	+"				||----w |\n"
-	+"				||     ||\")\n")
+	+ "\n ----------------------------"
+	+ "\n< Damn, guess we're cows now >"
+	+ "\n ----------------------------"
+	+ "\n      \\   ^__^"
+	+ "\n        \\  (oo)\\_______"
+	+ "\n           (__)\\       )\\/\\"
+	+ "\n               ||----w |"
+	+ "\n               ||     ||"
+	)
 
 func getRequiredPerks():
 	return ["Perk.HyperMilkUpSize3"]

@@ -12,7 +12,7 @@ func getVisibleDescription():
 	var text = str(amount)
 	if(amount > 0):
 		text = "+"+text
-	return "Lacation timer "+text+"%"
+	return "Increased lacation timer "+text+"%"
 
 func apply(_buffHolder):
 	_buffHolder.addCustom("BuffAttribute.HyperBreastsIncreaseTimerMultiplyer", amount/100.0)

@@ -17,6 +17,7 @@ func getLevelCap():
 
 func getPerkTiers():
 	return [
+		[0],
 		[5],
 		[15],
 		[30],

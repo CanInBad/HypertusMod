@@ -15,6 +15,7 @@ idk this is still in progress
 - [x] add vagene perks
 - [x] add donkey perks (that is not womb)
 - [ ] add bob perks
+- [ ] add capacity perks
 - [ ] add and finish XP back system (same logic as gaining)
 - [ ] finish hyper tree
 - [ ] finish hypersize tree (the sizes)

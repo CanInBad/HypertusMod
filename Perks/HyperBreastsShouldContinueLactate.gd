@@ -3,21 +3,21 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperMilkUpSize1"
+	id = "Perk.HyperBreastsShouldContinueLactate"
 	skillGroup = "Hyper"
 
 func getVisibleName():
-	return "Tera milk"
+	return "Perpetual Milking"
 
 func getVisibleDescription():
-	return "Your breasts can get bigger by three additional sizes when lactating."
+	return "Your breasts will never stop producing milk after being milked"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]Moo[/say]\n" \
-	+ "Your milking potential is still not limited.")
+	return sayParser.processString("[say=pc]Keep em comin\'[/say]\n" \
+	+ "Though there is a 3% chance that it will be stopped")
 
 func getRequiredPerks():
-	return [Perk.MilkBiggerBreastsV3]
+	return [Perk.MilkFasterProduction]
 
 func getSkillTier():
 	return 0
@@ -27,11 +27,6 @@ func getCost():
 
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
-
-func getBuffs():
-	return [
-		buff(Buff.BreastsLactatingSizeLimitBuff, [3]),
-	]
 
 func hiddenWhenLocked() -> bool:
 	var breastsPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"PartTrait.Hyperable")

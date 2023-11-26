@@ -4,7 +4,7 @@ var sayParser = SayParser.new()
 
 func _init():
 	id = "Perk.PenisIncrease1"
-	skillGroup = "HyperSizes"
+	skillGroup = "Hyper"
 
 func getVisibleName():
 	return "Penis Extend-o"
