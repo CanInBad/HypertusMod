@@ -1,7 +1,9 @@
-extends "Hyper.gd"
+extends SkillBase
+# var hyperSync: SkillBase = GM.pc.getSkillsHolder().getSkill("Hyper")
 
-func _init():
-	id = "HyperSizes" # aughhhhh
+func _init(): # I tried making them in sync but you, im new to this
+	id = "HyperSizes"
+	# hyperSync.connect("levelChanged", self, "hyperSyncFunc")
 
 func getShortName():
 	return "Hyper Sizes"
@@ -10,19 +12,18 @@ func getVisibleName():
 	return "Hyper Sizes"
 
 func getVisibleDescription():
-	return "Customize your sizes here"
+	return "Customize your sizes here, you will sync up to the hyper perk as long as you have appropriate perks"
 
 func getLevelCap():
-	return 250
+	return 1e3
 
 func getPerkTiers():
 	return [
+		[0],
 		[5],
-		[15],
-		[30],
-		[50]
+		[10],
+		[15]
 	]
 
-func onNewDay():
-	setLevel(.getLevel()) # hopefully set the same level as the base hyper
-	
+# func hyperSyncFunc():
+# 	setLevel(hyperSync.getLevel())

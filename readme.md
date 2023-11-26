@@ -6,8 +6,9 @@ a mod for [silly game, BDCC](https://github.com/Alexofp/BDCC)
 idk this is still in progress
 
 ### to-do list or something
-- [ ] add pp length buff (this is too hard)
-- [x] add vagene buffattris
+
+- [x] add pp length buff (this is too hard) <!-- I managed to did it but idk how it is with rahi sleeping with you.... I might have to look more closer -->
+- [x] add vagene buffattris 
 - [x] add donkey buffattris
 - [x] add bob buffattris
 - [ ] add pp perks

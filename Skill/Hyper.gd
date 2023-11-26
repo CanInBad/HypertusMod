@@ -13,7 +13,7 @@ func getVisibleDescription():
 	return "Shows how much you are honed to using bluespace anomalies"
 
 func getLevelCap():
-	return 250
+	return 1e3
 
 func getPerkTiers():
 	return [
@@ -22,3 +22,8 @@ func getPerkTiers():
 		[30],
 		[50]
 	]
+
+# func onNewDay():
+# 	.onNewDay()
+# 	if "HyperSizes" in GlobalRegistry.getSkills():
+# 		GM.pc.getSkillsHolder().getSkill("HyperSizes").setLevel(getLevel())

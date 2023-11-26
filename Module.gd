@@ -21,9 +21,26 @@ func _init():
 		"res://Modules/Z_Hypertus/Perks/HyperCum2.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperCum3.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperCum4.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperVirility1.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperVirility2.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperVirility3.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperVirility4.gd",
 
 		"res://Modules/Z_Hypertus/Perks/HyperPenisIncrease1.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperPenisIncrease2.gd",
+		# "res://Modules/Z_Hypertus/Perks/HyperPenisIncrease3.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperPenisDecrease1.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperPenisDecrease2.gd",
+		# "res://Modules/Z_Hypertus/Perks/HyperPenisDecrease3.gd",
+
+		"res://Modules/Z_Hypertus/Perks/HyperWomb1.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperWomb2.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperWomb3.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperWomb4.gd",
+	]
+	skills = [
+		"res://Modules/Z_Hypertus/Skill/Hyper.gd",
+		"res://Modules/Z_Hypertus/Skill/HyperSizes.gd",
 	]
 
 	buffs = [
@@ -58,9 +75,6 @@ func _init():
 		"res://Modules/Z_Hypertus/Events/CustomizationButton.gd",
 		"res://Modules/Z_Hypertus/Events/NewDayGainHyperXP.gd",
 		"res://Modules/Z_Hypertus/Events/AfterGotHyperPenisLengthChange.gd",
-	]
-	skills = [
-		"res://Modules/Z_Hypertus/Skill/Hyper.gd",
 	]
 
 	var _listBodyPartsCompactLayers = {

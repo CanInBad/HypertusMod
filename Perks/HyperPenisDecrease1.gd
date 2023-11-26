@@ -4,7 +4,7 @@ var sayParser = SayParser.new()
 
 func _init():
 	id = "Perk.PenisDecrease1"
-	skillGroup = "Hyper"
+	skillGroup = "HyperSizes"
 
 func getVisibleName():
 	return "Small Dick Energy"
@@ -34,15 +34,15 @@ func hiddenWhenLocked() -> bool:
 # 	return false
 func onPerkToggled(_isEnabledNow):
 	if _isEnabledNow:
-		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-50)
+		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-3)
 	else:
-		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",50)
+		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",3)
 	
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
 
 func runOnceWhenLearned():
-	GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-50)
+	GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-3)
 	# var pc = GM.pc 
 	# var penis = pc.getBodypart(BodypartSlot.Penis)
 	# penis.setLength(int(ceil((penis.getLength()*3.0/100.0) * penis.getLength())))

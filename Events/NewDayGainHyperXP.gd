@@ -34,13 +34,13 @@ func react(_triggerID, _args):
 			# var nperkHad = 0 # i love the fact that type casting doesn't want to work here
 			for i in toCheckPlus:
 				if player.hasPerk(i):
-				# if i in player.getSkillsHolder().getPerks():
-					# nperkHad += 1
+
 					sum += 1
-					if i == Perk.BreedCumProductionV3 and (not player.getStat(Stat.Strength) == 0):
-						sum = sum + player.getStat(Stat.Strength)/3
-						print("BreedCumProductionV3 strength bonus: "+ player.getStat(Stat.Strength)/3)
-	
+					# if i == Perk.BreedCumProductionV3 and (not player.getStat(Stat.Strength) == 0):
+					# 	sum = sum + player.getStat(Stat.Strength)/3 
+					# 	print("BreedCumProductionV3 strength bonus: "+ player.getStat(Stat.Strength)/3)
+					# this is removed with infinite scaling of this mod's perks
+
 			var toCheckMinus = [
 				Perk.StartMaleInfertility,
 				Perk.StartMaleChastity,
@@ -142,10 +142,11 @@ func react(_triggerID, _args):
 				addMessage("Your hyper anus (with womb) "+RNG.pick(["vibrates","shakes","rumbles"])+",")
 			else:
 				addMessage("Your hyper "+i+" "+RNG.pick(["vibrates","shakes","rumbles"])+",")
-			addMessage("+x1 Extra hyper gain for total: x"+str(hadPartsN))
+			# addMessage("+x1 Extra hyper gain for total: x"+str(hadPartsN))
 
 	if   hadPartsN >= 1 and sum >= 1:
 		addMessage("Received Hyper XP: "+ str((sum * sum * 3 * hadPartsN))+"\n")
 		player.addSkillExperience("Hyper", sum * sum * 3 * hadPartsN)
+		player.addSkillExperience("HyperSize", sum * sum * 3 * hadPartsN)
 	elif hadPartsN >= 1 and sum == 0:
 		addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
