@@ -11,10 +11,13 @@ idk this is still in progress
 - [x] add vagene buffattris 
 - [x] add donkey buffattris
 - [x] add bob buffattris
-- [ ] add pp perks
-- [ ] add vagene perks
-- [ ] add donkey perks
+- [x] add pp perks
+- [x] add vagene perks
+- [x] add donkey perks (that is not womb)
 - [ ] add bob perks
+- [ ] add and finish XP back system (same logic as gaining)
 - [ ] finish hyper tree
+- [ ] finish hypersize tree (the sizes)
+- [ ] rename perks to fit its description
 - [ ] perk images
 - [ ] make a item that shows internal stats (lacation timer, preg timer, etc)

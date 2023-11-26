@@ -30,7 +30,7 @@ func getTooltipInfo():
 	return text
 
 func getOrificeName():
-	return "pussy"
+	return "hyperable pussy"
 
 func safeWhenExposed():
 	return false

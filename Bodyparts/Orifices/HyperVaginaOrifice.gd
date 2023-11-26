@@ -17,7 +17,7 @@ func getElasticity() -> float:
 	var pc = bodypart.get_ref().getCharacter()
 	if(pc != null):
 		multi += pc.getCustomAttribute("BuffAttribute.HyperVaginaElasticity")
-	return pow(ogValue,multi)
+	return ogValue*multi
 
 func getResistance() -> float:
 	var ogValue = .getResistance()
@@ -25,7 +25,7 @@ func getResistance() -> float:
 	var pc = bodypart.get_ref().getCharacter()
 	if(pc != null):
 		multi += pc.getCustomAttribute("BuffAttribute.HyperVaginaResistance")
-	return pow(ogValue,multi)
+	return ogValue*multi
 
 func getComfortableInsertion() -> float: 
 	# var multi = 1.0
@@ -69,11 +69,15 @@ func getNaturalSpill() -> float:
 		return 0.33
 	return 1.0
 
-func getOverstuffedSpill() -> float:
-	var pc = bodypart.get_ref().getCharacter()
-	if pc.hasPerk("Perk.HyperStopOverfillSpill"):
-		return 0.0
-	return 20.0
+func isClosedOff():
+	if(bodypart == null || bodypart.get_ref().character == null):
+		return false
+	var character = bodypart.get_ref().getCharacter()
+	if(character.hasPerk("Perk.HyperStopSpill")):
+		return true
+	if(character.getOrificeBlocked(orificeType)):
+		return true
+	return false
 
 # func getAttributesText():
 # 	var currAttributes = .getAttributesText()

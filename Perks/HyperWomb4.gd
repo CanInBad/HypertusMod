@@ -10,7 +10,10 @@ func getVisibleName():
 	return "Instant Pregnancy"
 
 func getVisibleDescription():
-	return "Incredibly increased pregnancy speed"
+	return "Incredibly increased pregnancy speed\nNow has minimum number of egg cell of ~10\u2074"
+
+func getMoreDescription():
+	return sayParser.processString("[say=pc]I am not surprised anymore...[/say]\n...")
 
 func getRequiredPerks():
 	return ["Perk.HyperWomb3"]
@@ -23,7 +26,8 @@ func getPicture():
 
 func getBuffs():
 	return [
-		buff(Buff.PregnancySpeedBuff, [250]),
+		buff(Buff.PregnancySpeedBuff, [60]),
+		buff(Buff.MinOvulationEggsAmountBuff, [1e4]),
 	]
 
 func hiddenWhenLocked() -> bool:

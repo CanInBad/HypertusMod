@@ -39,7 +39,7 @@ func getAttributesText():
 	return curAttribute
 
 func getOrificeName():
-	return "anus"
+	return "hyperable anus"
 
 func safeWhenExposed():
 	return false

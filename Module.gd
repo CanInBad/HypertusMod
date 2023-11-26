@@ -6,6 +6,9 @@ func getFlags():
 		"HyperPenisCustomSize": flag(FlagType.Number),
 		"HyperPenisExperiencedExpansion": flag(FlagType.Bool),
 		"HyperPenisExpansionAmount": flag(FlagType.Number),
+		"HyperLevelMaxed": flag(FlagType.Bool),
+		"HyperLevelMaxedSeenMessage": flag(FlagType.Bool),
+		"HyperHoleGainLubed": flag(FlagType.Bool),
 	}
 
 # func resetFlagsOnNewDay(): # so it turns out that sleeping always set to the new day
@@ -37,6 +40,17 @@ func _init():
 		"res://Modules/Z_Hypertus/Perks/HyperWomb2.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperWomb3.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperWomb4.gd",
+
+		"res://Modules/Z_Hypertus/Perks/HyperHoles1.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperHoles2.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperHoles3.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperSlowNatualSpill.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperStopSpill.gd",
+
+		"res://Modules/Z_Hypertus/Perks/HyperMilkUpSize1.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperMilkUpSize2.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperMilkUpSize3.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperMilkUpSize4.gd",
 	]
 	skills = [
 		"res://Modules/Z_Hypertus/Skill/Hyper.gd",

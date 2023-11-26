@@ -16,10 +16,10 @@ func getVisibleDescription():
 			# yooo imagine if I knew this sooner, the string split multiple lines
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]I thought [/say]\n...")
+	return sayParser.processString("[say=pc]Is it just me or do I give birth much more?[/say]\n")
 
 func getRequiredPerks():
-	return [Perk.FertilityBetterOvulationV3]
+	return [Perk.FertilityBetterOvulationV2]
 
 func getSkillTier():
 	return 0
@@ -33,6 +33,7 @@ func getBuffs():
 		buff(Buff.OvulationEggsAmountBuff, [50]),
 		buff(Buff.PregnancySpeedBuff, [5]),
 		buff(Buff.FertilityBuff, [10]),
+		buff(Buff.MinOvulationEggsAmountBuff, [17]),
 	]
 
 func hiddenWhenLocked() -> bool:

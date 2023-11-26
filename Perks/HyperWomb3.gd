@@ -9,17 +9,17 @@ func _init():
 func getVisibleName():
 	return "Infinitly Sized Baby Maker"
 
-func getVisibleDescription():# 1*10^4
-	return "Add 1\u00d710\u2074 maximum egg cells\n" \
+func getVisibleDescription():# 10^4
+	return "Add 10\u2074 maximum egg cells\n" \
 		    + "Make pregnancy goes 20% faster\n" \
 	        + "Make you more fertile scaled with your sexiness"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]I thought [/say]\n..."\
+	return sayParser.processString("[say=pc]I am not surprised anymore...[/say]\n..."\
 	+ "\n[color=red]For low end players I recommend DON\'T GET THIS PERK! It may or may not crash your game when you give birth -CanInBad[/color]")
 
 func getRequiredPerks():
-	return ["Perk.HyperWomb2"]
+	return ["Perk.HyperWomb2", Perk.FertilityBetterOvulationV3]
 
 func getSkillTier():
 	return 2
@@ -32,6 +32,7 @@ func getBuffs():
 		buff(Buff.OvulationEggsAmountBuff, [1e4]),
 		buff(Buff.PregnancySpeedBuff, [20]),
 		buff(Buff.FertilityBuff, [25 * npc.getStat(Stat.Sexiness)]),
+		buff(Buff.MinOvulationEggsAmountBuff, [100]),
 	]
 
 func hiddenWhenLocked() -> bool:
