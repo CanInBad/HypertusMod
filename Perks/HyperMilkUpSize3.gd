@@ -10,7 +10,8 @@ func getVisibleName():
 	return "Peta milk"
 
 func getVisibleDescription():
-	return "Your breasts can get bigger by four additional sizes when lactating."
+	return "Your breasts can get bigger by six additional sizes when lactating." \
+	+ "\nAlso produce milk faster 200%"
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]Moooo!![/say]\n" \
@@ -30,7 +31,8 @@ func getPicture():
 
 func getBuffs():
 	return [
-		buff(Buff.BreastsLactatingSizeLimitBuff, [4]),
+		buff(Buff.BreastsLactatingSizeLimitBuff, [6]),
+		buff(Buff.BreastsMilkProductionBuff, [200]),
 	]
 
 func hiddenWhenLocked() -> bool:

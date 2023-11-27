@@ -133,21 +133,20 @@ func react(_triggerID, _args):
 				if player.hasPerk(i) and player.hasWombIn(OrificeType.Anus):
 					sum -= 3
 
-	var hadPartsN = 0
-	# print(hadParts) # not needed anymore
-	for i in hadParts.keys():
-		if hadParts[i] == true:
-			hadPartsN += 1
-			if i == "anuswomb":
-				addMessage("Your hyper anus (with womb) "+RNG.pick(["vibrates","shakes","rumbles"])+",")
-			else:
-				addMessage("Your hyper "+i+" "+RNG.pick(["vibrates","shakes","rumbles"])+",")
-			# addMessage("+x1 Extra hyper gain for total: x"+str(hadPartsN))
-	
 	if player.getSkillLevel("Hyper") == player.getSkillsHolder().getSkill("Hyper").getLevelCap():
 		GM.main.setModuleFlag("Hypertus","HyperLevelMaxed",true)
-
+		
 	if not GM.main.getFlag("Hypertus.HyperLevelMaxed",false):
+		var hadPartsN = 0
+		for i in hadParts.keys():
+			if hadParts[i] == true:
+				hadPartsN += 1
+				if i == "anuswomb":
+					addMessage("Your hyper anus (with womb) "+RNG.pick(["vibrates","shakes","rumbles"])+",")
+				else:
+					addMessage("Your hyper "+i+" "+RNG.pick(["vibrates","shakes","rumbles"])+",")
+					# addMessage("+x1 Extra hyper gain for total: x"+str(hadPartsN))
+		
 		if   hadPartsN >= 1 and sum >= 1:
 			addMessage("Received Hyper XP: "+ str((sum * sum * 3 * hadPartsN))+"\n")
 			player.addSkillExperience("Hyper", sum * sum * 3 * hadPartsN)
@@ -155,7 +154,6 @@ func react(_triggerID, _args):
 		elif hadPartsN >= 1 and sum == 0:
 			addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
 	else:
-		if GM.main.getModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",false):
-			GM.main.setModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",true)
-			addMessage("Wow! You actually got this far? I mean its pretty easy to gain experience for the skill trees but how long did you do it?" \
-				+ "\nCan you send the screenshot of the skills menu and send it to mod discussion?")
+		GM.main.setModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",true)
+		addMessage("Wow! You actually got this far? I mean its pretty easy to gain experience for the skill trees but how long did you do it?" \
+			+ "\nCan you send the screenshot of the skills menu and send it to mod discussion?")

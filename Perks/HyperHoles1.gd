@@ -61,5 +61,5 @@ func onSexStarted(_context = {}):
 func onSexEnded(_context = {}):
 	if GM.main.getModuleFlag("Hypertus","HyperHoleGainLubed",false):
 		if GM.pc.hasEffect(StatusEffect.LubedUp):
-			GM.main.setModuleFlag("Hypertus","HyperHoleGainLubed",false)
 			GM.pc.removeEffect(StatusEffect.LubedUp)
+		GM.main.setModuleFlag("Hypertus","HyperHoleGainLubed",false)
