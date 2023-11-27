@@ -3,7 +3,7 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperVirility2"
+	id = "HyperVirility2"
 	skillGroup = "Hyper"
 
 func getVisibleName():
@@ -16,7 +16,7 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]I noticed the increase amount of child I had with newer "+RNG.pick(["partners","fucktoys","bitches"])+"[/say]\n")
 
 func getRequiredPerks():
-	return ["Perk.HyperVirility1"]
+	return ["HyperVirility1"]
 
 func getSkillTier():
 	return 1

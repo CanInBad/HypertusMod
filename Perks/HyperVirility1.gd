@@ -3,7 +3,7 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperVirility1"
+	id = "HyperVirility1"
 	skillGroup = "Hyper"
 
 func getVisibleName():

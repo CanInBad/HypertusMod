@@ -10,8 +10,8 @@ func react(_triggerID, _args):
 	var pc = GM.pc
 	var add = GM.main.getFlag("Hypertus.HyperPenisExpansionAmount",0)
 	var toRemove = [
-		"Perk.PenisIncrease1",
-		"Perk.PenisDecrease1"
+		"PenisIncrease1",
+		"PenisDecrease1"
 	]
 	for i in toRemove: # remove the perks even if they're disabled
 		if (i in pc.getSkillsHolder().getPerks()):
@@ -20,7 +20,7 @@ func react(_triggerID, _args):
 		runScene("HyperChangePPLength")
 	 
 
-	# if(pc.hasPerk("Perk.PenisDecrease1")): # this will be moved to another event
+	# if(pc.hasPerk("PenisDecrease1")): # this will be moved to another event
 	# 	var toRemove = [
 	# 		""
 	# 	]

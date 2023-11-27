@@ -3,7 +3,7 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperWomb4"
+	id = "HyperWomb4"
 	skillGroup = "Hyper"
 
 func getVisibleName():
@@ -16,7 +16,7 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]I am not surprised anymore...[/say]\n...")
 
 func getRequiredPerks():
-	return ["Perk.HyperWomb3"]
+	return ["HyperWomb3"]
 
 func getSkillTier():
 	return 3

@@ -8,7 +8,7 @@ func getCapacity() -> float:
 	var multi = 1.0
 	var pc = bodypart.get_ref().getCharacter()
 	if(pc != null):
-		multi += pc.getCustomAttribute("BuffAttribute.HyperAnusCapacity")
+		multi += pc.getCustomAttribute("HyperAnusCapacity")
 	return round(500.0 + 50.0 * looseness * looseness * multi)
 
 func getElasticity() -> float:
@@ -16,7 +16,7 @@ func getElasticity() -> float:
 	var multi = 1.0
 	var pc = bodypart.get_ref().getCharacter()
 	if(pc != null):
-		multi += pc.getCustomAttribute("BuffAttribute.HyperAnusElasticity")
+		multi += pc.getCustomAttribute("HyperAnusElasticity")
 	return ogValue * multi
 
 func getResistance() -> float:
@@ -24,18 +24,18 @@ func getResistance() -> float:
 	var multi = 1.0
 	var pc = bodypart.get_ref().getCharacter()
 	if(pc != null):
-		multi += pc.getCustomAttribute("BuffAttribute.HyperAnusResistance")
+		multi += pc.getCustomAttribute("HyperAnusResistance")
 	return ogValue * multi
 
 func getNaturalDrain() -> float:
 	var pc = bodypart.get_ref().getCharacter()
-	if pc.hasPerk("Perk.HyperSlowNatualSpill"):
+	if pc.hasPerk("HyperSlowNatualSpill"):
 		return 5.0/3.0
 	return 5.0
 
 func getNaturalSpill() -> float:
 	var pc = bodypart.get_ref().getCharacter()
-	if pc.hasPerk("Perk.HyperSlowNatualSpill"):
+	if pc.hasPerk("HyperSlowNatualSpill"):
 		return 1.0/3.0
 	return 1.0
 
@@ -43,7 +43,7 @@ func isClosedOff():
 	if(bodypart == null || bodypart.get_ref().character == null):
 		return false
 	var character = bodypart.get_ref().getCharacter()
-	if(character.hasPerk("Perk.HyperStopSpill")):
+	if(character.hasPerk("HyperStopSpill")):
 		return true
 	if(character.getOrificeBlocked(orificeType)):
 		return true

@@ -8,14 +8,14 @@ var lactationProgress = 0.0
 func induceLactation():
 	var pc = getCharacter()
 	var multi = 1
-	multi += pc.getCustomAttribute("BuffAttribute.HyperBreastsIncreaseTimerMultiplyer")
+	multi += pc.getCustomAttribute("HyperBreastsIncreaseTimerMultiplyer")
 	lactationTimer = Util.maxi(lactationTimer * multi, 60*60*24*7 * multi)
 
 func afterMilked():
 	var pc = getCharacter()
 	if(!shouldProduce()):
 		if(RNG.chance(90)): # if we're not lactating milking will make us lactate with 10% chance
-			if !pc.hasPerk("Perk.HyperBreastsShouldContinueLactate" and RNG.chance(3)): 
+			if !pc.hasPerk("HyperBreastsShouldContinueLactate" and RNG.chance(3)): 
 				return # if we have the perk only fail to lactate 3% of the time so basically most of the time you will lactate
 			return
 	
@@ -45,7 +45,7 @@ func getCapacityForSize(size):
 		return 0.0
 	var pc = getCharacter()
 	var flatCapIncrease = 1
-	flatCapIncrease += pc.getCustomAttribute("BuffAttribute.HyperBreastsFlatCapacityBuff")
+	flatCapIncrease += pc.getCustomAttribute("HyperBreastsFlatCapacityBuff")
 	
 	return breastSizeModClass.breastSizeToMilkAmount(size)*100.0 * flatCapIncrease #round(0.0 + size*size*100.0)
 
@@ -98,7 +98,7 @@ func processTime(seconds: int):
 	var pc = getCharacter()
 	if(pc != null):
 		if(pc.getPregnancyProgress() >= 0.33 && lactationTimer < 60*60*24*10):
-			lactationTimer += seconds * 3 * (1+pc.getCustomAttribute("BuffAttribute.HyperBreastsIncreaseTimerMultiplyer"))
+			lactationTimer += seconds * 3 * (1+pc.getCustomAttribute("HyperBreastsIncreaseTimerMultiplyer"))
 	
 	if(lactationTimer > 0):
 		lactationTimer -= seconds
@@ -112,7 +112,7 @@ func processTime(seconds: int):
 func getProductionSpeedPerHour() -> float:
 	var pc = getCharacter()
 	if !shouldProduce():
-		if pc.hasPerk("Perk.MilkStopNonProdDrain"):
+		if pc.hasPerk("MilkStopNonProdDrain"):
 			return 0.0
 		return -5.0
 		

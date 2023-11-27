@@ -3,7 +3,7 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperCum4"
+	id = "HyperCum4"
 	skillGroup = "Hyper"
 
 func getVisibleName():
@@ -16,7 +16,7 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]Test successful, I guess?[/say]\n...")
 
 func getRequiredPerks():
-	return [Perk.BreedCumProductionV3, Perk.BreedCumVolumeV3, "Perk.HyperCum3"]
+	return [Perk.BreedCumProductionV3, Perk.BreedCumVolumeV3, "HyperCum3"]
 
 func hiddenWhenLocked() -> bool:
 	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")

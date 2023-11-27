@@ -3,7 +3,7 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperStopSpill"
+	id = "HyperStopSpill"
 	skillGroup = "Hyper"
 
 func getVisibleName():
@@ -16,7 +16,7 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]How is my hole holding up?![/say]\n...")
 
 func getRequiredPerks():
-	return ["Perk.HyperSlowNatualSpill"]
+	return ["HyperSlowNatualSpill"]
 
 func hiddenWhenLocked() -> bool:
 	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")

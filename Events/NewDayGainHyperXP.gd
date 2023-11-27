@@ -29,7 +29,7 @@ func react(_triggerID, _args):
 				Perk.BreedCumVolume,
 				Perk.BreedCumVolumeV2,
 				Perk.BreedCumVolumeV3,
-				"Perk.BreedStudV3", # RNGperks 😁
+				"BreedStudV3", # RNGperks 😁
 			]
 			# var nperkHad = 0 # i love the fact that type casting doesn't want to work here
 			for i in toCheckPlus:

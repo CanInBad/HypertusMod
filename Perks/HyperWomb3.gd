@@ -3,7 +3,7 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperWomb3"
+	id = "HyperWomb3"
 	skillGroup = "Hyper"
 
 func getVisibleName():
@@ -19,7 +19,7 @@ func getMoreDescription():
 	+ "\n[color=red]For low end players I recommend DON\'T GET THIS PERK! It may or may not crash your game when you give birth -CanInBad[/color]")
 
 func getRequiredPerks():
-	return ["Perk.HyperWomb2", Perk.FertilityBetterOvulationV3]
+	return ["HyperWomb2", Perk.FertilityBetterOvulationV3]
 
 func getSkillTier():
 	return 2

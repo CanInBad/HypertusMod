@@ -3,7 +3,7 @@ extends BuffBase
 var amount = 0
 
 func _init():
-	id = "Buff.HyperAnusResistance"
+	id = "HyperAnusResistance"
 
 func initBuff(_args):
 	amount = _args[0]
@@ -15,7 +15,7 @@ func getVisibleDescription():
 	return "Anus Resistance to expanding "+text+"%"
 
 func apply(_buffHolder):
-	_buffHolder.addCustom("BuffAttribute.HyperAnusResistance", amount/100.0)
+	_buffHolder.addCustom("HyperAnusResistance", amount/100.0)
 
 func getBuffColor():
 	if(amount < 0):

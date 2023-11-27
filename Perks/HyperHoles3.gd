@@ -3,7 +3,7 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperHoles3"
+	id = "HyperHoles3"
 	skillGroup = "Hyper"
 
 func getVisibleName():
@@ -23,7 +23,7 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]CHANGE ME[/say]\n...")
 
 func getRequiredPerks():
-	return ["Perk.HyperHoles2"]
+	return ["HyperHoles2"]
 
 func hiddenWhenLocked() -> bool:
 	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
@@ -46,9 +46,9 @@ func getPicture():
 func getBuffs():
 	var allBuffs = []
 	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable"):
-		allBuffs.append(buff("Buff.HyperVaginaElasticity", [430]))
-		allBuffs.append(buff("Buff.HyperVaginaResistance", [30]))
+		allBuffs.append(buff("HyperVaginaElasticity", [430]))
+		allBuffs.append(buff("HyperVaginaResistance", [30]))
 	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
-		allBuffs.append(buff("Buff.HyperAnusElasticity", [430]))
-		allBuffs.append(buff("Buff.HyperAnusResistance", [30]))
+		allBuffs.append(buff("HyperAnusElasticity", [430]))
+		allBuffs.append(buff("HyperAnusResistance", [30]))
 	return allBuffs

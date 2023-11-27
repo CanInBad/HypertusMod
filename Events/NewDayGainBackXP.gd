@@ -14,10 +14,10 @@ func react(_triggerID, _args):
 			var sum:int = 0
 			# hadParts += 1
 			var toCheckPlus = [
-				"Perk.HyperCum1",
-				"Perk.HyperCum2",
-				"Perk.HyperCum3",  # no size change perks here
-				"Perk.HyperCum4",  # because they're removed before this
+				"HyperCum1",
+				"HyperCum2",
+				"HyperCum3",  # no size change perks here
+				"HyperCum4",  # because they're removed before this
 			]
 			# var nperkHad = 0 # i love the fact that type casting doesn't want to work here
 			for i in toCheckPlus:

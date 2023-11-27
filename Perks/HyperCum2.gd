@@ -3,7 +3,7 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperCum2"
+	id = "HyperCum2"
 	skillGroup = "Hyper"
 
 func getVisibleName():
@@ -16,7 +16,7 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]When I get out, they better give me an antinode for whatever this is.[/say]\nYour balls starts to resonate out more frequently. It starts to be a annoyance for you")
 
 func getRequiredPerks():
-	return [Perk.BreedCumProduction, Perk.BreedCumVolume, "Perk.HyperCum1"]
+	return [Perk.BreedCumProduction, Perk.BreedCumVolume, "HyperCum1"]
 
 func getSkillTier():
 	return 1

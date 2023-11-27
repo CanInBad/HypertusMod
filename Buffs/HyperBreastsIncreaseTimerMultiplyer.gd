@@ -3,7 +3,7 @@ extends BuffBase
 var amount = 0
 
 func _init():
-	id = "Buff.HyperBreastsIncreaseTimerMultiplyer"
+	id = "HyperBreastsIncreaseTimerMultiplyer"
 
 func initBuff(_args):
 	amount = _args[0]
@@ -15,7 +15,7 @@ func getVisibleDescription():
 	return "Increased lacation timer "+text+"%"
 
 func apply(_buffHolder):
-	_buffHolder.addCustom("BuffAttribute.HyperBreastsIncreaseTimerMultiplyer", amount/100.0)
+	_buffHolder.addCustom("HyperBreastsIncreaseTimerMultiplyer", amount/100.0)
 
 func getBuffColor():
 	if(amount < 0):

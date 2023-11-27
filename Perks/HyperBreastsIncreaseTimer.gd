@@ -3,7 +3,7 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "Perk.HyperBreastsIncreaseTimer"
+	id = "HyperBreastsIncreaseTimer"
 	skillGroup = "Hyper"
 
 func getVisibleName():
@@ -30,7 +30,7 @@ func getPicture():
 
 func getBuffs():
 	return [
-		buff("Buff.HyperBreastsIncreaseTimerMultiplyer", [100]),
+		buff("HyperBreastsIncreaseTimerMultiplyer", [100]),
 	]
 
 func hiddenWhenLocked() -> bool:
