@@ -9,7 +9,7 @@ func getCapacity() -> float:
 	var pc = bodypart.get_ref().getCharacter()
 	if(pc != null):
 		multi += pc.getCustomAttribute("HyperVaginaCapacity")
-	return round((100.0 + 50.0 * pow(looseness,2)) * multi)
+	return round((100.0 + 50.0 * looseness * looseness) * multi)
 
 func getElasticity() -> float:
 	var ogValue = .getElasticity()

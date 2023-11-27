@@ -35,6 +35,6 @@ func getBuffs():
 
 func hiddenWhenLocked() -> bool:
 	var breastsPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"PartTrait.Hyperable")
-	if !breastsPartHas and (GM.pc.getBodypart(BodypartSlot.Breasts).getBaseSize() == -1): 
+	if !breastsPartHas or !(GM.pc.getBodypart(BodypartSlot.Breasts).getBaseSize() == -1): 
 		return true # get rid of forever flat
 	return false

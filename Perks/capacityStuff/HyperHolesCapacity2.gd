@@ -3,11 +3,11 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "HyperHolesCapacity1"
+	id = "HyperHolesCapacity2"
 	skillGroup = "Hyper"
 
 func getVisibleName():
-	return "Internal Volume Ⅰ"
+	return "Internal Volume Ⅱ"
 
 func getVisibleDescription():
 	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
@@ -15,8 +15,8 @@ func getVisibleDescription():
 	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
 		assPartHas = true
 	if pussyPartHas and assPartHas:
-		return "Your holes hold much more"
-	return "Your hole holds much more"
+		return "Your holes hold SO much more"
+	return "Your hole holds SO much more"
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]CHANGE ME[/say]\nThis will add capacity after loosenss check (thus grant more space)")
@@ -34,7 +34,7 @@ func hiddenWhenLocked() -> bool:
 	return true
 
 func getSkillTier():
-	return 0
+	return 1
 
 # func getCost():
 # 	return 1
@@ -45,10 +45,10 @@ func getPicture():
 func getBuffs():
 	var allBuffs = []
 	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable"):
-		allBuffs.append(buff("HyperVaginaCapacity", [100]))
+		allBuffs.append(buff("HyperVaginaCapacity", [900]))
 		# allBuffs.append(buff("HyperVaginaResistance", [20]))
 	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
-		allBuffs.append(buff("HyperAnusCapacity", [100]))
+		allBuffs.append(buff("HyperAnusCapacity", [900]))
 		# allBuffs.append(buff("HyperAnusResistance", [20]))
 	return allBuffs
 
