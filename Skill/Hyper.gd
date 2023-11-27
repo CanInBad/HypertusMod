@@ -17,11 +17,11 @@ func getLevelCap():
 
 func getPerkTiers():
 	return [
-		[0],
-		[5],
-		[15],
-		[30],
-		[50]
+		[0], # 1 | 0
+		[5], # 2 | 1
+		[15],# 3 | 2
+		[30],# 4 | 3
+		[50] # 5 | 4
 	]
 
 # func onNewDay():

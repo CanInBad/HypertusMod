@@ -3,11 +3,11 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "HyperHoles2"
+	id = "HyperHoles3"
 	skillGroup = "Hyper"
 
 func getVisibleName():
-	return "Fuck Toy Ⅱ"
+	return "Nuh uh"
 
 func getVisibleDescription():
 	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
@@ -16,14 +16,14 @@ func getVisibleDescription():
 	   	GM.pc.getBodypart(BodypartSlot.Anus).hasWomb():
 			assPartHas = true
 	if pussyPartHas and assPartHas:
-		return "Your holes recovers even faster and strech even less"
-	return "Your hole recovers even faster and strech even less"
+		return "Your holes recover instantly"
+	return "Your hole recovers instantly"
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]CHANGE ME[/say]\n...")
 
 func getRequiredPerks():
-	return ["HyperHoles1"]
+	return ["HyperHoles3"]
 
 func hiddenWhenLocked() -> bool:
 	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
@@ -35,10 +35,10 @@ func hiddenWhenLocked() -> bool:
 	return true
 
 func getSkillTier():
-	return 2
+	return 4
 
 func getCost():
-	return 16
+	return 64
 
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
@@ -46,9 +46,9 @@ func getPicture():
 func getBuffs():
 	var allBuffs = []
 	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable"):
-		allBuffs.append(buff("HyperVaginaElasticity", [50]))
-		allBuffs.append(buff("HyperVaginaResistance", [50]))
+		allBuffs.append(buff("HyperVaginaElasticity", [500]))
+		allBuffs.append(buff("HyperVaginaResistance", [70]))
 	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
-		allBuffs.append(buff("HyperAnusElasticity", [50]))
-		allBuffs.append(buff("HyperAnusResistance", [50]))
+		allBuffs.append(buff("HyperAnusElasticity", [500]))
+		allBuffs.append(buff("HyperAnusResistance", [70]))
 	return allBuffs

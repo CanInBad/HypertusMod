@@ -23,8 +23,14 @@ func getMoreDescription():
 		text = "Decreasing: [color=red]"+str(amount)+"%[/color]"
 	return sayParser.processString("[say=pc]This might be a bad idea[/say]\nThis will require sleeping. Current state, "+text)
 
+# func getRequiredPerks():
+# 	return ["HyperPenisIncrease1"]
+
 func getSkillTier():
-	return 1
+	return 2
+
+func getCost():
+	return 16
 
 func hiddenWhenLocked() -> bool:
 	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")
@@ -32,8 +38,6 @@ func hiddenWhenLocked() -> bool:
 		return true
 	return false
 
-# func toggleable():
-# 	return false
 func onPerkToggled(_isEnabledNow):
 	if _isEnabledNow:
 		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",17)

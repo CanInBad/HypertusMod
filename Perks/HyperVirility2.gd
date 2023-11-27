@@ -19,10 +19,10 @@ func getRequiredPerks():
 	return ["HyperVirility1"]
 
 func getSkillTier():
-	return 1
+	return 2
 
 func getCost():
-	return 8
+	return 16
 
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"

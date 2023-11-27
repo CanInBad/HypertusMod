@@ -28,10 +28,10 @@ func hiddenWhenLocked() -> bool:
 	return true
 
 func getSkillTier():
-	return 1
+	return 0
 
 func getCost():
-	return 2
+	return 4
 
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"

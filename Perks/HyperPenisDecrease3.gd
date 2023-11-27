@@ -3,14 +3,14 @@ extends PerkBase
 var sayParser = SayParser.new()
 
 func _init():
-	id = "HyperPenisDecrease1"
+	id = "HyperPenisDecrease3"
 	skillGroup = "Hyper"
 
 func getVisibleName():
 	return "Small Dick Energy"
 
 func getVisibleDescription():
-	return "Decrease your penis length by 3%"
+	return "Decrease your penis length by 30%"
 
 func getMoreDescription():
 	var amount = GM.main.getFlag("Hypertus.HyperPenisExpansionAmount",0)
@@ -24,10 +24,10 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]This might be a bad idea[/say]\nThis will require sleeping. Current state, "+text)
 
 func getSkillTier():
-	return 1
+	return 3
 
 func getCost():
-	return 8
+	return 32
 
 func hiddenWhenLocked() -> bool:
 	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")
@@ -39,15 +39,15 @@ func hiddenWhenLocked() -> bool:
 # 	return false
 func onPerkToggled(_isEnabledNow):
 	if _isEnabledNow:
-		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-3)
+		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-30)
 	else:
-		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",3)
+		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",30)
 	
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
 
 func runOnceWhenLearned():
-	GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-3)
+	GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-30)
 	# var pc = GM.pc 
 	# var penis = pc.getBodypart(BodypartSlot.Penis)
 	# penis.setLength(int(ceil((penis.getLength()*3.0/100.0) * penis.getLength())))

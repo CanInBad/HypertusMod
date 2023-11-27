@@ -22,7 +22,10 @@ func getRequiredPerks():
 	return [Perk.FertilityBetterOvulationV2]
 
 func getSkillTier():
-	return 0
+	return 1
+
+func getCost():
+	return 8
 
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"

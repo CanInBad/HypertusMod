@@ -31,7 +31,7 @@ func getSkillTier():
 	return 0
 
 func getCost():
-	return 1
+	return 4
 
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"

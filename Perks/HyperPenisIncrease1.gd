@@ -23,6 +23,11 @@ func getMoreDescription():
 		text = "Decreasing: [color=red]"+str(amount)+"%[/color]"
 	return sayParser.processString("[say=pc]This might be a bad idea[/say]\nThis will require sleeping. Current state, "+text)
 
+func getSkillTier():
+	return 1
+
+func getCost():
+	return 8
 
 func hiddenWhenLocked() -> bool:
 	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")
