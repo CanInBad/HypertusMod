@@ -30,6 +30,6 @@ func getPicture():
 
 func hiddenWhenLocked() -> bool:
 	var breastsPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"PartTrait.Hyperable")
-	if !breastsPartHas or !(GM.pc.getBodypart(BodypartSlot.Breasts).getBaseSize() == -1): 
-		return true # get rid of forever flat
+	if !breastsPartHas: 
+		return true
 	return false

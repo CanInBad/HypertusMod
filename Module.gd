@@ -31,10 +31,10 @@ func _init():
 
 		"res://Modules/Z_Hypertus/Perks/HyperPenisIncrease1.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperPenisIncrease2.gd",
-		# "res://Modules/Z_Hypertus/Perks/HyperPenisIncrease3.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperPenisIncrease3.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperPenisDecrease1.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperPenisDecrease2.gd",
-		# "res://Modules/Z_Hypertus/Perks/HyperPenisDecrease3.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperPenisDecrease3.gd",
 
 		"res://Modules/Z_Hypertus/Perks/HyperMilkUpSize1.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperMilkUpSize2.gd",
@@ -44,6 +44,8 @@ func _init():
 		"res://Modules/Z_Hypertus/Perks/HyperBreastsShouldContinueLactate.gd",
 		"res://Modules/Z_Hypertus/Perks/capacityStuff/HyperBreastsFlatCapacity1.gd",
 		"res://Modules/Z_Hypertus/Perks/capacityStuff/HyperBreastsFlatCapacity2.gd",
+		"res://Modules/Z_Hypertus/Perks/capacityStuff/HyperBreastsFlatCapacity3.gd",
+		"res://Modules/Z_Hypertus/Perks/capacityStuff/HyperBreastsFlatCapacity4.gd",
 		
 		"res://Modules/Z_Hypertus/Perks/HyperWomb1.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperWomb2.gd",
@@ -56,6 +58,8 @@ func _init():
 		"res://Modules/Z_Hypertus/Perks/HyperSlowNatualSpill.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperStopSpill.gd",
 		"res://Modules/Z_Hypertus/Perks/capacityStuff/HyperHolesCapacity1.gd",
+		"res://Modules/Z_Hypertus/Perks/capacityStuff/HyperHolesCapacity2.gd",
+		"res://Modules/Z_Hypertus/Perks/capacityStuff/HyperHolesCapacity3.gd",
 
 	]
 	skills = [

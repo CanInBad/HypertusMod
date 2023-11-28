@@ -13,7 +13,8 @@ func getVisibleDescription():
 	return "Your sperm quality improves 30%"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]Why are my balls feels itchy[/say]")
+	return sayParser.processString("[say=pc]Why are my balls feels itchy[/say]" \
+	+ "")
 
 func getRequiredPerks():
 	return [Perk.BreedCumProductionV3]
