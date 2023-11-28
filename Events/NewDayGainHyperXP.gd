@@ -155,5 +155,5 @@ func react(_triggerID, _args):
 			addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
 	else:
 		GM.main.setModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",true)
-		addMessage("Wow! You actually got this far? I mean its pretty easy to gain experience for the skill trees but how long did you do it?" \
+		sayn("Wow! You actually got this far? I mean its pretty easy to gain experience for the skill trees but how long did you do it?" \
 			+ "\nCan you send the screenshot of the skills menu and send it to mod discussion?")

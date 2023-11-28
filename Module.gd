@@ -81,9 +81,9 @@ func _init():
 		]
 
 	bodyparts = [
-		"res://Modules/Z_Hypertus/Bodyparts/Penises/CaninePenis.gd",
-		"res://Modules/Z_Hypertus/Bodyparts/Penises/DragonPenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/EquinePenis.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Penises/DragonPenis.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Penises/CaninePenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/FelinePenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/HumanPenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Breasts/HyperableBreasts.gd",
@@ -99,6 +99,7 @@ func _init():
 	events = [
 		"res://Modules/Z_Hypertus/Events/CustomizationButton.gd",
 		"res://Modules/Z_Hypertus/Events/NewDayGainHyperXP.gd",
+		"res://Modules/Z_Hypertus/Events/NewDayGainBackXP.gd",
 		"res://Modules/Z_Hypertus/Events/AfterGotHyperPenisLengthChange.gd",
 	]
 

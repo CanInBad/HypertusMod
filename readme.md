@@ -18,9 +18,8 @@ idk this is still in progress
 - [x] add capacity perks
 - [x] fix perks cost
 - [ ] add actual story
-- [ ] add and finish XP back system (same logic as gaining)
-- [ ] finish hyper tree
-- [ ] finish hypersize tree (the sizes)
+- [x] add and finish XP back system (same logic as gaining)
+- [x] finish hyper tree
 - [ ] rename perks to fit its description
 - [ ] perk images
 - [ ] make a item that shows internal stats (lacation timer, preg timer, etc)

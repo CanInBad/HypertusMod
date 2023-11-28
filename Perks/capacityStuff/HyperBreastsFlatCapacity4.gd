@@ -7,14 +7,14 @@ func _init():
 	skillGroup = "Hyper"
 
 func getVisibleName():
-	return "Bags of holding Ⅲ"
+	return "Bags of holding Ⅳ"
 
 func getVisibleDescription():
 	return "Your breasts holds [b]**500% MORE**[/b] without increasing size"
 
-# func getMoreDescription():
-# 	return sayParser.processString("[say=pc]Why are there droning noises coming out of my "+GM.pc.getBodypartLewdName(BodypartSlot.Breasts)+"[/say]\n" \
-# 	+ "")
+func getMoreDescription():
+	return sayParser.processString("[say=pc]I guess "+GM.pc.getBodypartLewdName(BodypartSlot.Breasts)+" is ready to go bowling[/say]\n" \
+	+ "")
 
 func getRequiredPerks():
 	return [Perk.MilkBiggerBreastsV2]

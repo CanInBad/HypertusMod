@@ -19,10 +19,10 @@ func getMoreDescription():
 	+ "\n< Damn, guess we're cows now >"
 	+ "\n ----------------------------"
 	+ "\n      \\   ^__^"
-	+ "\n        \\  (oo)\\_______"
+	+ "\n        \\  (oo)\\___"
 	+ "\n           (__)\\       )\\/\\"
 	+ "\n               ||----w |"
-	+ "\n               ||     ||"
+	+ "\n               ||           ||"
 	)
 
 func getRequiredPerks():
@@ -45,6 +45,10 @@ func getBuffs():
 
 func hiddenWhenLocked() -> bool:
 	var breastsPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"PartTrait.Hyperable")
-	if !breastsPartHas or !(GM.pc.getBodypart(BodypartSlot.Breasts).getBaseSize() == -1): # get rid of forever flat
+
+	if !breastsPartHas or (GM.pc.getBodypart(BodypartSlot.Breasts).getBaseSize() == -1\
+		and GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"PartTrait.Hyperable")): # get rid of flat chest
+
 		return true
+
 	return false

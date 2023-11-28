@@ -8,7 +8,6 @@ func registerTriggers(es):
 
 func react(_triggerID, _args):
 	var player = GM.pc
-	# var hadParts:int = 0
 	if player.getBodypart(BodypartSlot.Penis).getTraits() != null:
 		if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Penis).getTraits():
 			var sum:int = 0
@@ -18,84 +17,84 @@ func react(_triggerID, _args):
 				"HyperCum2",
 				"HyperCum3",  # no size change perks here
 				"HyperCum4",  # because they're removed before this
+				"HyperVirility1",
+				"HyperVirility2",
+				"HyperVirility3",
+				"HyperVirility4",
 			]
-			# var nperkHad = 0 # i love the fact that type casting doesn't want to work here
+
 			for i in toCheckPlus:
 				if player.hasPerk(i):
-				# if i in player.getSkillsHolder().getPerks():
-					# nperkHad += 1
 					sum += 1
-					# if i == Perk.BreedCumProductionV3 and (not player.getStat(Stat.Strength) == 0):
-					# 	sum = sum + player.getStat(Stat.Strength)/3
-					# 	print("BreedCumProductionV3 strength bonus: "+ player.getStat(Stat.Strength)/3)
+					
 			player.addSkillExperience(Skill.Breeder, sum * sum * 2)
-			# var toCheckMinus = [
-			# 	Perk.StartMaleInfertility,
-			# 	Perk.StartMaleChastity,
-			# ]
-
-			# for i in toCheckMinus:
-			# 	if player.hasPerk(i):
-			# 		sum -= 3 
-			# 		# sum -= sum/nperkHad # I tried doing something complex 
-			# 							  # but it backfires hard.
-			
+			if sum * sum * 2 <= 0:
+				addMessage("You have been granted " + str(sum * sum * 2) + " XP in the breeder tree")
+		
 					
 	if player.getBodypart(BodypartSlot.Breasts).getTraits() != null:
 		if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Breasts).getTraits():
 			# hadParts += 1
 			var sum:int = 0
 			var toCheckPlus = [ # be added
-				# Perk.MilkBiggerBreasts,
-				# Perk.MilkBiggerBreastsV2,
-				# Perk.MilkBiggerBreastsV3,
-				# Perk.MilkFasterProduction,
-				# Perk.MilkFasterProductionV2,
-				# Perk.MilkFasterProductionV3,
-				# Perk.MilkNoSoreNipples,
+				"HyperBreastsIncreaseTimer",
+				"HyperBreastsShouldContinueLactate",
+				"HyperMilkUpSize1",
+				"HyperMilkUpSize2",
+				"HyperMilkUpSize3",
+				"HyperMilkUpSize4",
+				"HyperBreastsFlatCapacity1",
+				"HyperBreastsFlatCapacity2",
+				"HyperBreastsFlatCapacity3",
+				"HyperBreastsFlatCapacity4",
 			]
 			for i in toCheckPlus:
 				if player.getSkillsHolder().hasPerk(i):
 					sum += 1
-			
-			# var toCheckMinus = [
-				
-			# ]
-			# for i in toCheckMinus:
-			# 	if player.hasPerk(i):
-			# 		sum -= 3
+
 			player.addSkillExperience(Skill.Milking, sum * sum * 2)
+			if sum * sum * 2 <= 0:
+				addMessage("You have been granted " + str(sum * sum * 2) + " XP in the milking tree")
 			
 	if player.getBodypart(BodypartSlot.Vagina).getTraits() != null \
 	or player.getBodypart(BodypartSlot.Anus).getTraits() != null:
 		if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits() or \
-		("PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits() and player.hasWombIn(OrificeType.Anus)):
+		("PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits()): #and player.hasWombIn(OrificeType.Anus)):
 			# hadParts += 1
 			var sum:int = 0
-			var toCheckPlus = [ # to be added
-				# Perk.FertilityBetterOvulation,
-				# Perk.FertilityBetterOvulationV2,
-				# Perk.FertilityBetterOvulationV3,
-				# Perk.FertilitySubmissiveAndBreedable,
-				# Perk.FertilityBroodmother,
-				# Perk.CumSloppySeconds,
-				# Perk.CumUniqueBiology,
-				# Perk.CumBreath,
-				# Perk.CumBreathV2
+			var toCheckPlus = [ 
+				"HyperHoles1",
+				"HyperHoles2",
+				"HyperHoles3",
+				"HyperHoles4",
+				"HyperHolesCapacity1",
+				"HyperHolesCapacity2",
+				"HyperHolesCapacity3",
 			]
 			for i in toCheckPlus:
 				if player.hasPerk(i):
 					sum += 1
 
-			# var toCheckMinus = [
-			# 	Perk.StartInfertile,
-			# ]			
-			# for i in toCheckMinus:
-			# 	if player.hasPerk(i):
-			# 		sum -= 3
 			player.addSkillExperience(Skill.CumLover, sum * sum * 2)
-			player.addSkillExperience(Skill.Fertility, sum * sum * 2)
+			if sum * sum * 2 <= 0:
+				addMessage("You have been granted " + str(sum * sum * 2) + " XP in the cum lover tree")
 
-	# if hadParts>=1:
-	# 	addMessage("Granted Hyper XP: "+ str((sum*sum*5 * hadParts))+"\n")
-	# 	player.addSkillExperience("Hyper", sum * sum * 5 * hadParts)
+	if player.getBodypart(BodypartSlot.Vagina).getTraits() != null \
+	or player.getBodypart(BodypartSlot.Anus).getTraits() != null:
+		if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits() or \
+		("PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits() and player.hasWombIn(OrificeType.Anus)):
+
+			var sum:int = 0
+			var toCheckPlus = [ 
+				"HyperWomb1",
+				"HyperWomb2",
+				"HyperWomb3",
+				"HyperWomb4",
+			]
+			for i in toCheckPlus:
+				if player.hasPerk(i):
+					sum += 1
+			player.addSkillExperience(Skill.Fertility, sum * sum * 3)
+			if sum * sum * 3 <= 0:
+				addMessage("You have been granted " + str(sum * sum * 3) + " XP in the fertility tree")
+
