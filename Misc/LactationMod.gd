@@ -45,7 +45,8 @@ func getCapacityForSize(size):
 		return 0.0
 	var pc = getCharacter()
 	var flatCapIncrease = 1
-	flatCapIncrease += pc.getCustomAttribute("HyperBreastsFlatCapacityBuff")
+	if pc !=null:
+		flatCapIncrease += pc.getCustomAttribute("HyperBreastsFlatCapacityBuff")
 	
 	return breastSizeModClass.breastSizeToMilkAmount(size)*100.0 * flatCapIncrease #round(0.0 + size*size*100.0)
 
