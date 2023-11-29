@@ -136,8 +136,11 @@ func react(_triggerID, _args):
 					if player.hasPerk(i) and player.hasWombIn(OrificeType.Anus):
 						sum -= 3
 
-	if player.getSkillLevel("Hyper") == player.getSkillsHolder().getSkill("Hyper").getLevelCap():
-		GM.main.setModuleFlag("Hypertus","HyperLevelMaxed",true)
+	if player.getSkillsHolder().getSkill("Hyper") != null:
+		if player.getSkillLevel("Hyper") == player.getSkillsHolder().getSkill("Hyper").getLevelCap():
+			GM.main.setModuleFlag("Hypertus","HyperLevelMaxed",true)
+	else:
+		Log.printerr("Hyper tree is null???? send save file to the dev -CanInBad")
 		
 	if not GM.main.getFlag("Hypertus.HyperLevelMaxed",false):
 		var hadPartsN = 0
@@ -158,5 +161,6 @@ func react(_triggerID, _args):
 			addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
 	else:
 		GM.main.setModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",true)
-		sayn("Wow! You actually got this far? I mean its pretty easy to gain experience for the skill trees but how long did you do it?" \
-			+ "\nCan you send the screenshot of the skills menu and send it to mod discussion?")
+		if !GM.main.getModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",false):
+			sayn("Wow! You actually got this far? I mean its pretty easy to gain experience for the skill trees but how long did you do it?" \
+				+ "\nCan you send the screenshot of the skills menu and send it to mod discussion?")
