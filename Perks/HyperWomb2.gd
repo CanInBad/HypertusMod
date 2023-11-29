@@ -28,7 +28,7 @@ func getCost():
 	return 16
 
 func getPicture():
-	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
+	return "res://Modules/Z_Hypertus/Images/Perks/HyperWomb2.png"
 
 func getBuffs():
 	return [

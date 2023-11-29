@@ -58,15 +58,11 @@ func react(_triggerID, _args):
 				if sum * sum * 2 >= 0:
 					addMessage("You have been granted " + str(sum * sum * 2) + " XP in the milking tree")
 
+	var sumHole:int = 0
 
 	if player.hasBodypart(BodypartSlot.Vagina):
 		if player.getBodypart(BodypartSlot.Vagina).getTraits() != null:
-		# 	\
-		# or player.getBodypart(BodypartSlot.Anus).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits():# or \
-			#("PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits()): #and player.hasWombIn(OrificeType.Anus)):
-				# hadParts += 1
-				var sum:int = 0
+			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits():
 				var toCheckPlus = [ 
 					"HyperHoles1",
 					"HyperHoles2",
@@ -79,16 +75,12 @@ func react(_triggerID, _args):
 				for i in toCheckPlus:
 					if player.hasPerk(i):
 						alreadyHad.append(i)
-						sum += 1
-
-				player.addSkillExperience(Skill.CumLover, sum * sum * 2)
-				if sum * sum * 2 >= 0:
-					addMessage("You have been granted " + str(sum * sum * 2) + " XP in the cum lover tree")
+						sumHole += 1
 
 	if player.hasBodypart(BodypartSlot.Anus):
 		if player.getBodypart(BodypartSlot.Anus).getTraits() != null:
 			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits():
-				var sum:int = 0
+				
 				var toCheckPlus = [ 
 					"HyperHoles1",
 					"HyperHoles2",
@@ -101,21 +93,18 @@ func react(_triggerID, _args):
 				for i in toCheckPlus:
 					if player.hasPerk(i):
 						if not i in alreadyHad:
-							sum += 1
-
-				player.addSkillExperience(Skill.CumLover, sum * sum * 2)
-				if sum * sum * 2 >= 0:
-					addMessage("You have been granted " + str(sum * sum * 2) + " XP in the cum lover tree")
+							sumHole += 1
+	
+	if sumHole * sumHole * 2 >= 0:
+		player.addSkillExperience(Skill.CumLover, sumHole * sumHole * 2)
+		addMessage("You have been granted " + str(sumHole * sumHole * 2) + " XP in the cum lover tree")
 
 	alreadyHad.clear()
-	
-	if player.hasBodypart(BodypartSlot.Vagina):
-		if player.getBodypart(BodypartSlot.Vagina).getTraits() != null:# \
-		# or player.getBodypart(BodypartSlot.Anus).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits(): # or \
-			# ("PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits() and player.hasWombIn(OrificeType.Anus)):
+	var sumWomb:int = 0
 
-				var sum:int = 0
+	if player.hasBodypart(BodypartSlot.Vagina):
+		if player.getBodypart(BodypartSlot.Vagina).getTraits() != null:
+			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits():
 				var toCheckPlus = [ 
 					"HyperWomb1",
 					"HyperWomb2",
@@ -125,15 +114,11 @@ func react(_triggerID, _args):
 				for i in toCheckPlus:
 					if player.hasPerk(i):
 						alreadyHad.append(i)
-						sum += 1
-				player.addSkillExperience(Skill.Fertility, sum * sum * 3)
-				if sum * sum * 3 >= 0:
-					addMessage("You have been granted " + str(sum * sum * 3) + " XP in the fertility tree")
+						sumWomb += 1
 
 	if player.hasBodypart(BodypartSlot.Anus):
 		if player.getBodypart(BodypartSlot.Anus).getTraits() != null:
 			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits():
-				var sum:int = 0
 				var toCheckPlus = [ 
 					"HyperWomb1",
 					"HyperWomb2",
@@ -143,7 +128,8 @@ func react(_triggerID, _args):
 				for i in toCheckPlus:
 					if player.hasPerk(i):
 						if not i in alreadyHad:
-							sum += 1
-				player.addSkillExperience(Skill.Fertility, sum * sum * 3)
-				if sum * sum * 3 >= 0:
-					addMessage("You have been granted " + str(sum * sum * 3) + " XP in the fertility tree")
+							sumWomb += 1
+
+	if sumWomb * sumWomb * 3 >= 0:
+		player.addSkillExperience(Skill.Fertility, sumWomb * sumWomb * 3)
+		addMessage("You have been granted " + str(sumWomb * sumWomb * 3) + " XP in the fertility tree")
