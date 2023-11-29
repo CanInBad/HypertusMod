@@ -13,7 +13,8 @@ func getVisibleDescription():
 	return "Your sperm quality improves 70%"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]I noticed the increase amount of child I had with newer "+RNG.pick(["partners","fucktoys","bitches"])+"[/say]\n")
+	return sayParser.processString("[say=pc]This is not normal...[/say]\n"\
+	+ "It\'s hard to explain")
 
 func getRequiredPerks():
 	return ["HyperVirility1"]
@@ -25,7 +26,7 @@ func getCost():
 	return 16
 
 func getPicture():
-	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
+	return "res://Modules/Z_Hypertus/Images/Perks/HyperVirility2.png"
 
 func getBuffs():
 	return [

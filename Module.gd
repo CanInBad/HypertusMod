@@ -68,16 +68,16 @@ func _init():
 	]
 
 	buffs = [
-		"Modules/Z_Hypertus/Buffs/HyperVaginaCapacityBuff.gd",
-		"Modules/Z_Hypertus/Buffs/HyperVaginaElasticityBuff.gd",
-		"Modules/Z_Hypertus/Buffs/HyperVaginaResistanceBuff.gd",
+		"res://Modules/Z_Hypertus/Buffs/HyperVaginaCapacityBuff.gd",
+		"res://Modules/Z_Hypertus/Buffs/HyperVaginaElasticityBuff.gd",
+		"res://Modules/Z_Hypertus/Buffs/HyperVaginaResistanceBuff.gd",
 
-		"Modules/Z_Hypertus/Buffs/HyperAnusCapacityBuff.gd",
-		"Modules/Z_Hypertus/Buffs/HyperAnusElasticityBuff.gd",
-		"Modules/Z_Hypertus/Buffs/HyperAnusResistanceBuff.gd",
+		"res://Modules/Z_Hypertus/Buffs/HyperAnusCapacityBuff.gd",
+		"res://Modules/Z_Hypertus/Buffs/HyperAnusElasticityBuff.gd",
+		"res://Modules/Z_Hypertus/Buffs/HyperAnusResistanceBuff.gd",
 
-		"Modules/Z_Hypertus/Buffs/HyperBreastsFlatCapacityBuff.gd",
-		"Modules/Z_Hypertus/Buffs/HyperBreastsIncreaseTimerMultiplyer.gd",
+		"res://Modules/Z_Hypertus/Buffs/HyperBreastsFlatCapacityBuff.gd",
+		"res://Modules/Z_Hypertus/Buffs/HyperBreastsIncreaseTimerMultiplyer.gd",
 		]
 
 	bodyparts = [

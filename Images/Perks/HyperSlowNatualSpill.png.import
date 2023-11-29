@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CumProduBuff2.png-eddac556b84b7215f4f3cf1066906298.stex"
+path="res://.import/HyperSlowNatualSpill.png-92f144dcf4a7fecb6d0599c180d4b94e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Modules/Z_Hypertus/Images/Perks/CumProduBuff2.png"
-dest_files=[ "res://.import/CumProduBuff2.png-eddac556b84b7215f4f3cf1066906298.stex" ]
+source_file="res://Modules/Z_Hypertus/Images/Perks/HyperSlowNatualSpill.png"
+dest_files=[ "res://.import/HyperSlowNatualSpill.png-92f144dcf4a7fecb6d0599c180d4b94e.stex" ]
 
 [params]
 

@@ -20,7 +20,7 @@ idk this is still in progress
 - [ ] add actual story
 - [x] add and finish XP back system (same logic as gaining)
 - [x] finish hyper tree
-- [ ] rename perks to fit its description
+- [ ] change description to fit its title
 - [ ] perk images
 - [ ] make a item that shows internal stats (lacation timer, preg timer, etc)
 

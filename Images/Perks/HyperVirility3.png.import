@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CumProduBuff1.png-32880e85ecfb54fd59119e73e4a2918b.stex"
+path="res://.import/HyperVirility3.png-d3d91479e5343e0dbd1eecd0e7ef4b87.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Modules/Z_Hypertus/Images/Perks/CumProduBuff1.png"
-dest_files=[ "res://.import/CumProduBuff1.png-32880e85ecfb54fd59119e73e4a2918b.stex" ]
+source_file="res://Modules/Z_Hypertus/Images/Perks/HyperVirility3.png"
+dest_files=[ "res://.import/HyperVirility3.png-d3d91479e5343e0dbd1eecd0e7ef4b87.stex" ]
 
 [params]
 

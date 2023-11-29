@@ -14,7 +14,7 @@ func getVisibleDescription():
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]Why are my balls feels itchy[/say]" \
-	+ "")
+	+ "There\'s something inside you")
 
 func getRequiredPerks():
 	return [Perk.BreedCumProductionV3]
@@ -26,7 +26,7 @@ func getCost():
 	return 8
 
 func getPicture():
-	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
+	return "res://Modules/Z_Hypertus/Images/Perks/HyperVirility1.png"
 
 func getBuffs():
 	return [
