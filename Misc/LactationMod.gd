@@ -8,7 +8,8 @@ var lactationProgress = 0.0
 func induceLactation():
 	var pc = getCharacter()
 	var multi = 1
-	multi += pc.getCustomAttribute("HyperBreastsIncreaseTimerMultiplyer")
+	if pc != null:
+		multi += pc.getCustomAttribute("HyperBreastsIncreaseTimerMultiplyer")
 	lactationTimer = Util.maxi(lactationTimer * multi, 60*60*24*7 * multi)
 
 func afterMilked():
