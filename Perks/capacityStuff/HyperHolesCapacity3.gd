@@ -22,7 +22,7 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]CHANGE ME[/say]\nThis will add capacity after loosenss check (thus grant more space)")
 
 func getRequiredPerks():
-	return ["HyperHolesCapacity1"]
+	return ["HyperHolesCapacity2"]
 
 func hiddenWhenLocked() -> bool:
 	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")

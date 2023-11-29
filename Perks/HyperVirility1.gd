@@ -14,7 +14,7 @@ func getVisibleDescription():
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]Why are my balls feels itchy[/say]" \
-	+ "There\'s something inside you")
+	+ "\nThere\'s something inside you")
 
 func getRequiredPerks():
 	return [Perk.BreedCumProductionV3]

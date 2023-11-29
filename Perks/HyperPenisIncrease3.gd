@@ -45,7 +45,7 @@ func onPerkToggled(_isEnabledNow):
 		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-30)
 	
 func getPicture():
-	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
+	return "res://Modules/Z_Hypertus/Images/Perks/ExpandDong.png"
 
 func runOnceWhenLearned():
 	GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",30)

@@ -55,6 +55,7 @@ func _init():
 		"res://Modules/Z_Hypertus/Perks/HyperHoles1.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperHoles2.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperHoles3.gd",
+		"res://Modules/Z_Hypertus/Perks/HyperHoles4.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperSlowNatualSpill.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperStopSpill.gd",
 		"res://Modules/Z_Hypertus/Perks/capacityStuff/HyperHolesCapacity1.gd",
