@@ -139,8 +139,8 @@ func react(_triggerID, _args):
 	if player.getSkillsHolder().getSkill("Hyper") != null:
 		if player.getSkillLevel("Hyper") == player.getSkillsHolder().getSkill("Hyper").getLevelCap():
 			GM.main.setModuleFlag("Hypertus","HyperLevelMaxed",true)
-	else:
-		Log.printerr("Hyper tree is null???? send save file to the dev -CanInBad")
+	# else:
+	# 	Log.printerr("Hyper tree is null???? send save file to the dev -CanInBad")
 		
 	if not GM.main.getFlag("Hypertus.HyperLevelMaxed",false):
 		var hadPartsN = 0
@@ -153,12 +153,17 @@ func react(_triggerID, _args):
 					addMessage("Your hyper "+i+" "+RNG.pick(["vibrates","shakes","rumbles"])+",")
 					# addMessage("+x1 Extra hyper gain for total: x"+str(hadPartsN))
 		
+		if GM.main.getDays()<5 and hadPartsN>0:
+			addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
+		
+		if GM.main.getDays()>5 and GM.main.getDays()<8:
+			addMessage("")
+
 		if   hadPartsN >= 1 and sum >= 1:
 			addMessage("Received Hyper XP: "+ str((sum * sum * 3 * hadPartsN))+"\n")
 			player.addSkillExperience("Hyper", sum * sum * 3 * hadPartsN)
 			# player.addSkillExperience("HyperSize", sum * sum * 3 * hadPartsN)
-		elif hadPartsN >= 1 and sum == 0:
-			addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
+		# elif hadPartsN >= 1 and sum == 0:
 	else:
 		if !GM.main.getModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",false):
 			sayn("Wow! You actually got this far? I mean its pretty easy to gain experience for the skill trees but how long did you do it?" \

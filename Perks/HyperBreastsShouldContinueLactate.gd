@@ -26,7 +26,7 @@ func getCost():
 	return 4
 
 func getPicture():
-	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
+	return "res://Modules/Z_Hypertus/Images/Perks/HyperBreastsShouldContinueLactate.png"
 
 func hiddenWhenLocked() -> bool:
 	var breastsPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"PartTrait.Hyperable")

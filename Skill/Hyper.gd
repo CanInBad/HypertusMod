@@ -15,6 +15,11 @@ func getVisibleDescription():
 func getLevelCap():
 	return 1e3
 
+static func getRequiredExperience(_level) -> int:
+	if _level>81:
+		return 1000
+	return 100 + _level * 10 + int(sqrt(max(0,_level))) * 10
+
 func getPerkTiers():
 	return [
 		[0], # 1 | 0
