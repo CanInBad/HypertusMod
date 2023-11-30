@@ -14,7 +14,7 @@ func getVisibleDescription():
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]Why are there droning noises coming out of my "+GM.pc.getBodypartLewdName(BodypartSlot.Breasts)+"[/say]\n" \
-	+ "")
+	+ "Your breasts can hold 150% more")
 
 func getRequiredPerks():
 	return [Perk.MilkBiggerBreasts]

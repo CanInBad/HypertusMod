@@ -12,9 +12,9 @@ func getVisibleName():
 func getVisibleDescription():
 	return "Your breasts holds [b]300% MORE[/b] without increasing size"
 
-# func getMoreDescription():
-# 	return sayParser.processString("[say=pc]Why are there droning noises coming out of my "+GM.pc.getBodypartLewdName(BodypartSlot.Breasts)+"[/say]\n" \
-# 	+ "")
+func getMoreDescription():
+	return sayParser.processString("[say=pc]Why are there droning noises coming out of my "+GM.pc.getBodypartLewdName(BodypartSlot.Breasts)+"[/say]\n" \
+	+ "Your breasts can hold [b]300% more[/b]")
 
 func getRequiredPerks():
 	return [Perk.MilkBiggerBreastsV2]

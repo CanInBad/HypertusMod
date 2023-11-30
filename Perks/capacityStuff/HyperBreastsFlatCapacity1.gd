@@ -13,8 +13,8 @@ func getVisibleDescription():
 	return "Your breasts holds more without increasing size"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]I don't know what to type here[/say]\n" \
-	+ "")
+	return sayParser.processString("[say=pc]There's humming sounds coming out of my breasts[/say]\n" \
+	+ "Your breasts can hold 50% more")
 
 func getRequiredPerks():
 	return [Perk.MilkBiggerBreasts]

@@ -21,6 +21,43 @@ idk this is still in progress
 - [x] add and finish XP back system (same logic as gaining)
 - [x] finish hyper tree
 - [ ] change description to fit its title
-- [ ] perk images
+	- [ ] HyperBreastsFlatCapacity1
+	- [ ] HyperBreastsFlatCapacity2
+	- [ ] HyperBreastsFlatCapacity3
+	- [ ] HyperBreastsFlatCapacity4
+	- [ ] HyperHolesCapacity1
+	- [ ] HyperHolesCapacity2
+	- [ ] HyperHolesCapacity3
+	- [ ] HyperBreastsIncreaseTimer
+	- [ ] HyperBreastsShouldContinueLactate
+	- [ ] HyperCum1
+	- [ ] HyperCum2
+	- [ ] HyperCum3
+	- [ ] HyperCum4
+	- [ ] HyperHoles1
+	- [ ] HyperHoles2
+	- [ ] HyperHoles3
+	- [ ] HyperHoles4
+	- [ ] HyperMilkUpSize1
+	- [ ] HyperMilkUpSize2
+	- [ ] HyperMilkUpSize3
+	- [ ] HyperMilkUpSize4
+	- [ ] HyperPenisDecrease1
+	- [ ] HyperPenisDecrease2
+	- [ ] HyperPenisDecrease3
+	- [ ] HyperPenisIncrease1
+	- [ ] HyperPenisIncrease2
+	- [ ] HyperPenisIncrease3
+	- [ ] HyperSlowNatualSpill
+	- [ ] HyperStopSpill
+	- [ ] HyperVirility1
+	- [ ] HyperVirility2
+	- [ ] HyperVirility3
+	- [ ] HyperVirility4
+	- [ ] HyperWomb1
+	- [ ] HyperWomb2
+	- [ ] HyperWomb3
+	- [ ] HyperWomb4.gd
+- [ ] perk images (replace PLACEHOLDER.png)
 - [ ] make a item that shows internal stats (lacation timer, preg timer, etc)
 

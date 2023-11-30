@@ -19,7 +19,8 @@ func getVisibleDescription():
 	return "Your hole holds much more"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]CHANGE ME[/say]\nThis will add capacity after loosenss check (thus grant more space)")
+	return sayParser.processString("[say=pc]CHANGE ME[/say]\n" \
+	+ "This will add capacity after loosenss check (thus grant more space)")
 
 func getRequiredPerks():
 	return [Perk.CumSloppySeconds]
@@ -40,7 +41,7 @@ func getCost():
 	return 8
 
 func getPicture():
-	return "res://Modules/Z_Hypertus/Images/PLACEHOLDER.png"
+	return "res://Modules/Z_Hypertus/Images/Perks/HyperHoleCap1.png"
 
 func getBuffs():
 	var allBuffs = []
