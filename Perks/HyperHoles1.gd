@@ -20,7 +20,8 @@ func getVisibleDescription():
 	return "Your hole recovers faster and strech less, Has natural lube on sex"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]CHANGE ME[/say]\n...")
+	return sayParser.processString("[say=pc]I have a built in lube?[/say]\n" \
+	+ "They will update every in game hour")
 
 func getRequiredPerks():
 	return [Perk.CumUniqueBiology]

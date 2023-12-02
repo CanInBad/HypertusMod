@@ -20,7 +20,7 @@ func getVisibleDescription():
 	return "Your hole recovers even faster and strech even less"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]CHANGE ME[/say]\n...")
+	return sayParser.processString("[say=pc]Those recovered faster than it used to...[/say]\n...")
 
 func getRequiredPerks():
 	return ["HyperHoles1"]

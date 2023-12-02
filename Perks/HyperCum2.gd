@@ -13,7 +13,8 @@ func getVisibleDescription():
 	return "Your balls refills and holds 125% more"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]When I get out, they better give me an antinode for whatever this is.[/say]\nYour balls starts to resonate out more frequently. It starts to be a annoyance for you")
+	return sayParser.processString("[say=pc]When I get out, they better give me an antinode for whatever this is.[/say]\n"\
+	+ "Your balls starts to resonate out more frequently. It starts to be a annoyance for you")
 
 func getRequiredPerks():
 	return [Perk.BreedCumProduction, Perk.BreedCumVolume, "HyperCum1"]

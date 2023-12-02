@@ -13,7 +13,7 @@ func getVisibleDescription():
 	return "Your breasts lactates longer"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]I don't know what to type here[/say]\n" \
+	return sayParser.processString("[say=pc]I seem to be lactating longer...[/say]\n" \
 	+ "I haven\'t test this yet so idk if it works -CanInBad")
 
 func getRequiredPerks():

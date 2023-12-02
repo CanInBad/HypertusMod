@@ -14,7 +14,8 @@ func getVisibleDescription():
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]I guess "+GM.pc.getBodypartLewdName(BodypartSlot.Breasts)+" is ready to go bowling[/say]\n" \
-	+ "My god, your breasts can hold [b]500% more!?[/b]")
+	+ "My god, your breasts can hold [b]500% more!?[/b]\n" \
+	+ "Better call your cousin")
 
 func getRequiredPerks():
 	return [Perk.MilkBiggerBreastsV2]

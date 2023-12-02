@@ -13,7 +13,8 @@ func getVisibleDescription():
 	return "Your balls refills and holds 175% more"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]After a while, I kinda liked this...[/say]\nYour balls vibrates violently when they're empty.")
+	return sayParser.processString("[say=pc]After a while, I kinda liked this...[/say]\n"\
+	+ "Your balls vibrates violently when they're empty.")
 
 func getRequiredPerks():
 	return [Perk.BreedCumProductionV2, Perk.BreedCumVolumeV2, "HyperCum2"]

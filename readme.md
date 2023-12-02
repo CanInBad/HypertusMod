@@ -17,31 +17,31 @@ idk this is still in progress
 - [x] add bob perks
 - [x] add capacity perks
 - [x] fix perks cost
-- [ ] add actual story
+- [ ] add actual story (tbh I think this wont ever be ticked, not in a few months)
 - [x] add and finish XP back system (same logic as gaining)
 - [x] finish hyper tree
 - [ ] change description to fit its title
-	- [ ] HyperBreastsFlatCapacity1
-	- [ ] HyperBreastsFlatCapacity2
-	- [ ] HyperBreastsFlatCapacity3
-	- [ ] HyperBreastsFlatCapacity4
-	- [ ] HyperHolesCapacity1
-	- [ ] HyperHolesCapacity2
-	- [ ] HyperHolesCapacity3
-	- [ ] HyperBreastsIncreaseTimer
-	- [ ] HyperBreastsShouldContinueLactate
-	- [ ] HyperCum1
-	- [ ] HyperCum2
-	- [ ] HyperCum3
-	- [ ] HyperCum4
-	- [ ] HyperHoles1
-	- [ ] HyperHoles2
-	- [ ] HyperHoles3
-	- [ ] HyperHoles4
-	- [ ] HyperMilkUpSize1
-	- [ ] HyperMilkUpSize2
-	- [ ] HyperMilkUpSize3
-	- [ ] HyperMilkUpSize4
+	- [x] HyperBreastsFlatCapacity1
+	- [x] HyperBreastsFlatCapacity2
+	- [x] HyperBreastsFlatCapacity3
+	- [x] HyperBreastsFlatCapacity4
+	- [x] HyperHolesCapacity1
+	- [x] HyperHolesCapacity2
+	- [x] HyperHolesCapacity3
+	- [x] HyperBreastsIncreaseTimer
+	- [x] HyperBreastsShouldContinueLactate
+	- [x] HyperCum1
+	- [x] HyperCum2
+	- [x] HyperCum3
+	- [x] HyperCum4
+	- [x] HyperHoles1
+	- [x] HyperHoles2
+	- [x] HyperHoles3
+	- [x] HyperHoles4
+	- [x] HyperMilkUpSize1
+	- [x] HyperMilkUpSize2
+	- [x] HyperMilkUpSize3
+	- [x] HyperMilkUpSize4
 	- [ ] HyperPenisDecrease1
 	- [ ] HyperPenisDecrease2
 	- [ ] HyperPenisDecrease3
@@ -57,7 +57,7 @@ idk this is still in progress
 	- [ ] HyperWomb1
 	- [ ] HyperWomb2
 	- [ ] HyperWomb3
-	- [ ] HyperWomb4.gd
-- [ ] perk images (replace PLACEHOLDER.png)
+	- [ ] HyperWomb4
+- [x] perk images (replace PLACEHOLDER.png)
 - [ ] make a item that shows internal stats (lacation timer, preg timer, etc)
 

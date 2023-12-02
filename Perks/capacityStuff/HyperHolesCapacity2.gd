@@ -19,7 +19,8 @@ func getVisibleDescription():
 	return "Your hole holds SO much more"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]CHANGE ME[/say]\nThis will add capacity after loosenss check (thus grant more space)")
+	return sayParser.processString("[say=pc]But that\'s impossible![/say]\n"\
+	+ "This will add capacity after loosenss check (thus grant more space)")
 
 func getRequiredPerks():
 	return ["HyperHolesCapacity1"]

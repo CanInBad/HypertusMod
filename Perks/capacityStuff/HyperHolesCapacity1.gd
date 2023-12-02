@@ -19,7 +19,14 @@ func getVisibleDescription():
 	return "Your hole holds much more"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]CHANGE ME[/say]\n" \
+	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
+	var assPartHas:bool
+	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
+		assPartHas = true
+	var text:String = "hole is"
+	if pussyPartHas and assPartHas:
+		text = "holes are"
+	return sayParser.processString("[say=pc]Is it just me or my "+text+" deeper than it should be?[/say]\n" \
 	+ "This will add capacity after loosenss check (thus grant more space)")
 
 func getRequiredPerks():
