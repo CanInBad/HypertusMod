@@ -156,7 +156,7 @@ func react(_triggerID, _args):
 		if GM.main.getDays()<5 and hadPartsN>0:
 			addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
 		
-		if GM.main.getDays()>5 and GM.main.getDays()<8:
+		if (GM.main.getDays()>5 and GM.main.getDays()<8) and hadPartsN>0:
 			addMessage("")
 
 		if   hadPartsN >= 1 and sum >= 1:

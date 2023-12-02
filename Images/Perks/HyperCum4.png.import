@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HyperBreastsFlatCapacity1.png-5a687d2140c59094a13705a3d0fd8b5c.stex"
+path="res://.import/HyperCum4.png-c2399848c589de4cbf252551817e62e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Modules/Z_Hypertus/Images/Perks/HyperBreastsFlatCapacity1.png"
-dest_files=[ "res://.import/HyperBreastsFlatCapacity1.png-5a687d2140c59094a13705a3d0fd8b5c.stex" ]
+source_file="res://Modules/Z_Hypertus/Images/Perks/HyperCum4.png"
+dest_files=[ "res://.import/HyperCum4.png-c2399848c589de4cbf252551817e62e0.stex" ]
 
 [params]
 
