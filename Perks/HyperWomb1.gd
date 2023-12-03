@@ -16,7 +16,8 @@ func getVisibleDescription():
 			# yooo imagine if I knew this sooner, the string split multiple lines
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]Is it just me or do I give birth much more?[/say]\n")
+	return sayParser.processString("[say=pc]Is it just me or do I give birth much more?[/say]\n" \
+		+ "Just like the hoe next road.")
 
 func getRequiredPerks():
 	return [Perk.FertilityBetterOvulationV2]

@@ -20,7 +20,7 @@ idk this is still in progress
 - [ ] add actual story (tbh I think this wont ever be ticked, not in a few months)
 - [x] add and finish XP back system (same logic as gaining)
 - [x] finish hyper tree
-- [ ] change description to fit its title
+- [x] change description to fit its title
 	- [x] HyperBreastsFlatCapacity1
 	- [x] HyperBreastsFlatCapacity2
 	- [x] HyperBreastsFlatCapacity3
@@ -42,22 +42,22 @@ idk this is still in progress
 	- [x] HyperMilkUpSize2
 	- [x] HyperMilkUpSize3
 	- [x] HyperMilkUpSize4
-	- [ ] HyperPenisDecrease1
-	- [ ] HyperPenisDecrease2
-	- [ ] HyperPenisDecrease3
-	- [ ] HyperPenisIncrease1
-	- [ ] HyperPenisIncrease2
-	- [ ] HyperPenisIncrease3
-	- [ ] HyperSlowNatualSpill
-	- [ ] HyperStopSpill
-	- [ ] HyperVirility1
-	- [ ] HyperVirility2
-	- [ ] HyperVirility3
-	- [ ] HyperVirility4
-	- [ ] HyperWomb1
-	- [ ] HyperWomb2
-	- [ ] HyperWomb3
-	- [ ] HyperWomb4
+	- [x] HyperPenisDecrease1
+	- [x] HyperPenisDecrease2
+	- [x] HyperPenisDecrease3
+	- [x] HyperPenisIncrease1
+	- [x] HyperPenisIncrease2
+	- [x] HyperPenisIncrease3
+	- [x] HyperSlowNatualSpill
+	- [x] HyperStopSpill
+	- [x] HyperVirility1
+	- [x] HyperVirility2
+	- [x] HyperVirility3
+	- [x] HyperVirility4
+	- [x] HyperWomb1
+	- [x] HyperWomb2
+	- [x] HyperWomb3
+	- [x] HyperWomb4
 - [x] perk images (replace PLACEHOLDER.png)
 - [ ] make a item that shows internal stats (lacation timer, preg timer, etc)
 

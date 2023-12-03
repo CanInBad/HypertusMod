@@ -15,7 +15,8 @@ func getVisibleDescription():
 	        + "Make you more fertile"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]I still can't believe that I gave birth to entire a small town\'s population[/say]\n")
+	return sayParser.processString("[say=pc]I still can't believe that I gave birth to entire a small town\'s population[/say]\n" \
+	+ "Oop, here comes the baby tank.")
 
 
 func getRequiredPerks():

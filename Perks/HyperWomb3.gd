@@ -16,6 +16,7 @@ func getVisibleDescription():# 10^4
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]I am not surprised anymore...[/say]\n..."\
+	+ "You are the true broodmother.\n" \
 	+ "\n[color=red]For low end players I recommend DON\'T GET THIS PERK! It may or may not crash your game when you give birth -CanInBad[/color]")
 
 func getRequiredPerks():

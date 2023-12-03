@@ -21,7 +21,9 @@ func getMoreDescription():
 		text = "Increasing: [color="+DamageType.getColorString(DamageType.Lust)+"]"+str(amount)+"%[/color]"
 	else:
 		text = "Decreasing: [color=red]"+str(amount)+"%[/color]"
-	return sayParser.processString("[say=pc]This might be a bad idea[/say]\nThis will require sleeping. Current state, "+text)
+	return sayParser.processString("[say=pc]So small, so cute![/say]\n" \
+	+ "You might need a micrometer to measure this one.\n" \
+	+ "This will require sleeping. Current state, "+text)
 
 func getSkillTier():
 	return 3

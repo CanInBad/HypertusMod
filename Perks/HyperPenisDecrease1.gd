@@ -7,7 +7,7 @@ func _init():
 	skillGroup = "Hyper"
 
 func getVisibleName():
-	return "Small Dick Energy"
+	return "Small Dick Energy Ⅰ"
 
 func getVisibleDescription():
 	return "Decrease your penis length by 3%"
@@ -21,7 +21,9 @@ func getMoreDescription():
 		text = "Increasing: [color="+DamageType.getColorString(DamageType.Lust)+"]"+str(amount)+"%[/color]"
 	else:
 		text = "Decreasing: [color=red]"+str(amount)+"%[/color]"
-	return sayParser.processString("[say=pc]This might be a bad idea[/say]\nThis will require sleeping. Current state, "+text)
+	return sayParser.processString("[say=pc]Did something really change?[/say]\n"\
+	+ "Lower the sizer of your male genital.\n" \
+	+ "This will require sleeping. Current state, "+text)
 
 func getSkillTier():
 	return 1

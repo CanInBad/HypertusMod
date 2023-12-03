@@ -21,7 +21,9 @@ func getMoreDescription():
 		text = "Increasing: [color="+DamageType.getColorString(DamageType.Lust)+"]"+str(amount)+"%[/color]"
 	else:
 		text = "Decreasing: [color=red]"+str(amount)+"%[/color]"
-	return sayParser.processString("[say=pc]This might be a bad idea[/say]\nThis will require sleeping. Current state, "+text)
+	return sayParser.processString("[say=pc]Ooohhh this IS getting good.[/say]\n" \
+	+ "If you didn't have enough yet.\n"
+	+ "This will require sleeping. Current state, "+text)
 
 # func getRequiredPerks():
 # 	return ["HyperPenisIncrease1"]
