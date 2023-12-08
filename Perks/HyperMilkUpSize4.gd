@@ -15,6 +15,7 @@ func getVisibleDescription():
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]*turns into a cow*[/say]\n" \
+	+ "[code]"
 	+ "\n ----------------------------"
 	+ "\n< Damn, guess we're cows now >"
 	+ "\n ----------------------------"
@@ -23,6 +24,7 @@ func getMoreDescription():
 	+ "\n           (__)\\       )\\/\\"
 	+ "\n               ||----w |"
 	+ "\n               ||           ||"
+	+ "[/code]"
 	)
 
 func getRequiredPerks():

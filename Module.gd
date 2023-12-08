@@ -20,6 +20,8 @@ func _init():
 	author = "CanInBad"
 	
 	perks = [
+		"res://Modules/Z_Hypertus/Perks/HyperNoParts.gd",
+
 		"res://Modules/Z_Hypertus/Perks/HyperCum1.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperCum2.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperCum3.gd",
@@ -141,6 +143,15 @@ func _init():
 			],
 			"enabled": false,
 		},
+		"Ace's Aviary Addon": {
+			"moduleid": "CrowSpeciesModule",
+			"author": "AverageAce",
+			"files": [
+				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis.gd",
+				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis2.gd"
+			],
+			"enabled": false
+		}
 		# "non test": _test,
 	}
 	universalBodyPartsCompactLayer(bodyparts,_listBodyPartsCompactLayers)
