@@ -35,18 +35,17 @@ func getPicture():
 func checkHas(bodyslot):
 	if GM.pc != null:
 		if GM.pc.hasBodypart(bodyslot):
-			if GM.pc.bodypartHasTrait(bodyslot,"PartTrait.Hyperable"):
+			if GM.pc.bodypartHasTrait(bodyslot,"Hyperable"):
 				return true
 	return false
 
 func hiddenWhenLocked() -> bool:
-	var toCheck = [
+	for i in [
 		BodypartSlot.Breasts,
 		BodypartSlot.Penis,
 		BodypartSlot.Anus,
 		BodypartSlot.Vagina
-	]
-	for i in toCheck:
+	]:
 		if checkHas(i):
 			return true
 

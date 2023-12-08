@@ -23,7 +23,7 @@ func getPenisScale():
 func getTraits():
 	return {
 		PartTrait.PenisFlare: true,
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}
 
 func getCharacterCreatorDesc():

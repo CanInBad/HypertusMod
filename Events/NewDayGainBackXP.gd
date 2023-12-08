@@ -11,7 +11,7 @@ func react(_triggerID, _args):
 	var alreadyHad = []
 	if player.hasBodypart(BodypartSlot.Penis):
 		if player.getBodypart(BodypartSlot.Penis).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Penis).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Penis).getTraits():
 				var sum:int = 0
 				# hadParts += 1
 				var toCheckPlus = [
@@ -35,7 +35,7 @@ func react(_triggerID, _args):
 			
 	if player.hasBodypart(BodypartSlot.Breasts):
 		if player.getBodypart(BodypartSlot.Breasts).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Breasts).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Breasts).getTraits():
 				# hadParts += 1
 				var sum:int = 0
 				var toCheckPlus = [ # be added
@@ -62,7 +62,7 @@ func react(_triggerID, _args):
 
 	if player.hasBodypart(BodypartSlot.Vagina):
 		if player.getBodypart(BodypartSlot.Vagina).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits():
 				var toCheckPlus = [ 
 					"HyperHoles1",
 					"HyperHoles2",
@@ -79,7 +79,7 @@ func react(_triggerID, _args):
 
 	if player.hasBodypart(BodypartSlot.Anus):
 		if player.getBodypart(BodypartSlot.Anus).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits():
 				
 				var toCheckPlus = [ 
 					"HyperHoles1",
@@ -104,7 +104,7 @@ func react(_triggerID, _args):
 
 	if player.hasBodypart(BodypartSlot.Vagina):
 		if player.getBodypart(BodypartSlot.Vagina).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits():
 				var toCheckPlus = [ 
 					"HyperWomb1",
 					"HyperWomb2",
@@ -118,7 +118,7 @@ func react(_triggerID, _args):
 
 	if player.hasBodypart(BodypartSlot.Anus):
 		if player.getBodypart(BodypartSlot.Anus).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits():
 				var toCheckPlus = [ 
 					"HyperWomb1",
 					"HyperWomb2",

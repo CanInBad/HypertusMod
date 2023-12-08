@@ -18,7 +18,7 @@ func getDoll3DScene():
 func getTraits():
 	return {
 		PartTrait.PenisBarbs: true,
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}
 
 func getCharacterCreatorDesc():

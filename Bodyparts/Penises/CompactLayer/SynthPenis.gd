@@ -19,7 +19,7 @@ func getTraits():
 	return {
 		PartTrait.PenisKnot: true,
 		PartTrait.PenisRidges: true,
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}
 
 func getCharacterCreatorDesc():

@@ -19,9 +19,9 @@ func getRequiredPerks():
 	return ["HyperSlowNatualSpill"]
 
 func hiddenWhenLocked() -> bool:
-	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
+	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
 	var assPartHas:bool
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
+	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 			assPartHas = true
 	if pussyPartHas or assPartHas:
 		return false

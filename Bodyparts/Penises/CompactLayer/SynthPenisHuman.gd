@@ -20,5 +20,5 @@ func getCharacterCreatorDesc():
 
 func getTraits():
 	return {
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}

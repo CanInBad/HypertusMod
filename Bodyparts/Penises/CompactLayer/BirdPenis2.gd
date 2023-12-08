@@ -20,5 +20,5 @@ func npcGenerationWeight(_dynamicCharacter):
 
 func getTraits():
 	return {
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}

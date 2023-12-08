@@ -27,5 +27,5 @@ func getAttributesText():
 
 func getTraits():
 	return {
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}

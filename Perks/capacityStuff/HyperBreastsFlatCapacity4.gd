@@ -35,7 +35,7 @@ func getBuffs():
 	]
 
 func hiddenWhenLocked() -> bool:
-	var breastsPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"PartTrait.Hyperable")
+	var breastsPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"Hyperable")
 	if !breastsPartHas: # I just realized that normal play can't get flat anyways so
 		return true     # this is just for who cheats and get forever flat
 	return false

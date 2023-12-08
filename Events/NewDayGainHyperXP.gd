@@ -18,7 +18,7 @@ func react(_triggerID, _args):
 	}
 	if player.hasBodypart(BodypartSlot.Penis):
 		if player.getBodypart(BodypartSlot.Penis).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Penis).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Penis).getTraits():
 				hadParts["penis"] = true
 				var toCheckPlus = [
 					Perk.BreedStud,
@@ -55,7 +55,7 @@ func react(_triggerID, _args):
 			
 	if player.hasBodypart(BodypartSlot.Breasts):
 		if player.getBodypart(BodypartSlot.Breasts).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Breasts).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Breasts).getTraits():
 				hadParts["breasts"] = true
 				var toCheckPlus = [
 					Perk.MilkBiggerBreasts,
@@ -78,7 +78,7 @@ func react(_triggerID, _args):
 			
 	if player.hasBodypart(BodypartSlot.Vagina):
 		if player.getBodypart(BodypartSlot.Vagina).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Vagina).getTraits():
 				hadParts["vagina"] = true
 				var toCheckPlus = [
 					Perk.FertilityBetterOvulation,
@@ -104,7 +104,7 @@ func react(_triggerID, _args):
 	
 	if player.hasBodypart(BodypartSlot.Anus):
 		if player.getBodypart(BodypartSlot.Anus).getTraits() != null:
-			if "PartTrait.Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits():
+			if "Hyperable" in player.getBodypart(BodypartSlot.Anus).getTraits():
 				hadParts["anus"] = true
 				var toCheckPlus = [
 					Perk.CumSloppySeconds,

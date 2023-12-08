@@ -19,7 +19,7 @@ func getRequiredPerks():
 	return [Perk.BreedCumProductionV3, Perk.BreedCumVolumeV3, "HyperCum3"]
 
 func hiddenWhenLocked() -> bool:
-	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"PartTrait.Hyperable")
+	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
 	if !penisPartHas:
 		return true
 	return false

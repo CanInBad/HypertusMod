@@ -10,18 +10,18 @@ func getVisibleName():
 	return "Internal Volume Ⅰ"
 
 func getVisibleDescription():
-	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
+	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
 	var assPartHas:bool
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
+	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 		assPartHas = true
 	if pussyPartHas and assPartHas:
 		return "Your holes hold much more"
 	return "Your hole holds much more"
 
 func getMoreDescription():
-	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
+	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
 	var assPartHas:bool
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
+	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 		assPartHas = true
 	var text:String = "hole is"
 	if pussyPartHas and assPartHas:
@@ -33,9 +33,9 @@ func getRequiredPerks():
 	return [Perk.CumSloppySeconds]
 
 func hiddenWhenLocked() -> bool:
-	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
+	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
 	var assPartHas:bool
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
+	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 			assPartHas = true
 	if pussyPartHas or assPartHas:
 		return false
@@ -52,10 +52,10 @@ func getPicture():
 
 func getBuffs():
 	var allBuffs = []
-	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable"):
+	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable"):
 		allBuffs.append(buff("HyperVaginaCapacity", [100]))
 		# allBuffs.append(buff("HyperVaginaResistance", [20]))
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
+	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 		allBuffs.append(buff("HyperAnusCapacity", [100]))
 		# allBuffs.append(buff("HyperAnusResistance", [20]))
 	return allBuffs

@@ -25,5 +25,5 @@ func getLewdDescriptionAndName():
 
 func getTraits():
 	return {
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}

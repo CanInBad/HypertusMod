@@ -9,6 +9,7 @@ func getFlags():
 		"HyperLevelMaxed": flag(FlagType.Bool),
 		"HyperLevelMaxedSeenMessage": flag(FlagType.Bool),
 		"HyperHoleGainLubed": flag(FlagType.Bool),
+		# "HyperIntroPrompt": flag(FlagType.Bool),
 	}
 
 # func resetFlagsOnNewDay(): # so it turns out that sleeping always set to the new day
@@ -104,6 +105,7 @@ func _init():
 		"res://Modules/Z_Hypertus/Events/NewDayGainHyperXP.gd",
 		"res://Modules/Z_Hypertus/Events/NewDayGainBackXP.gd",
 		"res://Modules/Z_Hypertus/Events/AfterGotHyperPenisLengthChange.gd",
+		"res://Modules/Z_Hypertus/Events/NoHyperablePart.gd",
 	]
 
 	var _listBodyPartsCompactLayers = {
@@ -150,7 +152,7 @@ func _init():
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis.gd",
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis2.gd"
 			],
-			"enabled": false
+			"enabled": false,
 		}
 		# "non test": _test,
 	}

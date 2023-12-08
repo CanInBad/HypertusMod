@@ -10,9 +10,9 @@ func getVisibleName():
 	return "Fuck Toy Ⅰ"
 
 func getVisibleDescription():
-	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
+	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
 	var assPartHas:bool
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable") and \
+	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable") and \
 	   	GM.pc.getBodypart(BodypartSlot.Anus).hasWomb():
 			assPartHas = true
 	if pussyPartHas and assPartHas:
@@ -27,9 +27,9 @@ func getRequiredPerks():
 	return [Perk.CumUniqueBiology]
 
 func hiddenWhenLocked() -> bool:
-	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable")
+	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
 	var assPartHas:bool
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
+	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 			assPartHas = true
 	if pussyPartHas or assPartHas:
 		return false
@@ -46,10 +46,10 @@ func getPicture():
 
 func getBuffs():
 	var allBuffs = []
-	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"PartTrait.Hyperable"):
+	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable"):
 		allBuffs.append(buff("HyperVaginaElasticity", [20]))
 		allBuffs.append(buff("HyperVaginaResistance", [20]))
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"PartTrait.Hyperable"):
+	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 		allBuffs.append(buff("HyperAnusElasticity", [20]))
 		allBuffs.append(buff("HyperAnusResistance", [20]))
 	return allBuffs

@@ -18,7 +18,7 @@ func generateRandomColors(_dynamicCharacter):
 
 func getTraits():
 	return {
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}
 
 func getCharacterCreatorDesc():

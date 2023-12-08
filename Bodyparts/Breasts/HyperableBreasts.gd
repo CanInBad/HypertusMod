@@ -43,7 +43,7 @@ func getTooltipInfo():
 
 func getTraits():
 	return {
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}
 
 func generateDataFor(_dynamicCharacter):

@@ -26,7 +26,7 @@ func getTraits():
 	return {
 		PartTrait.PenisFlare: true,
 		PartTrait.PenisKnot: true,
-		"PartTrait.Hyperable": true,
+		"Hyperable": true,
 	}
 
 func generateDataFor(_dynamicCharacter):
