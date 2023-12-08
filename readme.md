@@ -26,6 +26,12 @@ Has compatibility layer between these mods:
 if you have any feedback send it in #mods-discussion and ping me
 or open an issue here
 
+### Testing
+
+1. Add this repo as a submodule in your [BDCC's](https://github.com/Alexofp/BDCC) Module and name it as `Z_Hypertus`
+2. ????
+3. Profit
+
 ### to-do list or something
 
 - [x] add pp length buff (this is too hard) <!-- I managed to did it but idk how it is with rahi sleeping with you.... I might have to look more closer -->
