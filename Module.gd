@@ -146,7 +146,7 @@ func _init():
 			"enabled": false,
 		},
 		"Ace's Aviary Addon": {
-			"moduleid": "CrowSpeciesModule",
+			"moduleid": "AcesAvairyAddon",
 			"author": "AverageAce",
 			"files": [
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis.gd",

@@ -15,8 +15,8 @@ func getLewdAdjective():
 func getDoll3DScene():
 	return "res://Modules/Ace'sAvairyMod/Bodyparts/BirdDick2/BirdPenis2.tscn"
 
-func npcGenerationWeight(_dynamicCharacter):
-	return 0.7
+# func npcGenerationWeight(_dynamicCharacter):
+# 	return 0.7 # does this affect anything????
 
 func getTraits():
 	return {
