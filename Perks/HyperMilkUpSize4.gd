@@ -41,7 +41,7 @@ func getPicture():
 
 func getBuffs():
 	return [
-		buff(Buff.BreastsLactatingSizeLimitBuff, [10]),
+		buff(Buff.BreastsLactatingSizeLimitBuff, [12]),
 		buff(Buff.BreastsMilkProductionBuff, [300]),
 	]
 
