@@ -57,8 +57,6 @@ func _run():
 						2:sayn("[say=pc]"+RNG.pick(possibleSayTexts)+"[/say]")
 						_:addMessage("How is this possible")
 
-				# addMessage(RNG.pick(text1)),
-				# sayn(RNG.pick(text2))
 				else: # already experienced it
 					addButton("Continue","Continue","resize")
 					var possibleSayTexts   = [

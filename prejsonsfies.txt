@@ -10,7 +10,7 @@ To gain the tree's experience, you have to invest some points in to vanilla perk
 
 There is no story in this version yet, but the perks and bodyparts might not break in the future
 
-Only the player can get it at this time and I might not make it spawn with dynamic NPC
+Only the player can get it at this time
 
 Has compatibility layer between these mods:
  - Synth Species
@@ -18,14 +18,15 @@ Has compatibility layer between these mods:
  - Fluffy Bodyparts
  - Avali Species (both version)
  - Ace's Aviary Addon
+ - Transgender Flat Chest
 
 if you have any feedback send it in #mods-discussion and ping me
 or open an issue on [url]https://github.com/CanInBad/HypertusMod[/url]
 
-[code]
 Changelog
- * Add Ace's Aviary Addon compatibility
- * Add a dummy perk for those did not read the mod description
- * attempt to get the player's attention when creating a new charator
- * try out the code block by bbcode (which did not work :( )
-[/code]
+ * Version Bump
+ * Added Transgender Flat Chest compatibility (:p)
+ * Fixed penis pump states for this mod flared penises
+ * "Fixed" hyperable equine knotted penis 
+ * Made it possible to reach OMEGA breast size (hint: start at T)
+ * made perks less grindy (might break save, if so please ping)

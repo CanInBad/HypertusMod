@@ -14,23 +14,14 @@ func _run():
 			addButton("Confirm", "Choose size (in centimeters)", "setSizePP")
 			addButton("Cancel", "Cancel", "decided")
 		"invalidinput":
-			# say("Invalid input (you inputted [b]\""+getTextboxData("customSizePP")+"\"[/b]")
 			addButton("ok....", "I'll try harder", "tryagain")
 			addButton("Nevermind", "Exit out", "decided")
-		# "negative":
-		# 	say("Must not be negative value (you inputted [b]\""+getTextboxData("customSizePP")+"\"[/b]")
-		# 	addButton("ok....", "I'll try harder", "tryagain")
-		# 	addButton("Nevermind", "Exit out", "decided")
 
 
 func onTextBoxEnterPressed(_new_text:String):
 	GM.main.pickOption("setSizePP", [])
 
 func _react(_action: String, _args):
-	# if(_action == "setSizePP"):
-	# 	setFlag("Hypertus.HyperPenisCustomSize",getTextboxData("setSizePP"))
-	# 	setState("confirm")
-	# 	return
 	match _action:
 		"setSizePP":
 			var fromTextbox = getTextboxData("customSizePP")

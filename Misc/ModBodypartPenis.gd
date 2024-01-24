@@ -184,3 +184,6 @@ func generateRandomColors(_dynamicCharacter):
 
 func setLength(length):
 	lengthCM = length
+
+func shouldUseBigPump():
+	return false

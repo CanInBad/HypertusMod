@@ -64,3 +64,6 @@ func generateRandomColors(_dynamicCharacter):
 
 func getCharacterCreatorDesc():
 	return "a synthetic horsecock from a third party manufacturer, because why not?\nrequired to experience the hyper mod"
+
+func shouldUseBigPump():
+	return true

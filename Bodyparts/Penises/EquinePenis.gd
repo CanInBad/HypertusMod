@@ -28,3 +28,6 @@ func getTraits():
 
 func getCharacterCreatorDesc():
 	return "required to experience the hyper mod"
+
+func shouldUseBigPump():
+	return true

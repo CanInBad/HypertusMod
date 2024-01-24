@@ -10,7 +10,7 @@ func getVisibleName():
 	return "Exta milk"
 
 func getVisibleDescription():
-	return "Your breasts can get bigger by 10 additional sizes when lactating." \
+	return "Your breasts can get bigger by 12 additional sizes when lactating." \
 	+ "\nAlso produce milk faster 300%"
 
 func getMoreDescription():

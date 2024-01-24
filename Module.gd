@@ -153,6 +153,14 @@ func _init():
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis2.gd"
 			],
 			"enabled": false,
+		},
+		"Trans Scar Chest": {
+			"moduleid": "Trans Scar Chest",
+			"author": "AverageAce",
+			"files": [
+				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/TransBreasts.gd"
+			],
+			"enabled": false,
 		}
 		# "non test": _test,
 	}
