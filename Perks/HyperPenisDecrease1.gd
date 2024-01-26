@@ -44,6 +44,7 @@ func onPerkToggled(_isEnabledNow):
 		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-3)
 	else:
 		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",3)
+		# GM.pc.getSkillsHolder().removePerk(id)
 	
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/Perks/SmallerDong.png"

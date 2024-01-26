@@ -1,13 +1,14 @@
 extends SceneBase
 
-var amtToAddPPSize:int
+var amtToAddPPSize:int = 0
 # var oldLenght:int = 1 # defaults to 1 cm if not found, imagine the complains about this, I don't want to store it as flag anymore :(
 
 func _init():
 	sceneID = "HyperChangePPLength"
 
 func _initScene(_args = []):
-		amtToAddPPSize = GM.main.getFlag("Hypertus.HyperPenisExpansionAmount",0)
+	if(_args.size() > 0):
+		amtToAddPPSize = _args[0]
 
 func playAnimationNoFade(sceneID, actionID, args = {}):
 	if(GM.ui != null):
@@ -28,7 +29,7 @@ func _run():
 			playAnimationNoFade(StageScene.Sleeping, "sleep", {bodyState={naked=true}})
 			if amtToAddPPSize == 0:
 				addMessage("Hmmm... looks like the devloper forgot to set agrument for this scene or they're trying to add/remove 0 pp length")
-				addButton("Ok...?","That was weird...","end")
+				addButton("Ok...?","That was weird...","endScene")
 
 			else:
 				sayn("Before you go to bed, there is something keeping you awake")
@@ -77,7 +78,7 @@ func _react(_action: String, _args):
 			playAnimation(StageScene.Sleeping, "sleep", {bodyState={naked=true}})
 			var text:String = "[b]This is an error![/b] please tell CanInBad about this, also provide save too if possibe" # defaults to this
 
-			if int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())) == penis.getLength(): # this assumes that you can't get the same size when getting bigger, imagine if that happens.
+			if int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())) in range(max(penis.getLength()-2,-5),min(6,penis.getLength()+2)): # this forces you to not get the same size when getting bigger, imagine if that happens.
 				if amtToAddPPSize < 0: # check if we're decreasing the package size
 					if penis.getLength() <= 1:
 						penis.setLength(1) # this assumes that you went 0 or negative penis length!!!! (how)
@@ -86,7 +87,7 @@ func _react(_action: String, _args):
 						penis.setLength(penis.getLength() - 1)
 						text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() + " felt abit smaller...."
 				elif amtToAddPPSize > 0: # make it not a high climb after you get to like 1 cm
-					penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0)*3 + penis.getLength()))+1)
+					penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0)*3 + penis.getLength())+(2*amtToAddPPSize)))
 					text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() + " felt abit bigger...."
 				else: # just in case, lol
 					text = "How did we get here! (send this screenshot to CanInBad) res://Modules/Z_Hypertus/Scenes/HyperChangePPLength.gd:92"
@@ -96,10 +97,10 @@ func _react(_action: String, _args):
 						penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0)*3 + penis.getLength()))+1)
 					else:
 						penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))
-					text = "Your"+ penis.getLewdAdjective() + " " + penis.getLewdName() +" just got "+RNG.pick(["more hyper","expanded","amassed","mightier","bigger","heavier","bulkier","more massive","more gigatic","more magnificent"])+"!"
+					text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() +" just got "+RNG.pick(["more hyper","expanded","amassed","mightier","bigger","heavier","bulkier","more massive","more gigatic","more magnificent"])+"!"
 				elif amtToAddPPSize < 0:
 					penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))
-					text = "Your"+ penis.getLewdAdjective() + " " + penis.getLewdName() +" just got "+RNG.pick(["smaller","miniaturized","miniaturised","runty","smallish","sawed-off","stubby","undersized","more minuscule"])+"!"
+					text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() +" just got "+RNG.pick(["smaller","miniaturized","miniaturised","runty","smallish","sawed-off","stubby","undersized","more minuscule"])+"!"
 				else:
 					text = "This goes horribly bad, how did we get here (send this screenshot to CanInBad) res://Modules/Z_Hypertus/Scenes/HyperChangePPLength.gd:101"
 
