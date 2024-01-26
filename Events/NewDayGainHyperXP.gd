@@ -6,7 +6,10 @@ func _init():
 func registerTriggers(es):
 	es.addTrigger(self, Trigger.WakeUpInCell)
 
+var jiggleStr = RNG.pick(["vibrates","shakes","rumbles"])
+
 func react(_triggerID, _args):
+	var penis = null
 	var player = GM.pc
 	var sum:int = 0
 	var hadParts = {
@@ -19,6 +22,7 @@ func react(_triggerID, _args):
 	if player.hasBodypart(BodypartSlot.Penis):
 		if player.getBodypart(BodypartSlot.Penis).getTraits() != null:
 			if "Hyperable" in player.getBodypart(BodypartSlot.Penis).getTraits():
+				penis = GM.pc.getBodypart(BodypartSlot.Penis)
 				hadParts["penis"] = true
 				var toCheckPlus = [
 					Perk.BreedStud,
@@ -147,10 +151,13 @@ func react(_triggerID, _args):
 		for i in hadParts.keys():
 			if hadParts[i] == true:
 				hadPartsN += 1
+
 				if i == "anuswomb":
-					addMessage("Your hyper anus (with womb) "+RNG.pick(["vibrates","shakes","rumbles"])+",")
+					addMessage("Your hyper anus (with womb) "+jiggleStr+",")
+				elif i == "penis":
+					addMessage("Your "+penis.getLewdSizeAdjective()+" "+penis.getLewdAdjective()+" "+penis.getLewdName()+" "+jiggleStr+".")
 				else:
-					addMessage("Your hyper "+i+" "+RNG.pick(["vibrates","shakes","rumbles"])+",")
+					addMessage("Your hyper "+i+" "+jiggleStr+".")
 					# addMessage("+x1 Extra hyper gain for total: x"+str(hadPartsN))
 		
 		if GM.main.getDays()<5 and hadPartsN>0:

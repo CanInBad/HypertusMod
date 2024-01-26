@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Inventory/RiggedModels/PenisPump/BigPenisPump.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Modules/Z_Hypertus/Scenes/PPPump/BigPenisPump.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Inventory/RiggedModels/PenisPump/BigPumpAdv.png" type="Texture" id=2]
 [ext_resource path="res://Inventory/RiggedModels/PenisPump/BigPleasureRingBack.png" type="Texture" id=3]
 [ext_resource path="res://Inventory/RiggedModels/PenisPump/BigPleasureRing.png" type="Texture" id=4]
@@ -13,6 +13,8 @@ vertex_color_use_as_albedo = true
 params_cull_mode = 2
 params_depth_draw_mode = 3
 albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 1, 0.88, 1 )
+uv1_offset = Vector3( 0, 0.065, 0 )
 
 [sub_resource type="SpatialMaterial" id=2]
 resource_local_to_scene = true
@@ -57,7 +59,6 @@ albedo_texture = ExtResource( 3 )
 uv1_offset = Vector3( 0.0477867, 0, 0 )
 
 [node name="BigPenisPumpAdv" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1.3, 0, 0, 0, 1, 0, -0.7, 0 )
 
 [node name="penisEquinepng2" parent="." index="0"]
 material/0 = SubResource( 1 )

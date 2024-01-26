@@ -50,7 +50,8 @@ func getLewdSizeAdjective():
 		return RNG.pick(["hyper-sized", "monstrous", "colossal", "massive"])
 	if(lengthCM <= 128.0):
 		return RNG.pick(["back-breaking", "hyper-sized", "unrealisticly-monstrous", "unrealisticly-colossal", "unrealisticly-massive"])
-	
+	if(lengthCM <= 16384.0):
+		return RNG.pick(["prison-breaking", "giga-sized", "terra-sized", "unrealisticly-monstrous", "unrealisticly-colossal", "unrealisticly-massive","superlative","notbad621-size","aggrandized","WHAT-sized"])
 	return RNG.pick(["Short for hyper-endowed, as in, the character's anatomy (sexual and/or non-sexual) and amount of expelled substance (genital fluids and/or body waste) are unrealistically large, more than can be waved away with artistic license.", "Muse", "Better Call Saul", "https://youtu.be/458JYRJM2fc", "Yo Mista White", "Breaking Bad"])
 
 func getLewdAdjective():

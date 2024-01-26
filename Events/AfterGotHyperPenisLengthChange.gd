@@ -17,20 +17,9 @@ func react(_triggerID, _args):
 		"HyperPenisIncrease3",
 		"HyperPenisDecrease3",
 	]
-	for i in toRemove: # remove the perks even if they're disabled
-		if (i in pc.getSkillsHolder().getPerks()):
-			pc.getSkillsHolder().removePerk(i) 
-	if add>0 or add<0:
+	for i in toRemove: # remove the perks even if they're disabled, this was a lie because I did not read how the function works
+		if pc.getSkillsHolder.isPerkDisabled(i):
+			pc.getSkillsHolder.togglePerk(i)
+		pc.getSkillsHolder().removePerk(i) 
+	if add>0 or add<0: # less words
 		runScene("HyperChangePPLength")
-	 
-
-	# if(pc.hasPerk("PenisDecrease1")): # this will be moved to another event
-	# 	var toRemove = [
-	# 		""
-	# 	]
-	# 	for i in toRemove:
-	# 		if i in pc.getSkillsHolder().getPerks():
-	# 			pc.getSkillsHolder().removePerk(i)
-	# 	if !(toRemove in pc.getSkillsHolder().getPerks()):
-	# 		print("to be continue")
-	# 	return

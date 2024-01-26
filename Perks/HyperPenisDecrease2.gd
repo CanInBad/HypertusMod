@@ -23,7 +23,7 @@ func getMoreDescription():
 		text = "Decreasing: [color=red]"+str(amount)+"%[/color]"
 	return sayParser.processString("[say=pc]I guess something did change.[/say]\n" \
 	+ "You "+GM.pc.getBodypartLewdName(BodypartSlot.Penis)+" becomes even smaller." \
-	+"This will require sleeping. Current state, "+text)
+	+ "This will require sleeping. \nCurrent state, "+text)
 
 # func getRequiredPerks():
 # 	return ["HyperPenisDecrease1"]

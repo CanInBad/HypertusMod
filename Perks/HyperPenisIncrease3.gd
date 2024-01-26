@@ -23,7 +23,7 @@ func getMoreDescription():
 		text = "Decreasing: [color=red]"+str(amount)+"%[/color]"
 	return sayParser.processString("[say=pc]Tsar Bomba[/say]\n" \
 	+ "By the way, how\'s you back doing?\n"\
-	+ "This will require sleeping. Current state, "+text)
+	+ "This will require sleeping. \nCurrent state, "+text)
 
 # func getRequiredPerks():
 # 	return ["HyperPenisIncrease1"]

@@ -85,14 +85,17 @@ func _react(_action: String, _args):
 					else: # if we're not 1 or less, we decrease by 1 cm
 						penis.setLength(penis.getLength() - 1)
 						text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() + " felt abit smaller...."
-				elif amtToAddPPSize > 0: # increase by 1 cm in case we're trying to add 3% to said 1 cm
-					penis.setLength(penis.getLength() + 1)
+				elif amtToAddPPSize > 0: # make it not a high climb after you get to like 1 cm
+					penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0)*3 + penis.getLength()))+1)
 					text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() + " felt abit bigger...."
 				else: # just in case, lol
 					text = "How did we get here! (send this screenshot to CanInBad) res://Modules/Z_Hypertus/Scenes/HyperChangePPLength.gd:92"
 			else:
 				if amtToAddPPSize > 0:
-					penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))
+					if penis.getLength() < 10: # make it not a climb as much
+						penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0)*3 + penis.getLength()))+1)
+					else:
+						penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))
 					text = "Your"+ penis.getLewdAdjective() + " " + penis.getLewdName() +" just got "+RNG.pick(["more hyper","expanded","amassed","mightier","bigger","heavier","bulkier","more massive","more gigatic","more magnificent"])+"!"
 				elif amtToAddPPSize < 0:
 					penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))

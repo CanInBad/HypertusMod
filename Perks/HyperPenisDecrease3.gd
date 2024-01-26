@@ -23,7 +23,7 @@ func getMoreDescription():
 		text = "Decreasing: [color=red]"+str(amount)+"%[/color]"
 	return sayParser.processString("[say=pc]So small, so cute![/say]\n" \
 	+ "You might need a micrometer to measure this one.\n" \
-	+ "This will require sleeping. Current state, "+text)
+	+ "This will require sleeping. \nCurrent state, "+text)
 
 func getSkillTier():
 	return 3
