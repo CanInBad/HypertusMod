@@ -10,7 +10,8 @@ func getVisibleName():
 	return "Cum Cannon"
 
 func getVisibleDescription():
-	return "Your balls refills and holds 1800% more"
+	return "Your balls refills and holds 1800% more\n" \
+	+ "Your balls fills up 20% after milked"
 
 func getMoreDescription():
 	return sayParser.processString("[say=pc]Test successful, I guess?[/say]\n...")

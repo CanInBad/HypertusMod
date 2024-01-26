@@ -25,8 +25,8 @@ func getProductionSpeedPerHour() -> float:
 
 func afterMilked(): # will this be used?
 	var pc = getCharacter()
-	if pc.hadPerk("HyperPenisFillAfterMill"):
-		fillPercent(75.0)
+	if pc.hadPerk("HyperCum4"):
+		fillPercent(20.0)
 
 func getFluidSource():
 	return FluidSource.Penis
