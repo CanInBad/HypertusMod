@@ -11,7 +11,7 @@ func getCompatibleSpecies():
 	return [Species.Any]
 
 func getCharacterCreatorDesc():
-	return "required to experience the hyper mod"
+	return "Required to experience the Hypertus mod"
 
 func getLewdAdjective():
 	return RNG.pick(["flared", "horse-shaped", "horse", "knotted"])

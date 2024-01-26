@@ -5,6 +5,9 @@ func _init():
 	id = "fluffmalebreastshyperable"
 	size = BreastsSize.FOREVER_FLAT
 
+func getCharacterCreatorDesc():
+	return "Required to experience the Hypertus mod"
+
 func getLewdAdjective():
 	return RNG.pick(["firm", "strong", "fluffy", "furry"])
 

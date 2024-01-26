@@ -5,6 +5,8 @@ func _init():
 	id = "fluffbreastshyperable"
 	size = breastSizeModClass.G
 
+func getCharacterCreatorDesc():
+	return "Required to experience the Hypertus mod"
 
 func getCompatibleSpecies():
 	return [Species.Any]

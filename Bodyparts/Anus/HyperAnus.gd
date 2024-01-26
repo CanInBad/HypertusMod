@@ -14,7 +14,7 @@ func getCharacterCreatorName():
 	return "Hyperable Anus" #THIS EXISTED????? if i know this faster i would 🥰
 
 func getCharacterCreatorDesc():
-	return "required to experience the hyper mod"
+	return "\nRequired to experience the Hypertus mod"
 
 func getTraits():
 	return {

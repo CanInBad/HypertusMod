@@ -14,7 +14,7 @@ func getCharacterCreatorName():
 	return "Hyperable Anus (with womb)"
 
 func getCharacterCreatorDesc():
-	return "Unique kind of anus that also has a connection to the womb. By picking this you will be able to get pregnant from having anal sex\nrequired to experience the hyper mod"
+	return "Unique kind of anus that also has a connection to the womb. By picking this you will be able to get pregnant from having anal sex\nRequired to experience the Hypertus mod"
 
 func getAttributesText():
 	var curAttribute = .getAttributesText()

@@ -10,6 +10,9 @@ func _init():
 func getCompatibleSpecies():
 	return ["avali"]	
 
+func getCharacterCreatorDesc():
+	return "Required to experience the Hypertus mod"
+
 func getBreastsScale():
 	var thesize = getSize()
 	return breastSizeModClass.breastSizeToBoneScale(thesize)

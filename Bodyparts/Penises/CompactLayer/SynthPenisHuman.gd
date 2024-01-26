@@ -16,7 +16,7 @@ func getDoll3DScene():
 	return "res://Modules/SynthSpecies/Bodyparts/SynthPenisHuman/SynthPenisHuman.tscn"
 
 func getCharacterCreatorDesc():
-	return "the oldest model of Synth penis. Sheath and human dick combined into one.\nrequired to experience the hyper mod"
+	return "the oldest model of Synth penis. Sheath and human dick combined into one.\nRequired to experience the Hypertus mod"
 
 func getTraits():
 	return {

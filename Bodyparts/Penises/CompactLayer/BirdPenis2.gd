@@ -6,6 +6,9 @@ func _init():
 	pickedGColor = Color.red
 	pickedBColor = Color.darkred
 
+func getCharacterCreatorDesc():
+	return "Required to experience the Hypertus mod"
+
 func getCompatibleSpecies():
 	return [Species.Any]
 

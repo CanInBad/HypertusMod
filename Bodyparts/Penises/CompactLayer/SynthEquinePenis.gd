@@ -63,7 +63,7 @@ func generateRandomColors(_dynamicCharacter):
 		pickedBColor.s = RNG.randf_rangeX2(0.7, 0.95)
 
 func getCharacterCreatorDesc():
-	return "a synthetic horsecock from a third party manufacturer, because why not?\nrequired to experience the hyper mod"
+	return "a synthetic horsecock from a third party manufacturer, because why not?\nRequired to experience the Hypertus mod"
 
 func shouldUseBigPump():
 	return true

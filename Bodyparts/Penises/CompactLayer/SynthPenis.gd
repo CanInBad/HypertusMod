@@ -23,4 +23,4 @@ func getTraits():
 	}
 
 func getCharacterCreatorDesc():
-	return "The latest and greatest of synth penis. Standard issue.\nrequired to experience the hyper mod"
+	return "The latest and greatest of synth penis. Standard issue.\nRequired to experience the Hypertus mod"

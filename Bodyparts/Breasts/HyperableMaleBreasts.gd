@@ -14,6 +14,8 @@ func getLewdName():
 
 	return RNG.pick(["manbreasts", "manboobs", "mantits", "jugs", "orbs"])
 
+func getCharacterCreatorDesc():
+	return "Required to experience the Hypertus mod"
 
 func getPickableAttributes():
 	# var result = .getPickableAttributes() # idk when this will be use in the base bodypart, until then this is real

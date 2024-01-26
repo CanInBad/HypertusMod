@@ -10,7 +10,7 @@ func getCompatibleSpecies():
 # currently does nothing, will have interaction with perks later
 
 func getCharacterCreatorDesc():
-	return "required to experience the hyper mod"
+	return "Required to experience the Hypertus mod"
 
 func getLewdSizeAdjective():
 	return ""
