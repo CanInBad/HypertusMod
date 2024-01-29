@@ -30,7 +30,7 @@ func react(_triggerID, _args):
 						sum += 1
 						
 				player.addSkillExperience(Skill.Breeder, sum * sum * 2)
-				if sum * sum * 2 <= 0:
+				if sum * sum * 2 > 0:
 					addMessage("You have been granted " + str(sum * sum * 2) + " XP in the breeder tree")
 			
 	if player.hasBodypart(BodypartSlot.Breasts):
@@ -55,7 +55,7 @@ func react(_triggerID, _args):
 						sum += 1
 
 				player.addSkillExperience(Skill.Milking, sum * sum * 2)
-				if sum * sum * 2 >= 0:
+				if sum * sum * 2 > 0:
 					addMessage("You have been granted " + str(sum * sum * 2) + " XP in the milking tree")
 
 	var sumHole:int = 0
@@ -95,7 +95,7 @@ func react(_triggerID, _args):
 						if not i in alreadyHad:
 							sumHole += 1
 	
-	if sumHole * sumHole * 2 >= 0:
+	if sumHole * sumHole * 2 > 0:
 		player.addSkillExperience(Skill.CumLover, sumHole * sumHole * 2)
 		addMessage("You have been granted " + str(sumHole * sumHole * 2) + " XP in the cum lover tree")
 
@@ -130,6 +130,6 @@ func react(_triggerID, _args):
 						if not i in alreadyHad:
 							sumWomb += 1
 
-	if sumWomb * sumWomb * 3 >= 0:
+	if sumWomb * sumWomb * 3 > 0:
 		player.addSkillExperience(Skill.Fertility, sumWomb * sumWomb * 3)
 		addMessage("You have been granted " + str(sumWomb * sumWomb * 3) + " XP in the fertility tree")
