@@ -20,9 +20,3 @@ func getDoll3DScene():
 	if(thesize <= breastSizeModClass.FLAT):
 		return "res://Modules/FluffBodyPartsV3/Bodyparts/FluffFlat/FluffBreastsFlat.tscn"
 	return "res://Modules/FluffBodyPartsV3/Bodyparts/FluffBreasts/FluffBreasts.tscn"
-
-
-func generateDataFor(_dynamicCharacter):
-	size = RNG.pick([
-		breastSizeModClass.A, breastSizeModClass.B, breastSizeModClass.C, breastSizeModClass.D, breastSizeModClass.DD, breastSizeModClass.DDD,
-	])

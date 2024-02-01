@@ -144,13 +144,16 @@ func getRevealMessage():
 	return Util.capitalizeFirstLetter(getLewdDescriptionAndName()) + " got revealed."
 
 func generateDataFor(_dynamicCharacter):
-	lengthCM = RNG.randf_range(10.0, 25.0)
-	if(RNG.chance(5)):
+	lengthCM = RNG.randf_range(25.0, 50.0)
+	if(RNG.chance(1)):
 		lengthCM = RNG.randf_range(5.0, 10.0)
 	if(RNG.chance(5)):
-		lengthCM = RNG.randf_range(25.0, 30.0)
+		lengthCM = RNG.randf_range(10.0, 25.0)
+	if(RNG.chance(5)):
+		lengthCM = RNG.randf_range(50.0, 75.0)
+	if(RNG.chance(5)):
+		lengthCM = RNG.randf_range(75.0, 100.0)
 	lengthCM = Util.roundF(lengthCM, 1)
-	
 	if(fluidProduction != null):
 		fluidProduction.fillPercent(min(1.0, RNG.randf_range(0.8, 1.2)))
 	generateRandomColors(_dynamicCharacter)
@@ -183,7 +186,7 @@ func generateRandomColors(_dynamicCharacter):
 		pickedBColor.v = RNG.randf_rangeX2(0.7, 0.95)
 		pickedBColor.s = RNG.randf_rangeX2(0.7, 0.95)
 
-func setLength(length):
+func setLength(length:float):
 	lengthCM = length
 
 func shouldUseBigPump():

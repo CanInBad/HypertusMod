@@ -53,4 +53,4 @@ func safeWhenExposed():
 	return false
 
 func generateDataFor(_dynamicCharacter):
-	pass
+	return RNG.pick([breastSizeModClass.FOREVER_FLAT, breastSizeModClass.FLAT])

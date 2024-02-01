@@ -29,17 +29,17 @@ func getTraits():
 		"Hyperable": true,
 	}
 
-func generateDataFor(_dynamicCharacter):
-	lengthCM = RNG.randf_range(20.0, 30.0)
-	if(RNG.chance(5)):
-		lengthCM = RNG.randf_range(10.0, 20.0)
-	if(RNG.chance(5)):
-		lengthCM = RNG.randf_range(30.0, 40.0)
-	lengthCM = Util.roundF(lengthCM, 1)
+# func generateDataFor(_dynamicCharacter):
+# 	lengthCM = RNG.randf_range(20.0, 30.0)
+# 	if(RNG.chance(5)):
+# 		lengthCM = RNG.randf_range(40.0, 85.0)
+# 	if(RNG.chance(5)):
+# 		lengthCM = RNG.randf_range(30.0, 40.0)
+# 	lengthCM = Util.roundF(lengthCM, 1)
 
-	if(fluidProduction != null):
-		fluidProduction.fillPercent(min(1.0, RNG.randf_range(0.8, 1.2)))
-	generateRandomColors(_dynamicCharacter)
+# 	if(fluidProduction != null):
+# 		fluidProduction.fillPercent(min(1.0, RNG.randf_range(0.8, 1.2)))
+# 	generateRandomColors(_dynamicCharacter)
 	
 func generateRandomColors(_dynamicCharacter):
 	var theHue = RNG.randf_range(0.0, 0.1)

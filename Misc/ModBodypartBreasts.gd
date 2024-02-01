@@ -161,3 +161,16 @@ func getBreastsAdjustScale():
 
 func getRevealMessage():
 	return Util.capitalizeFirstLetter(getLewdDescriptionAndName()) + " got revealed."
+
+func generateDataFor(_dynamicCharacter):
+	size = RNG.pick([
+	RNG.pick([
+		breastSizeModClass.A, breastSizeModClass.B, breastSizeModClass.C, breastSizeModClass.D, breastSizeModClass.DD, breastSizeModClass.DDD,
+	]),
+	RNG.pick([
+		breastSizeModClass.G, breastSizeModClass.H, breastSizeModClass.I, breastSizeModClass.J, breastSizeModClass.L, breastSizeModClass.M
+	]),
+	RNG.pick([
+		breastSizeModClass.N, breastSizeModClass.O, breastSizeModClass.P, breastSizeModClass.Q, breastSizeModClass.R, breastSizeModClass.S, breastSizeModClass.T
+	])
+	])

@@ -24,7 +24,7 @@ func safeWhenExposed():
 	return false
 
 func generateDataFor(_dynamicCharacter):
-	pass
+	return RNG.pick([breastSizeModClass.FOREVER_FLAT, breastSizeModClass.FLAT])
 
 func getPickableAttributes():
 	# var result = .getPickableAttributes() # idk when this will be use in the base bodypart, until then this is real

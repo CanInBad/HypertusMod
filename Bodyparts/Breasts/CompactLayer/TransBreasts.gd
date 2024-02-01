@@ -21,7 +21,7 @@ func safeWhenExposed():
 		return true
 
 func generateDataFor(_dynamicCharacter):
-	pass
+	return RNG.pick([breastSizeModClass.FOREVER_FLAT, breastSizeModClass.FLAT])		
 
 func getCharacterCreatorDesc():
 	return "Npcs wont generate with this sadly" \

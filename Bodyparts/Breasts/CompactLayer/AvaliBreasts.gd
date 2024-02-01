@@ -23,7 +23,3 @@ func getDoll3DScene():
 		return "res://Modules/Avali Species/BodyParts/AvaliBreastsFlat/AvaliBreastsFlat.tscn"
 	return "res://Modules/Avali Species/BodyParts/AvaliBreastsScaleable/AvaliBreastsScaleable.tscn"
 
-func generateDataFor(_dynamicCharacter): # does this even work?
-	size = RNG.pick([
-		breastSizeModClass.A, breastSizeModClass.B, breastSizeModClass.C, breastSizeModClass.D, breastSizeModClass.DD, breastSizeModClass.DDD,
-	])

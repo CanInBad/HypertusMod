@@ -46,11 +46,5 @@ func getTraits():
 		"Hyperable": true,
 	}
 
-func generateDataFor(_dynamicCharacter):
-	size = RNG.pick([
-		breastSizeModClass.A, breastSizeModClass.B, breastSizeModClass.C, breastSizeModClass.D, breastSizeModClass.DD, breastSizeModClass.DDD,
-	])
-
-
 func getCharacterCreatorDesc():
 	return "Required to experience the Hypertus mod"
