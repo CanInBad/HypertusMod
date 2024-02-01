@@ -20,7 +20,9 @@ func getRequiredPerks():
 	return ["HyperVirility2"]
 
 func hiddenWhenLocked() -> bool:
-	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
+	var penisPartHas:bool = false
+	if npc != null:
+		penisPartHas = npc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
 	if !penisPartHas:
 		return true
 	return false

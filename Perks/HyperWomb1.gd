@@ -41,11 +41,14 @@ func getBuffs():
 	]
 
 func hiddenWhenLocked() -> bool:
-	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
-	var assPartHas:bool
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable") and \
-	   	GM.pc.getBodypart(BodypartSlot.Anus).hasWomb():
-			assPartHas = true
-	if pussyPartHas or assPartHas:
+	var curNPC = npc
+	var pussyPartHas:bool = false
+	var assPartHas:bool = false
+	var assPartWomb:bool = false
+	if curNPC!=null:
+		pussyPartHas = curNPC.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
+		assPartHas = curNPC.bodypartHasTrait(BodypartSlot.Anus,"Hyperable")
+		assPartWomb = curNPC.getBodypart(BodypartSlot.Anus).hasWomb()
+	if pussyPartHas or (assPartHas && assPartWomb):
 		return false
 	return true

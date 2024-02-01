@@ -35,7 +35,9 @@ func getCost():
 	return 16
 
 func hiddenWhenLocked() -> bool:
-	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
+	var penisPartHas:bool = false
+	if npc != null:
+		penisPartHas = npc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
 	if !penisPartHas:
 		return true
 	return false
@@ -43,20 +45,15 @@ func hiddenWhenLocked() -> bool:
 # func toggleable():
 # 	return false
 func onPerkToggled(_isEnabledNow):
-	if _isEnabledNow:
-		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-17)
-	else:
-		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",17)
+	if npc == GM.pc:
+		if _isEnabledNow:
+			GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-17)
+		else:
+			GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",17)
 	
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/Perks/SmallerDong.png"
 
 func runOnceWhenLearned():
-	GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-17)
-	# var pc = GM.pc 
-	# var penis = pc.getBodypart(BodypartSlot.Penis)
-	# penis.setLength(int(ceil((penis.getLength()*3.0/100.0) * penis.getLength())))
-	# pc.addLust(int(ceil((pc.lustThreshold()*3.0/100.0) * pc.getLust())))
-	# GM.main.say("\""+RNG.pick(["Wha- What\'s happening down there", "Mmmm~, it feels so good", "Uhhh, this might be a problem later"])+"\"\nMaybe if you walk abit the feeling might go away")
-	# ok fine im going to use scene to increase the thing
-	# GM.main.runScene("HyperIncreasePPLength", [3])
+	if npc == GM.pc:
+		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-17)

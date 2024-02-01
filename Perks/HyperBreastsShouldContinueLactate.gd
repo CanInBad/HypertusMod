@@ -29,7 +29,10 @@ func getPicture():
 	return "res://Modules/Z_Hypertus/Images/Perks/HyperBreastsShouldContinueLactate.png"
 
 func hiddenWhenLocked() -> bool:
-	var breastsPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"Hyperable")
-	if !breastsPartHas: 
-		return true
-	return false
+	if npc != null:
+		var breastsPartHas = npc.bodypartHasTrait(BodypartSlot.Breasts,"Hyperable")
+		if npc.getBodypart(BodypartBreasts).getSize() < 0:
+			return true
+		if breastsPartHas: 
+			return false 
+	return true

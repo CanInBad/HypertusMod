@@ -183,11 +183,13 @@ func announceCurrentEnabledCompactLayer(theDict:Dictionary):
 		if theDict[modindex]["enabled"]:
 			numberOfMods += 1
 	if numberOfMods>0:
+		var text:String = ""
 		Log.print("  ### "+id+": at least a compatibility layer is activated, in summary we have:")
 		for modindex in theDict.keys():
 			if theDict[modindex]["enabled"]:
 				var modauthor = theDict[modindex]["author"]
-				Log.print("    - "+modindex+", by: "+modauthor)
+				text += "    - "+modindex+", by: "+modauthor+ "\n"
+		Log.print(text)
 		return true
 	return false
 

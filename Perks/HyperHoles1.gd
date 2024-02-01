@@ -9,7 +9,7 @@ func _init():
 func getVisibleName():
 	return "Fuck Toy Ⅰ"
 
-func getVisibleDescription():
+func getVisibleDescription(): # boy I sure hope npc wont crash you with this
 	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
 	var assPartHas:bool
 	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable") and \
@@ -23,14 +23,16 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]I have a built in lube?[/say]\n" \
 	+ "They will update every in game hour")
 
-func getRequiredPerks():
-	return [Perk.CumUniqueBiology]
+# func getRequiredPerks():
+# 	return [Perk.CumUniqueBiology]
 
 func hiddenWhenLocked() -> bool:
-	var pussyPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
-	var assPartHas:bool
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
-			assPartHas = true
+	var curNPC = npc
+	var pussyPartHas:bool = false
+	var assPartHas:bool = false
+	if curNPC!=null:
+		pussyPartHas = curNPC.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
+		assPartHas = curNPC.bodypartHasTrait(BodypartSlot.Anus,"Hyperable")
 	if pussyPartHas or assPartHas:
 		return false
 	return true

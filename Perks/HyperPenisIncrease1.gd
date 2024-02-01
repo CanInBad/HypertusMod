@@ -32,7 +32,9 @@ func getCost():
 	return 8
 
 func hiddenWhenLocked() -> bool:
-	var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
+	var penisPartHas:bool = false
+	if npc != null:
+		penisPartHas = npc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
 	if !penisPartHas:
 		return true
 	return false
@@ -40,16 +42,18 @@ func hiddenWhenLocked() -> bool:
 # func toggleable():
 # 	return false
 func onPerkToggled(_isEnabledNow):
-	if _isEnabledNow:
-		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",3)
-	else:
-		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-3)
+	if npc == GM.pc:
+		if _isEnabledNow:
+			GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",3)
+		else:
+			GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-3)
 	
 func getPicture():
 	return "res://Modules/Z_Hypertus/Images/Perks/ExpandDong.png"
 
 func runOnceWhenLearned():
-	GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",3)
+	if npc == GM.pc:
+		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",3)
 	# var pc = GM.pc 
 	# var penis = pc.getBodypart(BodypartSlot.Penis)
 	# penis.setLength(int(ceil((penis.getLength()*3.0/100.0) * penis.getLength())))

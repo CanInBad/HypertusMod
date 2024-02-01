@@ -33,9 +33,9 @@ func getPicture():
 	return "res://Images/Perks/badge.png"
 
 func checkHas(bodyslot):
-	if GM.pc != null:
-		if GM.pc.hasBodypart(bodyslot):
-			if GM.pc.bodypartHasTrait(bodyslot,"Hyperable"):
+	if npc != null:
+		if npc.hasBodypart(bodyslot):
+			if npc.bodypartHasTrait(bodyslot,"Hyperable"):
 				return true
 	return false
 

@@ -46,11 +46,11 @@ func getBuffs():
 	]
 
 func hiddenWhenLocked() -> bool:
-	var breastsPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"Hyperable")
-
-	if !breastsPartHas or (GM.pc.getBodypart(BodypartSlot.Breasts).getBaseSize() == -1\
-		and GM.pc.bodypartHasTrait(BodypartSlot.Breasts,"Hyperable")): # get rid of flat chest
-
-		return true
-
-	return false
+	var curNPC = npc
+	var breastsPartHas:bool = false
+	if npc!=null:
+		breastsPartHas = curNPC.bodypartHasTrait(BodypartSlot.Breasts,"Hyperable")
+		if !(curNPC.getBodypart(BodypartSlot.Breasts).getBaseSize() < 0):
+			if breastsPartHas:
+				return false
+	return true
