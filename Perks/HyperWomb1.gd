@@ -41,7 +41,7 @@ func getBuffs():
 	]
 
 func hiddenWhenLocked() -> bool:
-	var curNPC = npc
+	var curNPC = GM.pc
 	var pussyPartHas:bool = false
 	var assPartHas:bool = false
 	var assPartWomb:bool = false

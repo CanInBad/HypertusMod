@@ -52,21 +52,8 @@ func getPicture():
 
 func getBuffs():
 	var allBuffs = []
-	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable"):
+	if npc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable"):
 		allBuffs.append(buff("HyperVaginaCapacity", [100]))
-		# allBuffs.append(buff("HyperVaginaResistance", [20]))
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
+	if npc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 		allBuffs.append(buff("HyperAnusCapacity", [100]))
-		# allBuffs.append(buff("HyperAnusResistance", [20]))
 	return allBuffs
-
-# func onSexStarted(_context = {}):
-# 	if !GM.pc.hasEffect(StatusEffect.LubedUp):
-# 		GM.main.setModuleFlag("Hypertus","HyperHoleGainLubed",true)
-# 		GM.pc.addEffect(StatusEffect.LubedUp, [10*60])
-
-# func onSexEnded(_context = {}):
-# 	if GM.main.getModuleFlag("Hypertus","HyperHoleGainLubed",false):
-# 		if GM.pc.hasEffect(StatusEffect.LubedUp):
-# 			GM.main.setModuleFlag("Hypertus","HyperHoleGainLubed",false)
-# 			GM.pc.removeEffect(StatusEffect.LubedUp)

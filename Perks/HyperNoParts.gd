@@ -33,19 +33,14 @@ func getPicture():
 	return "res://Images/Perks/badge.png"
 
 func checkHas(bodyslot):
-	if npc != null:
-		if npc.hasBodypart(bodyslot):
-			if npc.bodypartHasTrait(bodyslot,"Hyperable"):
+	if GM.pc != null:
+		if GM.pc.hasBodypart(bodyslot):
+			if GM.pc.bodypartHasTrait(bodyslot,"Hyperable"):
 				return true
 	return false
 
 func hiddenWhenLocked() -> bool:
-	for i in [
-		BodypartSlot.Breasts,
-		BodypartSlot.Penis,
-		BodypartSlot.Anus,
-		BodypartSlot.Vagina
-	]:
+	for i in [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Anus, BodypartSlot.Vagina]:
 		if checkHas(i):
 			return true
 

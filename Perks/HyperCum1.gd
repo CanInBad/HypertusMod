@@ -35,8 +35,8 @@ func getBuffs():
 	]
 
 func hiddenWhenLocked() -> bool:
-	if npc != null:
-		var penisPartHas = npc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
+	if GM.pc != null:
+		var penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
 		if penisPartHas:
 			return false
 	return true

@@ -20,7 +20,7 @@ func getMoreDescription():
 # 	return []
 
 func hiddenWhenLocked() -> bool:
-	var curNPC = npc
+	var curNPC = GM.pc
 	var pussyPartHas:bool = false
 	var assPartHas:bool = false
 	if curNPC!=null:

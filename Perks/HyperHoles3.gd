@@ -26,7 +26,7 @@ func getRequiredPerks():
 	return ["HyperHoles2"]
 
 func hiddenWhenLocked() -> bool:
-	var curNPC = npc
+	var curNPC = GM.pc
 	var pussyPartHas:bool = false
 	var assPartHas:bool = false
 	if curNPC!=null:
@@ -47,10 +47,10 @@ func getPicture():
 
 func getBuffs():
 	var allBuffs = []
-	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable"):
+	if npc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable"):
 		allBuffs.append(buff("HyperVaginaElasticity", [430]))
 		allBuffs.append(buff("HyperVaginaResistance", [30]))
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
+	if npc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 		allBuffs.append(buff("HyperAnusElasticity", [430]))
 		allBuffs.append(buff("HyperAnusResistance", [30]))
 	return allBuffs

@@ -8,7 +8,7 @@ func getFlags():
 		"HyperPenisExpansionAmount": flag(FlagType.Number),
 		"HyperLevelMaxed": flag(FlagType.Bool),
 		"HyperLevelMaxedSeenMessage": flag(FlagType.Bool),
-		"HyperHoleGainLubed": flag(FlagType.Bool),
+		# "HyperHoleGainLubed": flag(FlagType.Bool),
 		# "HyperIntroPrompt": flag(FlagType.Bool),
 	}
 

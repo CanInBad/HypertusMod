@@ -1,6 +1,7 @@
 extends PerkBase
 
 var sayParser = SayParser.new()
+var gainLube:bool = false
 
 func _init():
 	id = "HyperHoles1"
@@ -27,7 +28,7 @@ func getMoreDescription():
 # 	return [Perk.CumUniqueBiology]
 
 func hiddenWhenLocked() -> bool:
-	var curNPC = npc
+	var curNPC = GM.pc
 	var pussyPartHas:bool = false
 	var assPartHas:bool = false
 	if curNPC!=null:
@@ -48,21 +49,21 @@ func getPicture():
 
 func getBuffs():
 	var allBuffs = []
-	if GM.pc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable"):
+	if npc.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable"):
 		allBuffs.append(buff("HyperVaginaElasticity", [20]))
 		allBuffs.append(buff("HyperVaginaResistance", [20]))
-	if GM.pc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
+	if npc.bodypartHasTrait(BodypartSlot.Anus,"Hyperable"):
 		allBuffs.append(buff("HyperAnusElasticity", [20]))
 		allBuffs.append(buff("HyperAnusResistance", [20]))
 	return allBuffs
 
 func onSexStarted(_context = {}):
-	if !GM.pc.hasEffect(StatusEffect.LubedUp):
-		GM.main.setModuleFlag("Hypertus","HyperHoleGainLubed",true)
-		GM.pc.addEffect(StatusEffect.LubedUp, [10*60])
+	if !npc.hasEffect(StatusEffect.LubedUp):
+		gainLube = true
+		npc.addEffect(StatusEffect.LubedUp, [10*60])
 
 func onSexEnded(_context = {}):
-	if GM.main.getModuleFlag("Hypertus","HyperHoleGainLubed",false):
-		if GM.pc.hasEffect(StatusEffect.LubedUp):
-			GM.pc.removeEffect(StatusEffect.LubedUp)
-		GM.main.setModuleFlag("Hypertus","HyperHoleGainLubed",false)
+	if gainLube:
+		if npc.hasEffect(StatusEffect.LubedUp):
+			npc.removeEffect(StatusEffect.LubedUp)
+		gainLube = false
