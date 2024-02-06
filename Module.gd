@@ -99,7 +99,7 @@ func _init():
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
 		"res://Modules/Z_Hypertus/Scenes/HyperChangePPLength.gd",
-		# "res://Modules/Z_Hypertus/Scenes/RayGunScene.gd"
+		"res://Modules/Z_Hypertus/Scenes/RayGunScene.gd"
 	]
 	events = [
 		"res://Modules/Z_Hypertus/Events/CustomizationButton.gd",
@@ -109,15 +109,24 @@ func _init():
 		"res://Modules/Z_Hypertus/Events/NoHyperablePart.gd",
 	]
 	items = [
-		# "res://Modules/Z_Hypertus/Item/Raygun.gd"
+		"res://Modules/Z_Hypertus/Item/Raygun.gd"
+	]
+	sexActivities = [
+		"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubPenis.gd",
+		"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfPenis.gd",
+		"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubBreast.gd",
+		"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfBreast.gd",
 	]
 
 	if OS.has_feature("editor"):
 		Log.print("/// "+id+": detect that we're in editor")
 		events.append("res://Modules/Z_Hypertus/Events/debugPrintStuff.gd")
-		scenes.append("res://Modules/Z_Hypertus/Scenes/RayGunScene.gd")
-		items.append("res://Modules/Z_Hypertus/Item/Raygun.gd")
-		sexActivities.append("res://Modules/Z_Hypertus/Scenes/SexActivity/DomRayGunUseOnPenisIncreaseSub.gd")
+	# 	scenes.append("res://Modules/Z_Hypertus/Scenes/RayGunScene.gd")
+	# 	items.append("res://Modules/Z_Hypertus/Item/Raygun.gd")
+	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubPenis.gd")
+	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfPenis.gd")
+	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubBreast.gd")
+	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfBreast.gd")
 
 	var _listBodyPartsCompactLayers = {
 		"Knotted Horse Cock": {

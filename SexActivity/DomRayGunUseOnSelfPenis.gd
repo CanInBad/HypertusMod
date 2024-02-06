@@ -3,9 +3,11 @@ extends SexActivityBase
 var theGun:String = ""
 var oldSize:float = 0.0 # very dangerous!
 var newSize:float = 0.0
+var tick:int = 0
+
 
 func _init():
-    id = "DomRayGunUseOnPenisIncreaseSub"
+    id = "DomRayGunUseOnSelfPenis"
     startedByDom = true
     startedBySub = false
 
@@ -32,36 +34,36 @@ func getActivityBaseScore(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo:
 var allRaygunIDs = ["hypertusRayGun"] # sorry, I will do better.
 
 func canStartActivity(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexSubInfo):
-    var sub:BaseCharacter = _subInfo.getChar()
-    var subHyperable = checkHasHyperable(BodypartSlot.Penis,sub)
-    if !subHyperable:
-        # Log.print(sub.getName()+" doesn't have hyperable pp")
+    var dom:BaseCharacter = _domInfo.getChar()
+    var domHyperable = checkHasHyperable(BodypartSlot.Penis,dom)
+    if !domHyperable:
         return false
-    # Log.print(sub.getName()+" DOES have hyperable pp")
-    # return true # idk if this will have any consequences
     return .canStartActivity(_sexEngine, _domInfo, _subInfo)
 
 func getStartActions(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexSubInfo):
     var actions = []
     var dom:BaseCharacter = _domInfo.getChar()
-    var sub:BaseCharacter = _subInfo.getChar()
-    oldSize = sub.getBodypart(BodypartSlot.Penis).getLength()
+    # var sub:BaseCharacter = _subInfo.getChar()
+    oldSize = dom.getBodypart(BodypartSlot.Penis).getLength()
 
     if dom.isPlayer():
         # if checkHasHyperable(BodypartSlot.Penis, sub):
         for gun in dom.getInventory().getAllOf("hypertusRayGun"):
-            for amount in range(sub.getBodypart(BodypartSlot.Penis).getLength()+20.0,sub.getBodypart(BodypartSlot.Penis).getLength(),-5.0):
+            for amount in range(dom.getBodypart(BodypartSlot.Penis).getLength()+20.0,max(1.0,dom.getBodypart(BodypartSlot.Penis).getLength()-21.0),-5.0):
                 var toName = ""
+                var toDesc = ""
                 if amount-oldSize>0:
-                    toName = "[color=green]+"+str(amount-oldSize)+"[/color]"
+                    toName = "+"+Util.cmToString(amount-oldSize)
+                    toDesc = "+"+Util.cmToString(amount-oldSize)
                 else:
-                    toName = "[color=red]-"+str(amount-oldSize)+"[/color]"
+                    toName = Util.cmToString(amount-oldSize)
+                    toDesc = Util.cmToString(amount-oldSize)
                 actions.append({
                     name = toName,
-                    desc = gun.getVisisbleDescription(),
-                    args = ["sub", gun.uniqueID, amount],
+                    desc = toDesc,
+                    args = ["dom", gun.uniqueID, amount, oldSize],
                     score = 0.0,
-                    category = ["Use", "Penis Increase on Sub"]
+                    category = ["Use", "Resize Penis on Self"]
                 })
     else:
         # for id in allRaygunIDs:
@@ -80,7 +82,7 @@ func getStartActions(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexS
 func startActivity(_args):
     state = ""
 
-    if _args[0] == "sub":
+    if _args[0] == "dom":
         var rayGun:ItemBase
         if getDom().isPlayer():
             rayGun = getDom().getInventory().getItemByUniqueID(_args[1])
@@ -89,24 +91,66 @@ func startActivity(_args):
             rayGun = GlobalRegistry.createItem(_args[1])
             theGun = rayGun.uniqueID
         newSize = _args[2]
+        oldSize = _args[3]
   
         var text = RNG.pick([
-            "{dom.You} {dom.youVerb('shoot')} the "+rayGun.getCasualName()+" on {sub.you}.",
-            "{dom.You} {dom.youVerb('pull')} the "+rayGun.getCasualName()+"\'s trigger on {sub.you}.",
+            "{dom.You} {dom.youVerb('aim')} the "+rayGun.getCasualName()+" on {dom.yourself}.",
+            "{dom.You} {dom.youVerb('ready')} the "+rayGun.getCasualName()+"\'s trigger on {dom.yourself}.",
         ])
 
         return { text = text }
 
 func processTurn():
-    var sub = getSub()
+    var dom = getDom()
     if state == "":
-        if oldSize==newSize:
-            sub.getBodypart(BodypartSlot.Penis).setLength(newSize)
+        if (newSize == oldSize):
             endActivity()
-            var toText = "\nNew size: "+str(sub.getBodypart(BodypartSlot.Penis).getLength())+" ([color=green]+"+str(newSize-oldSize)+"[/color])"
+            return
+        
+        tick += 1
+
+        if(tick>1):
+            dom.getBodypart(BodypartSlot.Penis).setLength(newSize)
+            dom.updateAppearance()
+            var colorCode = ""
+            if newSize-oldSize>0: colorCode = "7CFC00]+"
+            else: colorCode = "FF4500]"
+
+            var number = " ([color=#"+colorCode+Util.cmToString(newSize-oldSize)+"[/color])"
+            var toText = "{dom.You} shot {dom.yourHis} "+str(dom.getBodypart(BodypartSlot.Penis).getLewdName())+"."\
+            +"\nNew size: "+Util.cmToString(dom.getBodypart(BodypartSlot.Penis).getLength())+number
+            
+            endActivity()
             return {
-                text = "{dom.You} shot {sub.yourHis} "+str(sub.getBodypart(BodypartSlot.Penis).getLewdName())+"."+toText,
+                text = toText,
             }
+
+# func getSubActions():
+#     var actions = []
+#     if(!getSub().hasBoundLegs()):
+#         actions.append({
+#                 "id": "resist",
+#                 # "score": subInfo.getResistScore() * 1.0 - subInfo.fetishScore({Fetish.Exhibitionism: 1.0}) * subInfo.getComplyScore(),
+#                 "score": 0.0, # not yet 
+#                 "name": "Dodge",
+#                 "desc": "You don't wanna be resized",
+#                 "chance": 70.0 - domInfo.getAngerScore()*60.0,
+#             })
+#     return actions
+
+# func doSubAction(_id, _actionInfo):
+# 	if(_id == "resist"):
+# 		if(RNG.chance(70.0 - domInfo.getAngerScore()*60.0)):
+# 			domInfo.addAnger(0.3)
+# 			endActivity()
+# 			return {
+# 				text = "{sub.You} {sub.youVerb('manage', 'managed')} to dodge {dom.yourHis} attempt to Blue'd.",
+# 				subSay=subReaction(SexReaction.ActivelyResisting, 50),
+# 			}
+		
+# 		domInfo.addAnger(0.1)
+# 		return {text = "{sub.You} {sub.youVerb('try', 'tries')} to resist {dom.yourHis} hands but {sub.youVerb('fail')}.",
+# 		subSay=subReaction(SexReaction.Resisting, 50)}
 
 
 func saveData():
@@ -115,6 +159,7 @@ func saveData():
     data["theGun"] = theGun
     data["oldSize"] = oldSize
     data["newSize"] = newSize
+    data["tick"] = tick
 
     return data
 
@@ -124,6 +169,7 @@ func loadData(data):
     theGun = SAVE.loadVar(data, "theGun", "")
     oldSize = SAVE.loadVar(data, "oldSize", 0.0)
     newSize = SAVE.loadVar(data, "newSize", 0.0)
+    tick = SAVE.loadVar(data, "tick", 0)
 
 func checkHasHyperable(bodyslot, _who:BaseCharacter): # this checks if _who have hyperable parts
     if _who != null:
