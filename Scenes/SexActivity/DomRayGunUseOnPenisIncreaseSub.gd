@@ -35,11 +35,11 @@ func canStartActivity(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: Sex
     var sub:BaseCharacter = _subInfo.getChar()
     var subHyperable = checkHasHyperable(BodypartSlot.Penis,sub)
     if !subHyperable:
-        Log.print(sub.getName()+" doesn't have hyperable pp")
+        # Log.print(sub.getName()+" doesn't have hyperable pp")
         return false
-    Log.print(sub.getName()+" DOES have hyperable pp")
-    return true # idk if this will have any consequences
-    # return .canStartActivity(_sexEngine, _domInfo, _subInfo)
+    # Log.print(sub.getName()+" DOES have hyperable pp")
+    # return true # idk if this will have any consequences
+    return .canStartActivity(_sexEngine, _domInfo, _subInfo)
 
 func getStartActions(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexSubInfo):
     var actions = []
