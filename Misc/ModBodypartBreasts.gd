@@ -174,3 +174,6 @@ func generateDataFor(_dynamicCharacter):
 		breastSizeModClass.N, breastSizeModClass.O, breastSizeModClass.P, breastSizeModClass.Q, breastSizeModClass.R, breastSizeModClass.S, breastSizeModClass.T
 	])
 	])
+
+func setBaseSize(_size):
+	size = _size

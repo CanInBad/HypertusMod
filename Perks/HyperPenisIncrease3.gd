@@ -53,12 +53,5 @@ func getPicture():
 	return "res://Modules/Z_Hypertus/Images/Perks/ExpandDong.png"
 
 func runOnceWhenLearned():
-	if npc == GM.pc:
+	# if npc == GM.pc:
 		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",30)
-	# var pc = GM.pc 
-	# var penis = pc.getBodypart(BodypartSlot.Penis)
-	# penis.setLength(int(ceil((penis.getLength()*3.0/100.0) * penis.getLength())))
-	# pc.addLust(int(ceil((pc.lustThreshold()*3.0/100.0) * pc.getLust())))
-	# GM.main.say("\""+RNG.pick(["Wha- What\'s happening down there", "Mmmm~, it feels so good", "Uhhh, this might be a problem later"])+"\"\nMaybe if you walk abit the feeling might go away")
-	# ok fine im going to use scene to increase the thing
-	# GM.main.runScene("HyperIncreasePPLength", [3])

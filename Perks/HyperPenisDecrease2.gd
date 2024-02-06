@@ -55,5 +55,5 @@ func getPicture():
 	return "res://Modules/Z_Hypertus/Images/Perks/SmallerDong.png"
 
 func runOnceWhenLearned():
-	if npc == GM.pc:
+	# if npc == GM.pc:
 		GM.main.increaseModuleFlag("Hypertus","HyperPenisExpansionAmount",-17)

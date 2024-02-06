@@ -99,6 +99,7 @@ func _init():
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
 		"res://Modules/Z_Hypertus/Scenes/HyperChangePPLength.gd",
+		# "res://Modules/Z_Hypertus/Scenes/RayGunScene.gd"
 	]
 	events = [
 		"res://Modules/Z_Hypertus/Events/CustomizationButton.gd",
@@ -107,6 +108,16 @@ func _init():
 		"res://Modules/Z_Hypertus/Events/AfterGotHyperPenisLengthChange.gd",
 		"res://Modules/Z_Hypertus/Events/NoHyperablePart.gd",
 	]
+	items = [
+		# "res://Modules/Z_Hypertus/Item/Raygun.gd"
+	]
+
+	if OS.has_feature("editor"):
+		Log.print("/// "+id+": detect that we're in editor")
+		events.append("res://Modules/Z_Hypertus/Events/debugPrintStuff.gd")
+		scenes.append("res://Modules/Z_Hypertus/Scenes/RayGunScene.gd")
+		items.append("res://Modules/Z_Hypertus/Item/Raygun.gd")
+		sexActivities.append("res://Modules/Z_Hypertus/Scenes/SexActivity/DomRayGunUseOnPenisIncreaseSub.gd")
 
 	var _listBodyPartsCompactLayers = {
 		"Knotted Horse Cock": {
