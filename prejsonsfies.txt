@@ -1,15 +1,19 @@
 
 [b]WARNING: This contains hyper stuff, if you dislike it then leave[/b]
 
-This mods [b]adds[/b] [i](not replace)[/i] new body parts that just like the normal ones but you can upgrade them in a new skill tree that came with this mod. Said body parts are in form of breast, penises, vagina, and anus. 
-The mod also have capability layers that use the looks of your favorite body parts/species mod that add one of the 4 body part categories mentioned.
+This mods [b]adds[b] [i](not replace)[/i] new body parts that just are like the normal ones but you can upgrade them in a new skill tree that comes with this mod.
+Said body parts are in form of breast, penises, vagina, and anus.
+This mod also have capability layers that use the looks of your favorite body parts mod, including ones from species mod that add one of the 4 body part categories mentioned.
 
-You gain experience points of said skill tree by invest in vanilla perks and then sleep, each time you wake up you will be notified how much of them you get. 
-You can then spend those point to add ridiculous amount of perks to your body parts. 
+You can gain experience points of said skill tree by invest in vanilla perks and then sleep, each time you wake up you will be notified how much of them you get.
+You can then spend those point to add ridiculous amount of perks to your body parts.
+Please do note that some perks might be hidden due to not meeting the requirement for the perk.
 
 There is a draft of the story but it isn't complete in anyway and some glimpse of it can be read in the perks' description.
 
-If you want to play Hypertus in your current save (not recommended), you have to enable debug mode and change bodyparts that you want a hyperable version of.
+There are compatibility layers mods that make all species including the modded one have the body parts this mod provides
+
+If you want to play Hypertus in your current save (not recommended), you have to enable debug mode and change body parts to be the hyperable version.
 
 Has compatibility layer between these mods:
  - Synth Species
@@ -23,8 +27,8 @@ If you have any feedback send it in #mods-discussion and ping me,
 or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 Changelog
- * Actually fixing penis pump with knotted horse cock
- * Added penis skins from base game
- * Reworked penises resize to make 1 cm achievable as well as making getting out of it more easy
- * Fixed one of the resizing perk not displaying detailed description
- * Added another effect to HyperCum4 due to penises being milkable 
+ * Removed all penis resize perks
+ * Added Raygun, sold by Alex if you have either hyperable penis or hyperable breasts, 25 creds
+ * Raygun can only be use to resize at the moment
+ * Raygun can now be used in combat
+ * Raygun can now be used in sex :scream:

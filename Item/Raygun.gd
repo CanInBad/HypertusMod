@@ -18,7 +18,7 @@ func canCombine(): return false
 
 func getItemCategory(): return ItemCategory.Weapons
 
-func getPrice(): return 100
+func getPrice(): return 25
 
 
 func getPossibleActions():
@@ -30,17 +30,10 @@ func getPossibleActions():
         },
     ]    
 
-# func useInSex(_receiver):
-# 	_receiver.addEffect(StatusEffect.SexAnaphrodisiacDrug)
-# 	_receiver.removeEffect(StatusEffect.SexHeatDrug)
-# 	return {
-# 		text = "{USER.You} {USER.youVerb('feel')} like {USER.youHe} lost passion for sex.".replace("USER", _receiver.getID()),
-# 	}
-
 func useInCombat(_attacker, _receiver):
     var receiverHas:bool = false
     if _receiver !=null:
-        for i in [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Anus, BodypartSlot.Vagina]:
+        for i in [BodypartSlot.Breasts, BodypartSlot.Penis,]: # BodypartSlot.Anus, BodypartSlot.Vagina]: # there are only 2 for now
             if checkHas(i, _receiver):
                 receiverHas = true
                 break
@@ -57,8 +50,8 @@ func checkHas(bodyslot, _who:BaseCharacter): # this checks if _who have hyperabl
                 return true
     return false
 
-func getTag():
-    for i in [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Anus, BodypartSlot.Vagina]:
+func getTags():
+    for i in [BodypartSlot.Breasts, BodypartSlot.Penis,]: # BodypartSlot.Anus, BodypartSlot.Vagina]: #there is only 2 sizes for now
         if checkHas(i, GM.pc):
             return [ItemTag.SoldByAlexRynard]
     return []

@@ -35,12 +35,7 @@ func getCost():
 	return 32
 
 func hiddenWhenLocked() -> bool:
-	var penisPartHas:bool = false
-	if GM.pc != null:
-		penisPartHas = GM.pc.bodypartHasTrait(BodypartSlot.Penis,"Hyperable")
-	if !penisPartHas:
-		return true
-	return false
+	return true
 
 func onPerkToggled(_isEnabledNow):
 	if npc == GM.pc:
