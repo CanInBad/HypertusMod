@@ -177,7 +177,7 @@ static func breastSizeToCupString(bsize:int): # so I have been googling and
     if(bsize <= 0):							  # seems good enough?
         return cupName
     if(bsize >= ALPHA):
-        return "Greek-Letter-Cup ("+cupName+")"
+        return "Greek-Letter-Cup ("+cupName+"-cup)"
     return cupName+"-cup"
 
 static func breastSizeToMilkAmount(bsize:int):

@@ -40,9 +40,9 @@ func _run():
             saynn("What part would you like to resize?")
 
             if checkHasHyperable(BodypartSlot.Breasts,_receiver):
-                addButton("Breast","resize them boobies","boobSizeSelect")
+                addButton("Breasts","resize them boobies","boobSizeSelect")
             else:
-                addDisabledButton("Breast","They don't have them boobies hyperable")
+                addDisabledButton("Breasts","They don't have them boobies hyperable")
 
             if checkHasHyperable(BodypartSlot.Penis,_receiver):
                 addButton("Penis","resize them shlong","penisSizeSelect")

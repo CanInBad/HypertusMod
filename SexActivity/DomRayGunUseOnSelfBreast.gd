@@ -52,11 +52,11 @@ func getStartActions(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexS
                 var toName = ""
                 var toDesc = ""
                 if amount-oldSize>0:
-                    toName = "+"+Util.cmToString(amount-oldSize)
-                    toDesc = "+"+Util.cmToString(amount-oldSize)
+                    toName = "+"+breastSizeMod.breastSizeToCupString(amount-oldSize)
+                    toDesc = "+"+breastSizeMod.breastSizeToCupString(amount-oldSize)
                 else:
-                    toName = Util.cmToString(amount-oldSize)
-                    toDesc = Util.cmToString(amount-oldSize)
+                    toName = breastSizeMod.breastSizeToCupString(amount-oldSize)
+                    toDesc = breastSizeMod.breastSizeToCupString(amount-oldSize)
                 actions.append({
                     name = toName,
                     desc = toDesc,
@@ -116,8 +116,8 @@ func processTurn():
             else: colorCode = "FF4500]"
 
             var number = " ([color=#"+colorCode+str(newSize-oldSize)+"[/color])"
-            var toText = "{dom.You} shot {sub.yourHis} "+str(dom.getBodypart(BodypartSlot.Breast).getLewdName())+"."\
-            +"\nNew size: "+breastSizeMod.breastSizeToCupString(dom.getBodypart(BodypartSlot.Breast).getsize())+number
+            var toText = "{dom.You} shot {sub.yourHis} "+str(dom.getBodypart(BodypartSlot.Breasts).getLewdName())+"."\
+            +"\nNew size: "+breastSizeMod.breastSizeToCupString(dom.getBodypart(BodypartSlot.Breasts).getsize())+number
             
             endActivity()
             return {
