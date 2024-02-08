@@ -20,3 +20,8 @@ func getDoll3DScene():
 	if(thesize <= breastSizeModClass.FLAT):
 		return "res://Modules/FluffBodyPartsV3/Bodyparts/FluffFlat/FluffBreastsFlat.tscn"
 	return "res://Modules/FluffBodyPartsV3/Bodyparts/FluffBreasts/FluffBreasts.tscn"
+
+func getTraits():
+	return {
+		"Hyperable": true,
+	}

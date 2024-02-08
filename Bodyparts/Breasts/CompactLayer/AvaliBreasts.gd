@@ -23,3 +23,7 @@ func getDoll3DScene():
 		return "res://Modules/Avali Species/BodyParts/AvaliBreastsFlat/AvaliBreastsFlat.tscn"
 	return "res://Modules/Avali Species/BodyParts/AvaliBreastsScaleable/AvaliBreastsScaleable.tscn"
 
+func getTraits():
+	return {
+		"Hyperable": true,
+	}

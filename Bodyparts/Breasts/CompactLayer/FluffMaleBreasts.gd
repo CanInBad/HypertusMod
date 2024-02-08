@@ -54,3 +54,8 @@ func getPickableAttributes():
 		"options": breastVariants,
 	}
 	return result
+
+func getTraits():
+	return {
+		"Hyperable": true,
+	}

@@ -48,7 +48,7 @@ func getStartActions(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexS
 
     if dom.isPlayer():
         for gun in dom.getInventory().getAllOf("hypertusRayGun"):
-            for amount in range(sub.getBodypart(BodypartSlot.Breasts).getBaseSize()+5,max(sub.getBodypart(BodypartSlot.Breasts).getBaseSize()-5,0),-1):
+            for amount in range(min(50,sub.getBodypart(BodypartSlot.Breasts).getBaseSize()+5),max(sub.getBodypart(BodypartSlot.Breasts).getBaseSize()-5,0),-1):
                 var toName = ""
                 var toDesc = ""
                 if amount-oldSize>0:

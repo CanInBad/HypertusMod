@@ -41,7 +41,7 @@ func useInCombat(_attacker, _receiver):
             return _receiver.getName() + " doesn't have any bluespace anomalies"
         GM.main.getCurrentFightScene().runScene("RayGunUse")
     GM.main.getCurrentScene().runScene("RayGunUse")
-    return "You holster your energy weapon."
+    return "{pc.You} holster {pc.your} energy weapon." # does this even work
 
 func checkHas(bodyslot, _who:BaseCharacter): # this checks if _who have hyperable parts
     if _who != null:

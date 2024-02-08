@@ -58,3 +58,8 @@ func getPickableAttributes():
 
 #func npcGenerationWeight(_dynamicCharacter):
 #	return 3.0
+
+func getTraits():
+	return {
+		"Hyperable": true,
+	}
