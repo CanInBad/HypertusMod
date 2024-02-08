@@ -117,7 +117,7 @@ func processTurn():
 
             var number = " ([color=#"+colorCode+str(newSize-oldSize)+"[/color])"
             var toText = "{dom.You} shot {sub.yourHis} "+str(sub.getBodypart(BodypartSlot.Breasts).getLewdName())+"."\
-            +"\nNew size: "+breastSizeMod.breastSizeToCupString(sub.getBodypart(BodypartSlot.Breasts).getsize())+number
+            +"\nNew size: "+breastSizeMod.breastSizeToCupString(sub.getBodypart(BodypartSlot.Breasts).getSize())+number
             
             endActivity()
             return {
