@@ -128,6 +128,8 @@ func _init():
 	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubBreast.gd")
 	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfBreast.gd")
 
+	moduleRegisterPartSkins()
+
 	var _listBodyPartsCompactLayers = {
 		"Knotted Horse Cock": {
 			"moduleid": "Knotted Horse Cock",
@@ -260,3 +262,30 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 				else:
 					logPrintOnDemand(id+": ## "+moduleName+" bodyparts compatibility layer successfully activated! ##\n")
 				curIndex["enabled"] = true
+
+func moduleRegisterPartSkins():
+	for i in [
+			"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable/Gradient.gd",
+			"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable/Lover.gd",
+			"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable/Piercing.gd",
+			"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable/Tribal.gd",
+
+			"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable/DragonGradient.gd",
+			"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable/DragonLover.gd",
+			"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable/DragonPiercing.gd",
+			"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable/DragonTribal.gd",
+			
+			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquineGradient.gd",
+			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquinePattern1.gd",
+			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquinePattern2.gd",
+			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquinePattern3.gd",
+			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquineTribal.gd",
+
+			"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable/FelineGradient.gd",
+			"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable/FelinePierced.gd",
+			"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable/FelineTribal.gd",
+
+			"res://Modules/Z_Hypertus/Partskins/HumanPenisHyperable/HumanTribal.gd",
+			"res://Modules/Z_Hypertus/Partskins/HumanPenisHyperable/HumanTwoTone.gd",
+			]:
+		GlobalRegistry.registerPartSkin(i,"AverageAce")
