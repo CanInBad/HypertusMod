@@ -48,15 +48,13 @@ func getStartActions(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexS
 
     if dom.isPlayer():
         for gun in dom.getInventory().getAllOf("hypertusRayGun"):
-            for amount in range(min(50,sub.getBodypart(BodypartSlot.Breasts).getBaseSize()+5),max(sub.getBodypart(BodypartSlot.Breasts).getBaseSize()-5,0),-1):
+            for amount in range(min(50,sub.getBodypart(BodypartSlot.Breasts).getBaseSize()+5),max(sub.getBodypart(BodypartSlot.Breasts).getBaseSize()-5,-2),-1):
                 var toName = ""
                 var toDesc = ""
-                if amount-oldSize>0:
-                    toName = "+"+breastSizeMod.breastSizeToCupString(amount-oldSize)
-                    toDesc = "+"+breastSizeMod.breastSizeToCupString(amount-oldSize)
-                else:
-                    toName = breastSizeMod.breastSizeToCupString(amount-oldSize)
-                    toDesc = breastSizeMod.breastSizeToCupString(amount-oldSize)
+                toName = breastSizeMod.breastSizeToCupString(amount)
+                toDesc = breastSizeMod.breastSizeToCupString(amount)
+                if amount == sub.getBodypart(BodypartSlot.Breasts).getBaseSize():
+                    continue
                 actions.append({
                     name = toName,
                     desc = toDesc,
@@ -113,7 +111,7 @@ func processTurn():
             sub.updateAppearance()
             var colorCode = ""
             if newSize-oldSize>0: colorCode = "7CFC00]+"
-            else: colorCode = "FF4500]-"
+            else: colorCode = "FF4500]"
 
             var number = " ([color=#"+colorCode+str(newSize-oldSize)+"[/color])"
             var toText = "{dom.You} shot {sub.yourHis} "+str(sub.getBodypart(BodypartSlot.Breasts).getLewdName())+"."\

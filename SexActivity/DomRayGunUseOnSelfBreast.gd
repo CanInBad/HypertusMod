@@ -51,12 +51,10 @@ func getStartActions(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexS
             for amount in range(min(50,dom.getBodypart(BodypartSlot.Breasts).getBaseSize()+5),max(dom.getBodypart(BodypartSlot.Breasts).getBaseSize()-5,0),-1):
                 var toName = ""
                 var toDesc = ""
-                if amount-oldSize>0:
-                    toName = "+"+breastSizeMod.breastSizeToCupString(amount-oldSize)
-                    toDesc = "+"+breastSizeMod.breastSizeToCupString(amount-oldSize)
-                else:
-                    toName = breastSizeMod.breastSizeToCupString(amount-oldSize)
-                    toDesc = breastSizeMod.breastSizeToCupString(amount-oldSize)
+                toName = breastSizeMod.breastSizeToCupString(amount)
+                toDesc = breastSizeMod.breastSizeToCupString(amount)
+                if amount == dom.getBodypart(BodypartSlot.Breasts).getBaseSize():
+                    continue
                 actions.append({
                     name = toName,
                     desc = toDesc,
