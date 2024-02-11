@@ -27,8 +27,8 @@ If you have any feedback send it in #mods-discussion and ping me,
 or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 Changelog
- * Removed all penis resize perks
- * Added Raygun, sold by Alex if you have either hyperable penis or hyperable breasts, 25 creds
- * Raygun can only be use to resize at the moment
- * Raygun can now be used in combat
- * Raygun can now be used in sex :scream:
+ * Fixed crashing when resizing other inmates' breasts in sex
+ * Fixed modded compatibility layer parts not having "Hyperable" attribute
+ * Fixed strings related to using raygun with breasts
+ * Make it a module's job to register part skin by ace that was recently merged with the base game
+ * Capped max size limit for breasts when using raygun to OMEGA

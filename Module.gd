@@ -3,7 +3,7 @@ var fileClass = File.new()
 
 func getFlags():
 	return {
-		"HyperPenisCustomSize": flag(FlagType.Number),
+		"HyperPenisCustomSize": flag(FlagType.Text),
 		"HyperPenisExperiencedExpansion": flag(FlagType.Bool),
 		"HyperPenisExpansionAmount": flag(FlagType.Number),
 		"HyperLevelMaxed": flag(FlagType.Bool),

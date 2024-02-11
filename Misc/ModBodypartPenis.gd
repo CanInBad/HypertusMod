@@ -63,7 +63,7 @@ func getLewdName():
 # static func bruh():
 
 func getPickableAttributes():
-	var customValue = GM.main.getFlag("Hypertus.HyperPenisCustomSize", 60)
+	var customValue = float(GM.main.getFlag("Hypertus.HyperPenisCustomSize", "60"))
 	var result = .getPickableAttributes()
 	result["cocksize"] = {
 		"text": "Pick your hyper cock's length",
@@ -82,9 +82,8 @@ func getPickableAttributes():
 			[70, Util.cmToString(70), "Pick this length"],
 			[85, Util.cmToString(85), "Pick this length"],
 			[100, Util.cmToString(100), "Pick this length (maybe too hyper)"],
-			[max(customValue,1), "Custom: "+Util.cmToString(max(customValue,1)), "Pick custom one (might have unintented consequences)"]
-			# better max(x,1) than sorry
-		]
+			[Util.roundF(float(customValue),1), "Custom: "+Util.cmToString(Util.roundF(float(customValue),1)), "Pick custom one (might have unintented consequences)"]
+		]	# the customValue is already sanitised at the set size scene but just in case ppl use debug menu to go wrong
 	}
 	result["ballsscale"] = {
 		"text": "Pick your balls scale (no effect with perks)",
