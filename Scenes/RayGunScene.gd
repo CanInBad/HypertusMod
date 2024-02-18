@@ -47,6 +47,9 @@ func _run():
                 addButton("Induce lactation", "Foce", "induceLactation")
             else:
                 addDisabledButton("Induce lactation",_receiver.getName()+" does not have any hyperable breasts")
+            
+            # if checkHasHyperable(BodypartSlot.Vagina,_receiver):
+            #     addButton("")
 
             addButton("Nothing", "", "endScene")
         "resizeMenu":
@@ -99,7 +102,10 @@ func _run():
             addButton("Back", "go back", "resizeMenu") # making sure that its always in front
             for i in [0.0,0.2,0.5,0.8,1.0,1.2,1.5,1.8,2.0,2.5,3.0,4.0,5.0,10.0]:
                 addButton(str(int(i*100))+"%", "Select "+str(int(i*100))+"%", "ballsResize", [i])
-
+       
+        _:
+            addMessage("It appears to be an error, please tell the developer what you did and maybe provide save.")
+            addButton("OK?","I didn\'t know what happened but alright","")
 
 func _react(_action: String, _args):
     if _action == "endScene":
@@ -119,12 +125,12 @@ func _react(_action: String, _args):
         return
 
     if _action == "boobResize":
-        # oldSize = _receiver.getBodypart(BodypartSlot.Breasts).getSize()
-        addMessage(_receiver.getName()+ " just got "+_receiver.hisHer()+" "+ _receiver.getBodypart(BodypartSlot.Breasts).getLewdName()+" resized!")
+        oldSize = _receiver.getBodypart(BodypartSlot.Breasts).getSize()
+        addMessage(_receiver.getName()+ " just got "+_receiver.hisHer()+" "+ _receiver.getBodypart(BodypartSlot.Breasts).getLewdName()+" resized! (from "+oldSize+")")
         _receiver.getBodypart(BodypartSlot.Breasts).setBaseSize(_args[0])
         _receiver.updateAppearance()
         
-        if calledFrom != 0 : setState("endScene")
+        if calledFrom != 0 : setState("endScene") # end the scene if called from combat
         else: setState("")
         return
 
@@ -134,7 +140,7 @@ func _react(_action: String, _args):
         _receiver.getBodypart(BodypartSlot.Penis).setLength(_args[0])
         _receiver.updateAppearance()
         
-        if calledFrom != 0 : setState("endScene")
+        if calledFrom != 0 : setState("endScene") # end the scene if called from combat
         else: setState("")
         return
 
@@ -143,7 +149,7 @@ func _react(_action: String, _args):
         _receiver.updateAppearance()
         addMessage(_receiver.getName()+" just got "+_receiver.hisHer()+" "+RNG.pick(["balls","testicles","churning bags","male milk storage","•"])+" resized!")
         
-        if calledFrom != 0 : setState("endScene")
+        if calledFrom != 0 : setState("endScene") # end the scene if called from combat
         else: setState("")
         return
 
@@ -151,7 +157,7 @@ func _react(_action: String, _args):
         _receiver.induceLactation()
         addMessage(_receiver.getName()+" just got "+_receiver.hisHer()+" "+_receiver.getBodypart(BodypartSlot.Breasts).getLewdName()+" force lactated!")
         
-        if calledFrom != 0 : setState("endScene")
+        if calledFrom != 0 : setState("endScene") # end the scene if called from combat
         else: setState("")
         return
 

@@ -1,14 +1,14 @@
 extends "res://Modules/Z_Hypertus/Misc/ModBodypartPenis.gd"
 
 func _init():
-	visibleName = "Obsolete hyperable dragon penis"
-	id = "dragonpenismhyper"
+	visibleName = "hyperable dragon penis"
+	id = "dragonpenishyperable"
 	# lengthCM = 22
 	pickedGColor = Color.red
 	pickedBColor = Color.darkred
 
 func getCompatibleSpecies():
-	return []
+	return [Species.Any]
 
 func getLewdAdjective():
 	return RNG.pick(["knotted", "ribbed", "dragon"])
@@ -23,12 +23,5 @@ func getTraits():
 		"Hyperable": true,
 	}
 
-func getCharacterCreatorName():
-	return "OBSOLETE Dragon Hyperable"
-
 func getCharacterCreatorDesc():
-	return "OBSOLETE!!! Not Required to experience the Hypertus mod, Obsolete"
-
-func getTooltipInfo():
-	var old = .getTooltipInfo()
-	return old + "\nOBSOLETE!!!, might conflit with newer penis"
+	return "Required to experience the Hypertus mod"

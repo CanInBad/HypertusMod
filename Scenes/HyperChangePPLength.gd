@@ -18,6 +18,7 @@ func _run():
 	var penis = GM.pc.getBodypart(BodypartSlot.Penis)
 	match state:
 		"afterResize":
+			addMessage("[b]This is a legacy feature, currently left in for compatiblity reasons.[/b]")
 			sayn("After that, you can finally sleep")
 			if !GM.main.getFlag("Hypertus.HyperPenisExperiencedExpansion", false):
 				setModuleFlag("Hypertus","HyperPenisExperiencedExpansion",true)
@@ -26,6 +27,7 @@ func _run():
 				addButton("Ok!","I wish I could experience it again","endScene")
 
 		_: #this includes "" state
+			addMessage("[b]This is a legacy feature, currently left in for compatiblity reasons.[/b]")
 			playAnimationNoFade(StageScene.Sleeping, "sleep", {bodyState={naked=true}})
 			if amtToAddPPSize == 0:
 				addMessage("Hmmm... looks like the devloper forgot to set agrument for this scene or they're trying to add/remove 0 pp length")
@@ -115,6 +117,7 @@ func _react(_action: String, _args):
 		"endScene":
 			setModuleFlag("Hypertus","HyperPenisExpansionAmount",0)
 			endScene()
+			addMessage("[b]This is a legacy feature, currently left in for compatiblity reasons.[/b]")
 			return # just in case
 	setState(_action)
 

@@ -86,7 +86,7 @@ func _init():
 
 	bodyparts = [
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/EquinePenis.gd",
-		"res://Modules/Z_Hypertus/Bodyparts/Penises/DragonPenis.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Penises/DragonPenisFixed.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/CaninePenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/FelinePenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/HumanPenis.gd",
@@ -95,6 +95,7 @@ func _init():
 		"res://Modules/Z_Hypertus/Bodyparts/Vagina/HyperVagina.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Anus/HyperAnus.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Anus/HyperAnusWomb.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Penises/DragonPenis.gd",
 	]
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
@@ -119,14 +120,11 @@ func _init():
 	]
 
 	if OS.has_feature("editor"):
-		Log.print("/// "+id+": detect that we're in editor")
+		Log.print("\t/// "+id+": detect that we're in editor")
 		events.append("res://Modules/Z_Hypertus/Events/debugPrintStuff.gd")
-	# 	scenes.append("res://Modules/Z_Hypertus/Scenes/RayGunScene.gd")
-	# 	items.append("res://Modules/Z_Hypertus/Item/Raygun.gd")
-	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubPenis.gd")
-	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfPenis.gd")
-	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubBreast.gd")
-	# 	sexActivities.append("res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfBreast.gd")
+		# Engine.get_main_loop().get_root().add_child(load("res://Modules/Z_Hypertus/_popup/popup.gd"))
+		# GlobalRegistry.get_tree().quit()
+		# return
 
 	moduleRegisterPartSkins()
 
@@ -137,7 +135,6 @@ func _init():
 			"files": [
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/KnottedEquinePenis.gd",
 			],
-			"enabled": false,
 		},
 		"Synth Species": {
 			"moduleid": "SynthSpecies",
@@ -147,7 +144,6 @@ func _init():
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SynthPenis.gd",
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SynthPenisHuman.gd",
 			],
-			"enabled": false,
 		},
 		"Fluffy Bodyparts": {
 			"moduleid": "Fluffy Bodyparts",
@@ -156,7 +152,6 @@ func _init():
 				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffBreasts.gd",
 				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffMaleBreasts.gd"
 			],
-			"enabled": false,
 		},
 		"Avali Species (both version)": {
 			"moduleid": "Avali Species",
@@ -165,7 +160,6 @@ func _init():
 				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliBreasts.gd",
 				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliMaleBreasts.gd"
 			],
-			"enabled": false,
 		},
 		"Ace's Aviary Addon": {
 			"moduleid": "AcesAvairyAddon",
@@ -174,7 +168,6 @@ func _init():
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis.gd",
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis2.gd"
 			],
-			"enabled": false,
 		},
 		"Trans Scar Chest": {
 			"moduleid": "Trans Scar Chest",
@@ -182,12 +175,36 @@ func _init():
 			"files": [
 				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/TransBreasts.gd"
 			],
-			"enabled": false,
 		}
 		# "non test": _test,
 	}
 	universalBodyPartsCompactLayer(bodyparts,_listBodyPartsCompactLayers)
 	announceCurrentEnabledCompactLayer(_listBodyPartsCompactLayers)
+	# showingDialog()
+	
+
+# func showingDialog() -> void:
+# 	yield(GM.get_tree().current_scene, "tree_exited")
+# 	yield(GM.get_tree().create_timer(0.2), "timeout")
+# 	if GlobalRegistry.get_node("/root/MainMenu") != null:
+# 		theDialog()
+
+# func theDialog() -> void:
+# 	var text = "this\nis\na\ntest"
+# 	var dialog = AcceptDialog.new()
+# 	dialog.window_title = id + " by: "+author
+# 	dialog.dialog_text = text
+# 	dialog.connect('modal_closed', dialog, 'queue_free')
+# 	dialog.theme = load("res://GlobalTheme.tres")
+# 	dialog.rect_scale = Vector2(1.25, 1.25)
+# 	# dialog.anchor_top = 0.01
+# 	# dialog.anchor_right = 0.99
+# 	# dialog.anchor_bottom = 0.97
+# 	dialog.popup_exclusive = true
+# 	GlobalRegistry.get_node("/root/MainMenu/HBoxContainer/").add_child(dialog)
+# 	dialog.popup_centered_ratio(0.5)
+# 	dialog.popup_centered()
+# 	dialog.show()
 
 var shouldLogPrint = true
 
@@ -200,11 +217,12 @@ func logErrorOnDemand(txt):
 		Log.error(txt)
 
 func announceCurrentEnabledCompactLayer(theDict:Dictionary):
-	var numberOfMods = 0
+	var isAnyEnabled:bool = false
 	for modindex in theDict.keys():
 		if theDict[modindex]["enabled"]:
-			numberOfMods += 1
-	if numberOfMods>0:
+			isAnyEnabled = true
+			break
+	if isAnyEnabled:
 		var text:String = ""
 		Log.print("  ### "+id+": at least a compatibility layer is activated, in summary we have:")
 		for modindex in theDict.keys():
