@@ -31,17 +31,21 @@ func getPossibleActions():
     ]    
 
 func useInCombat(_attacker, _receiver):
-    var receiverHas:bool = false
+    var _receiverHas:bool = false
     if _receiver !=null:
         for i in [BodypartSlot.Breasts, BodypartSlot.Penis,]: # BodypartSlot.Anus, BodypartSlot.Vagina]: # there are only 2 for now
             if checkHas(i, _receiver):
-                receiverHas = true
+                _receiverHas = true
                 break
-        if !receiverHas:
-            return _receiver.getName() + " doesn't have any bluespace anomalies"
-        GM.main.getCurrentFightScene().runScene("RayGunUse")
-    GM.main.getCurrentScene().runScene("RayGunUse")
-    return "{pc.You} holster {pc.your} energy weapon." # does this even work
+        GM.main.getCurrentFightScene().runScene("RayGunUse", [_receiverHas])
+        return "{pc.You} quickly holster {pc.your} energy weapon.\n[i]You only got one shot[/i]"
+    else:
+        for i in [BodypartSlot.Breasts, BodypartSlot.Penis,]: # BodypartSlot.Anus, BodypartSlot.Vagina]: # there are only 2 for now
+            if checkHas(i, GM.pc):
+                _receiverHas = true
+                break
+        GM.main.getCurrentScene().runScene("RayGunUse", [_receiverHas]) # assume that player have it, the check only use for targeting anyways
+        return "{pc.You} holster {pc.your} energy weapon."
 
 func checkHas(bodyslot, _who:BaseCharacter): # this checks if _who have hyperable parts
     if _who != null:
