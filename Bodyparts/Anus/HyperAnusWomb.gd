@@ -25,6 +25,11 @@ func getAttributesText():
 		curAttribute.append(_i)
 	return curAttribute
 
+func getTooltipInfo():
+	var text = .getTooltipInfo()
+	text += "\nHas Womb"
+	return text
+
 func getTraits():
 	return {
 		"Hyperable": true,
