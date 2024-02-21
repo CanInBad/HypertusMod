@@ -2,7 +2,7 @@ extends PartSkinBase
 
 func _init():
 	id = "loverdragonhyperable"
-	partID = "dragonpenismhyper"
+	partID = "dragonpenishyperable"
 
 func getName():
 	return "LoversMark"

@@ -178,6 +178,7 @@ func _init():
 		}
 		# "non test": _test,
 	}
+	# addEnableValue(_listBodyPartsCompactLayers)
 	universalBodyPartsCompactLayer(bodyparts,_listBodyPartsCompactLayers)
 	announceCurrentEnabledCompactLayer(_listBodyPartsCompactLayers)
 	# showingDialog()
@@ -206,7 +207,7 @@ func _init():
 # 	dialog.popup_centered()
 # 	dialog.show()
 
-var shouldLogPrint = true
+var shouldLogPrint = false
 
 func logPrintOnDemand(txt):
 	if shouldLogPrint:
@@ -216,19 +217,25 @@ func logErrorOnDemand(txt):
 	if shouldLogPrint:
 		Log.error(txt)
 
+# func addEnableValue(theDict:Dictionary):
+# 	for i in theDict.keys():
+# 		theDict[i]["enabled"] = false
+
 func announceCurrentEnabledCompactLayer(theDict:Dictionary):
 	var isAnyEnabled:bool = false
 	for modindex in theDict.keys():
-		if theDict[modindex]["enabled"]:
-			isAnyEnabled = true
-			break
+		if theDict[modindex].get("enabled") != null:
+			if theDict[modindex]["enabled"]:
+				isAnyEnabled = true
+				break
 	if isAnyEnabled:
 		var text:String = ""
 		Log.print("  ### "+id+": at least a compatibility layer is activated, in summary we have:")
 		for modindex in theDict.keys():
-			if theDict[modindex]["enabled"]:
-				var modauthor = theDict[modindex]["author"]
-				text += "    - "+modindex+", by: "+modauthor+ "\n"
+			if theDict[modindex].get("enabled") != null:
+				if theDict[modindex]["enabled"]:
+					var modauthor = theDict[modindex]["author"]
+					text += "    - "+modindex+", by: "+modauthor+ "\n"
 		Log.print(text)
 		return true
 	return false
