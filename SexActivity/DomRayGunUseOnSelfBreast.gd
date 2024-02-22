@@ -107,7 +107,7 @@ func processTurn():
         tick += 1
 
         if(tick>1):
-            dom.getBodypart(BodypartSlot.Breasts).setBaseSize(newSize)
+            dom.getBodypart(BodypartSlot.Breasts).size = newSize
             dom.updateAppearance()
             var colorCode = ""
             if newSize-oldSize>0: colorCode = "7CFC00]+"

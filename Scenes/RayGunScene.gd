@@ -187,7 +187,7 @@ func _react(_action: String, _args):
         else: 
             text += "(from "+_receiver.getBodypart(BodypartSlot.Breasts).BreastsSize.breastSizeToCupString(oldSize)+")"
         addMessage(text)
-        _receiver.getBodypart(BodypartSlot.Breasts).setBaseSize(_args[0])
+        _receiver.getBodypart(BodypartSlot.Breasts).size =_args[0]
         _receiver.updateAppearance()
         
         if calledFrom != 0 : 
@@ -199,7 +199,7 @@ func _react(_action: String, _args):
     if _action == "penisResize":
         oldSize = _receiver.getBodypart(BodypartSlot.Penis).getLength()
         addMessage(_receiver.getName()+ " just got "+_receiver.hisHer()+" "+ _receiver.getBodypart(BodypartSlot.Penis).getLewdName()+" resized! ("+Util.cmToString(_args[0] - oldSize)+")")
-        _receiver.getBodypart(BodypartSlot.Penis).setLength(_args[0])
+        _receiver.getBodypart(BodypartSlot.Penis).lengthCM = (_args[0])
         _receiver.updateAppearance()
         
         if calledFrom != 0 : 

@@ -185,8 +185,5 @@ func generateRandomColors(_dynamicCharacter):
 		pickedBColor.v = RNG.randf_rangeX2(0.7, 0.95)
 		pickedBColor.s = RNG.randf_rangeX2(0.7, 0.95)
 
-func setLength(length:float):
-	lengthCM = length
-
 func shouldUseBigPump():
 	return false

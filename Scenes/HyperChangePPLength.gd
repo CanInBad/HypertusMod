@@ -83,25 +83,25 @@ func _react(_action: String, _args):
 			if int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())) in range(max(penis.getLength()-2,-5),min(6,penis.getLength()+2)): # this forces you to not get the same size when getting bigger, imagine if that happens.
 				if amtToAddPPSize < 0: # check if we're decreasing the package size
 					if penis.getLength() <= 1:
-						penis.setLength(1) # this assumes that you went 0 or negative penis length!!!! (how)
+						penis.lengthCM = (1) # this assumes that you went 0 or negative penis length!!!! (how)
 						text = "Your "+penis.getLewdAdjective() + " " + penis.getLewdName() + " can't get any smaller!"
 					else: # if we're not 1 or less, we decrease by 1 cm
-						penis.setLength(penis.getLength() - 1)
+						penis.lengthCM = (penis.getLength() - 1)
 						text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() + " felt abit smaller...."
 				elif amtToAddPPSize > 0: # make it not a high climb after you get to like 1 cm
-					penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0)*3 + penis.getLength())+(2*amtToAddPPSize)))
+					penis.lengthCM = (int(round((penis.getLength()*amtToAddPPSize/100.0)*3 + penis.getLength())+(2*amtToAddPPSize)))
 					text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() + " felt abit bigger...."
 				else: # just in case, lol
 					text = "How did we get here! (send this screenshot to CanInBad) res://Modules/Z_Hypertus/Scenes/HyperChangePPLength.gd:92"
 			else:
 				if amtToAddPPSize > 0:
 					if penis.getLength() < 10: # make it not a climb as much
-						penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0)*3 + penis.getLength()))+1)
+						penis.lengthCM = (int(round((penis.getLength()*amtToAddPPSize/100.0)*3 + penis.getLength()))+1)
 					else:
-						penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))
+						penis.lengthCM = (int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))
 					text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() +" just got "+RNG.pick(["more hyper","expanded","amassed","mightier","bigger","heavier","bulkier","more massive","more gigatic","more magnificent"])+"!"
 				elif amtToAddPPSize < 0:
-					penis.setLength(int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))
+					penis.lengthCM = (int(round((penis.getLength()*amtToAddPPSize/100.0) + penis.getLength())))
 					text = "Your "+ penis.getLewdAdjective() + " " + penis.getLewdName() +" just got "+RNG.pick(["smaller","miniaturized","miniaturised","runty","smallish","sawed-off","stubby","undersized","more minuscule"])+"!"
 				else:
 					text = "This goes horribly bad, how did we get here (send this screenshot to CanInBad) res://Modules/Z_Hypertus/Scenes/HyperChangePPLength.gd:101"
