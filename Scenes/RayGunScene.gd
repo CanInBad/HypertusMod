@@ -109,8 +109,8 @@ func _run():
             saynn("Currently resizing "+ _receiver.getBodypart(BodypartSlot.Penis).getLewdName())
             addButton("Back", "go back", "resizeMenu") # making sure that its always in front
             if _receiver.getBodypart(BodypartSlot.Penis).getLength()>30:
-                for i in range(max(1,_receiver.getBodypart(BodypartSlot.Penis).getLength()-20), \
-                _receiver.getBodypart(BodypartSlot.Penis).getLength()+20,5):
+                for i in range(max(1,_receiver.getBodypart(BodypartSlot.Penis).getLength()-30), \
+                _receiver.getBodypart(BodypartSlot.Penis).getLength()+31,5):
                     var theSize = Util.cmToString(i)
                     addButton(theSize, "Select "+theSize, "penisResize", [i])
 
@@ -122,7 +122,7 @@ func _run():
 
             elif _receiver.getBodypart(BodypartSlot.Penis).getLength()<=1.0: # making 0.1 cm penis possible
                 # Log.print("equal 1.0")
-                for i in range(1,11,1):
+                for i in range(1,12,1): # making it escapeable
                         var actualSize = i*0.1
                         var theSize = Util.cmToString(Util.roundF(actualSize,1))
                         addButton(theSize, "Select "+theSize, "penisResize", [Util.roundF(actualSize,1)])
