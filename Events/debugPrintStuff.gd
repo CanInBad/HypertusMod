@@ -11,6 +11,7 @@ func registerTriggers(es):
 func run(_triggerID, _args):
     if OS.has_feature("editor"):
         addButton("Print stats","print bodypart stats", "printStats")
+        addButton("Print bodyparts","print bodyparts", "printParts")
 
 func onButton(_method, _args):
     if _method == "printStats":
@@ -41,6 +42,13 @@ func onButton(_method, _args):
     
 
         print(text)
+    if _method == "printParts":
+        # print(GM.pc.bodyparts)
+        for i in GM.pc.bodyparts.values():
+            print(str(i.id))
+            # print(i.Node)
+            print(i.script.get_property_list())
+            # print(i.Inherit)
 
 func checkHasHyperable(bodyslot, _who:BaseCharacter): # this checks if _who have hyperable parts
     if _who != null:

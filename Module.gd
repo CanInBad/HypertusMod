@@ -86,7 +86,7 @@ func _init():
 
 	bodyparts = [
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/EquinePenis.gd",
-		"res://Modules/Z_Hypertus/Bodyparts/Penises/DragonPenisFixed.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Penises/DragonPenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/CaninePenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/FelinePenis.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Penises/HumanPenis.gd",
@@ -95,7 +95,9 @@ func _init():
 		"res://Modules/Z_Hypertus/Bodyparts/Vagina/HyperVagina.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Anus/HyperAnus.gd",
 		"res://Modules/Z_Hypertus/Bodyparts/Anus/HyperAnusWomb.gd",
-		"res://Modules/Z_Hypertus/Bodyparts/Penises/DragonPenis.gd",
+
+		"res://Modules/Z_Hypertus/Bodyparts/Penises/DragonPenisLegacy.gd",
+		"res://Modules/Z_Hypertus/Bodyparts/Breasts/HyperableBreastsLegacy.gd",
 	]
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
@@ -122,6 +124,7 @@ func _init():
 	if OS.has_feature("editor"):
 		Log.print("\t/// "+id+": detect that we're in editor")
 		events.append("res://Modules/Z_Hypertus/Events/debugPrintStuff.gd")
+		events.append("res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd")
 		items.append("res://Modules/Z_Hypertus/Item/HyperPenisPump.gd")
 		items.append("res://Modules/Z_Hypertus/Item/HyperBreastPump.gd")
 		# Engine.get_main_loop().get_root().add_child(load("res://Modules/Z_Hypertus/_popup/popup.gd"))
