@@ -110,6 +110,8 @@ func _init():
 		"res://Modules/Z_Hypertus/Events/NewDayGainBackXP.gd",
 		"res://Modules/Z_Hypertus/Events/AfterGotHyperPenisLengthChange.gd",
 		"res://Modules/Z_Hypertus/Events/NoHyperablePart.gd",
+		"res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd",
+		
 	]
 	items = [
 		"res://Modules/Z_Hypertus/Item/Raygun.gd"
@@ -124,7 +126,7 @@ func _init():
 	if OS.has_feature("editor"):
 		Log.print("\t/// "+id+": detect that we're in editor")
 		events.append("res://Modules/Z_Hypertus/Events/debugPrintStuff.gd")
-		events.append("res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd")
+		# events.append("res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd")
 		items.append("res://Modules/Z_Hypertus/Item/HyperPenisPump.gd")
 		items.append("res://Modules/Z_Hypertus/Item/HyperBreastPump.gd")
 		# Engine.get_main_loop().get_root().add_child(load("res://Modules/Z_Hypertus/_popup/popup.gd"))
