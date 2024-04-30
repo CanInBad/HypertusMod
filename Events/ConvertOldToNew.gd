@@ -32,8 +32,7 @@ const filter = [
         "unique_name_in_owner", "filename", "owner", 
         "multiplayer", "custom_multiplayer", "process_priority",
         "character", "needsProcessing", "limbSlot",
-        "id", "visibleName", "orifice",
-        "breastSizeModClass"
+        "id", "visibleName", "breastSizeModClass"
         ]
 
 func onButton(_method, _args):
@@ -72,7 +71,7 @@ func onButton(_method, _args):
 
                         restoreData(dataToRestore, i, pc)
                         pc.updateAppearance()
-                        
+
             # if i == "head": # testing if fluid production detection works on restoreData function
             #     if storedBodyparts[i] != null:
             #         if storedBodyparts[i].id == "dragonhead":
@@ -83,6 +82,17 @@ func onButton(_method, _args):
 
             #             restoreData(dataToRestore, i, pc)
             #             pc.updateAppearance()
+
+            if i == "vagina": # testing if fluid production detection works on restoreData function
+                if storedBodyparts[i] != null:
+                    if storedBodyparts[i].id == "vagina":
+                        var dataToRestore = parseDataGeneral(storedBodyparts, i)
+
+                        pc.removeBodypart(i)
+                        pc.giveBodypartUnlessSame(GlobalRegistry.createBodypart("vaginahyperable"))
+
+                        restoreData(dataToRestore, i, pc)
+                        pc.updateAppearance()
 
         if storedBodyparts != null:
             storedBodyparts.clear()
@@ -108,17 +118,27 @@ func parseDataGeneral(_bodyparts:Dictionary, _slot:String):
 
 func restoreData(_data:Dictionary, _slot:String, _target:BaseCharacter = GM.pc):
     for property in _data:
-        if property == "fluidProduction":
+        if property == "fluidProduction" or "orifice":
             continue
         if _target != null:
             if _data[property] != null: # ignore null properties saved, I couldn't filter them out in the saving phase.
                 _target.getBodypart(_slot).set(property, _data[property])
         else:
             return Log.printerr("why is target null?")
+
     if "fluidProduction" in _data.keys() && _data["fluidProduction"] != null:
         print("found fluid production, processing")
-        var _fluidContentsData = []
-        # print(_data)
+        var _fluidContentsData = _data["fluidProduction"].get("fluids").get("contents")
+        var _fluidParsed:Array = []
+        if _fluidContentsData.size() > 0:
+            for i in range(_fluidContentsData.size()):
+                var _fluidDNA_Data
+                print(str(i)+"  "+str(_fluidContentsData[i]))
+                if _fluidContentsData[i]["fluidDNA"]["charID"] == "pc":
+                    print("is from the player")
+                else:
+                    print("is from "+GM.main.getCharacter((_fluidContentsData[i]["fluidDNA"]["charID"])).getName()) # I won't know this until I convert anus/vagina with stuff
+            
         # if _data.fluidProduction.contents.size() != 0:
         # to be continued...
 
