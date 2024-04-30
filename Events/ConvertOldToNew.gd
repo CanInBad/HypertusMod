@@ -25,7 +25,7 @@ func run(_triggerID, _args):
 
 var debug:bool = false
 
-var filter = [ 
+const filter = [ 
         "Reference", "script", "Script Variables", 
         "Node", "editor_description", "_import_path", 
         "pause_mode", "physics_interpolation_mode", "name", 
@@ -56,14 +56,10 @@ func onButton(_method, _args):
                     if storedBodyparts[i].id == "breastshyperable":
                         var dataToRestore = parseDataGeneral(storedBodyparts,i)
                                 
-                        pc.removeBodypart(BodypartSlot.Breasts)
+                        pc.removeBodypart(i)
                         pc.giveBodypartUnlessSame(GlobalRegistry.createBodypart("humanbreastshyperable"))
 
-                        restoreData(dataToRestore, BodypartSlot.Breasts, pc)
-                        # for property in dataToRestore:
-                        #     if property == "fluidProduction":
-                        #         continue
-                        #     pc.getBodypart(BodypartSlot.Breasts).set(property, dataToRestore[property])
+                        restoreData(dataToRestore, i, pc)
                         pc.updateAppearance()
 
             if i == "penis":
@@ -71,15 +67,22 @@ func onButton(_method, _args):
                     if storedBodyparts[i].id == "dragonpenismhyper":
                         var dataToRestore = parseDataGeneral(storedBodyparts, i)
 
-                        pc.removeBodypart(BodypartSlot.Penis)
+                        pc.removeBodypart(i)
                         pc.giveBodypartUnlessSame(GlobalRegistry.createBodypart("dragonpenishyperable"))
 
-                        restoreData(dataToRestore, BodypartSlot.Penis, pc)
-                        # for property in dataToRestore:
-                        #     if property == "fluidProduction":
-                        #         continue
-                        #     pc.getBodypart(BodypartSlot.Penis).set(property, dataToRestore[property])
+                        restoreData(dataToRestore, i, pc)
                         pc.updateAppearance()
+                        
+            # if i == "head": # testing if fluid production detection works on restoreData function
+            #     if storedBodyparts[i] != null:
+            #         if storedBodyparts[i].id == "dragonhead":
+            #             var dataToRestore = parseDataGeneral(storedBodyparts, i)
+
+            #             pc.removeBodypart(i)
+            #             pc.giveBodypartUnlessSame(GlobalRegistry.createBodypart("felinehead"))
+
+            #             restoreData(dataToRestore, i, pc)
+            #             pc.updateAppearance()
 
         if storedBodyparts != null:
             storedBodyparts.clear()
@@ -90,10 +93,7 @@ func parseDataGeneral(_bodyparts:Dictionary, _slot:String):
     for property in _bodyparts[_slot].get_property_list():
         if property.name in filter:
             continue
-        else:
-            if _bodyparts[_slot].get(property) == null:
-                continue
-            listToCheck.append(property.name)
+        listToCheck.append(property.name)
     
     if debug:
         print(listToCheck)
@@ -111,11 +111,17 @@ func restoreData(_data:Dictionary, _slot:String, _target:BaseCharacter = GM.pc):
         if property == "fluidProduction":
             continue
         if _target != null:
-            _target.getBodypart(_slot).set(property, _data[property])
+            if _data[property] != null: # ignore null properties saved, I couldn't filter them out in the saving phase.
+                _target.getBodypart(_slot).set(property, _data[property])
         else:
             return Log.printerr("why is target null?")
-    # if "fluidProduction" in _data.keys() && _data["fluidProduction"] != null:
+    if "fluidProduction" in _data.keys() && _data["fluidProduction"] != null:
+        print("found fluid production, processing")
+        var _fluidContentsData = []
+        # print(_data)
+        # if _data.fluidProduction.contents.size() != 0:
         # to be continued...
+
 
 # func parsePenisData(data):
 #     var curData = data

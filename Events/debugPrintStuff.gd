@@ -64,7 +64,7 @@ func onButton(_method, _args):
                             print(k["name"]+" | "+str(GM.pc.bodyparts[i].fluidProduction.fluids.contents[j].fluidDNA.get(k["name"])))
                     # print(GM.pc.bodyparts[i].fluidProduction.fluids.contents[j].fluidDNA.get_property_list())
 
-var filter = [ 
+const filter = [ 
         "Reference", "script", "Script Variables", 
         "Node", "editor_description", "_import_path", 
         "pause_mode", "physics_interpolation_mode", "name", 
