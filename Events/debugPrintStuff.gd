@@ -12,7 +12,7 @@ func run(_triggerID, _args):
     if OS.has_feature("debug"):
         addButton("Print stats","print bodypart stats", "printStats")
         addButton("Print fluid productions","print fluid productions", "printFluidProduction")
-        addButton("Print fluid storage???","print fluid storage???", "printFluidStorage")
+        # addButton("Print fluid storage???","print fluid storage???", "printFluidStorage")
         # addButton("Print bodyparts","print bodyparts", "printParts")
 
 func onButton(_method, _args):
@@ -64,8 +64,8 @@ func onButton(_method, _args):
                         if !(k["name"] in filter):
                             print(k["name"]+" | "+str(GM.pc.bodyparts[i].fluidProduction.fluids.contents[j].fluidDNA.get(k["name"])))
                     # print(GM.pc.bodyparts[i].fluidProduction.fluids.contents[j].fluidDNA.get_property_list())
-    if _method == "printFluidStorage":
-        print("what the hell")
+    # if _method == "printFluidStorage":
+    #     print("what the hell")
 
 const filter = [ 
         "Reference", "script", "Script Variables", 
