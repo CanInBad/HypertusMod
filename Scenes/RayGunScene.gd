@@ -36,35 +36,36 @@ func announceTargeting():
 func _run():
     match state:
         "":
+            if _receiver != GM.pc && _receiverID != "pc" && _receiver != null:
+                addCharacter(_receiverID)
+
             if OS.has_feature("editor"):
                 addButton("PrintSceneStack","","printSceneStack")
                 
             var hasHyperable:bool = false
-            for i in [BodypartSlot.Breasts, BodypartSlot.Penis]:
+            for i in slotsToCheck:
                 if checkHasHyperable(i, _receiver):
                     hasHyperable = true
                     break
             
             if _receiver == null:
                 addMessage("WTF???? why is \"_receiver\" null???????")
-                setState("endScene")
+                setState("endTurn")
                 return
             else:
                 var text = "Currently targeting: [color="+_receiver.getChatColor()+"][b]"+_receiver.getName()+"[/b][/color]"
                 if _receiver == GM.pc:
                     text += " (Player)"
                     if calledFrom == 1:
-                        var theFightScene = GM.main.getCurrentFightScene()
-                        if checkHasAnyHyperable(theFightScene.enemyCharacter):
-                            addButtonAt(9,"Target Enemy","Change targeting to "+theFightScene.enemyCharacter.getName(),"targetEnemy")
-                        else: addDisabledButtonAt(9,"Target Enemy","Can't change to "+theFightScene.enemyCharacter.getName()+" because they lack hyperable parts")
+                        var theFightScene = GM.main.getCurrentFightScene() # removed restriction since you can now convert bodypart
+                        addButtonAt(14,"Target Enemy","Change targeting to "+theFightScene.enemyCharacter.getName(),"targetEnemy")
                 else:
-                    addButtonAt(9,"Target Self","Change targeting to "+GM.pc.getName(),"targetSelf")
+                    addButtonAt(14,"Target Self","Change targeting to "+GM.pc.getName(),"targetSelf")
                 saynn(text)
 
 
             saynn("What do you want to do?")
-            if hasHyperable:
+            if (hasHyperable && (checkHasHyperable(BodypartSlot.Penis, _receiver) || checkHasHyperable(BodypartSlot.Breasts, _receiver))):
                 addButton("Resize","Resize their packages","resizeMenu")
             else:
                 addDisabledButton("Resize",_receiver.heShe()+" does not have any hyperable parts")
@@ -72,6 +73,11 @@ func _run():
                 addButton("Induce lactation", "Force "+_receiver.hisHer()+" breast to lactate", "induceLactation")
             else:
                 addDisabledButton("Induce lactation",_receiver.hisHer()+" does not have any hyperable breasts")
+            var isConvertable = (!hasHyperable || (!checkHasHyperable(BodypartSlot.Penis, _receiver) || !checkHasHyperable(BodypartSlot.Breasts, _receiver) || !checkHasHyperable(BodypartSlot.Vagina, _receiver) || !checkHasHyperable(BodypartSlot.Anus, _receiver)))
+            if isConvertable:
+                addButton("Convert a body part", "Select which body part on "+_receiver.himHer()+" to convert to hyperable", "convertBodypart2Hyperable")
+            if hasHyperable:
+                addButton("Revert a body part", "Select which body part on "+_receiver.himHer()+" to revert from hyperable", "convertBodypartFromHyperable")
             
             # if checkHasHyperable(BodypartSlot.Vagina,_receiver):
             #     addButton("")
@@ -134,6 +140,24 @@ func _run():
             addButton("Back", "go back", "resizeMenu") # making sure that its always in front
             for i in [0.0,0.2,0.5,0.8,1.0,1.2,1.5,1.8,2.0,2.5,3.0,4.0,5.0,10.0]:
                 addButton(str(int(i*100))+"%", "Select "+str(int(i*100))+"%", "ballsResize", [i])
+        
+        "convertBodypart2Hyperable":
+            addButton("Nevermind", "go back", "")
+            for i in slotsToCheck:
+                if _receiver.getBodypart(i) != null:
+                    if str(_receiver.getBodypart(i).id) + "hyperable" in GlobalRegistry.bodyparts && !checkHasHyperable(i, _receiver):
+                        print("yes, "+str(_receiver.getBodypart(i).id) + "hyperable"+" existed")
+                    elif checkHasHyperable(i, _receiver):
+                        print("the " + str(_receiver.getBodypart(i).id)+ " is already hyperable")
+                    else:
+                        print("no, "+str(_receiver.getBodypart(i).id) + "hyperable" + " DOES NOT existed")
+                else:
+                    print("slot " + i + " does not have any bodypart")
+            saynn("WIP!!!! ToHyperable")
+
+        "convertBodypartFromHyperable":
+            saynn("WIP!!!! FromHyperable")
+            addButton("Nevermind", "go back", "")
        
         "endTurn":
             addButton("OK","Continue","endScene")
@@ -259,8 +283,10 @@ func checkHasHyperable(bodyslot, _who:BaseCharacter): # this checks if _who have
                 return true
     return false
 
+const slotsToCheck = [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Vagina, BodypartSlot.Anus]
+
 func checkHasAnyHyperable(_who):
-    for i in [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Vagina, BodypartSlot.Anus]:
+    for i in slotsToCheck:
         if checkHasHyperable(i, _who):
             return true
     return false

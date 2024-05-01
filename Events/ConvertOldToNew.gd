@@ -34,11 +34,14 @@ func onButton(_method, _args):
                 if storedBodyparts[bodyslot] != null:
                     var visibleName = "null"
                     var limbSlot = "null"
+                    var id = "null"
+                    if storedBodyparts[bodyslot].get("id") != null:
+                        id = storedBodyparts[bodyslot].id
                     if storedBodyparts[bodyslot].get("visibleName") != null:
                         visibleName = storedBodyparts[bodyslot].visibleName
                     if storedBodyparts[bodyslot].get("limbSlot") != null:
                         limbSlot = storedBodyparts[bodyslot].limbSlot
-                    print("slot: "+bodyslot+"\nvisibleName: "+ visibleName + " | limbslot: " + limbSlot)
+                    print("slot: "+bodyslot+"\nvisibleName: "+ visibleName + " | id: " + id +" | limbslot: " + limbSlot)
             if bodyslot == "breasts":
                 if storedBodyparts[bodyslot] != null:
                     if storedBodyparts[bodyslot].id == "breastshyperable":
