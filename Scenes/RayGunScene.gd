@@ -4,7 +4,12 @@ var _receiverID:String = ""
 var _receiver:BaseCharacter = null # very dangerous
 var oldSize:float = 0.0
 var calledFrom:int = 0 # 0 is default, 1 is combat
-# var receiverHas:bool = false
+const slotsToCheck = [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Vagina, BodypartSlot.Anus]
+var outdatedBodyparts:Dictionary
+
+func printDebug(msg):
+    if OS.has_feature("debug"):
+        print(msg)
 
 func _init():
     sceneID = "RayGunUse"
@@ -14,6 +19,7 @@ func _init():
 #         receiverHas = _args[0]
 
 func _reactInit():
+    outdatedBodyparts = getModule("Hypertus").get("outdatedBodyparts")
     var theFightScene = GM.main.getCurrentFightScene()
 
     if theFightScene != null:
@@ -148,31 +154,39 @@ func _run():
                 if bodypart != null:
                     var bodypartID = bodypart.id
                     if str(bodypartID) + "hyperable" in GlobalRegistry.bodyparts && !checkHasHyperable(i, _receiver):
-                        addButton(GlobalRegistry.bodyparts[bodypartID+"hyperable"].visibleName, "Convert " + bodypart.visibleName + " to hyperable", "convertBodypart2Hyperable", [bodypartID+"hyperable", i])
-                        print("yes, "+str(bodypartID) + "hyperable existed")
+                        addButton(GlobalRegistry.bodyparts[bodypartID+"hyperable"].visibleName, "Convert " + bodypart.visibleName + " to hyperable", "convertBodypart", [bodypartID+"hyperable", i])
+                        printDebug("yes, "+str(bodypartID) + "hyperable existed")
                     elif checkHasHyperable(i, _receiver):
-                        if (bodypart.id in getModule("Hypertus").get("outdatedBodypart")):
-                            match bodypart.id:
-                                "dragonpenismhyper":
-                                    addButton(GlobalRegistry.bodyparts["dragonpenishyperable"].visibleName, "Update " + bodypart.visibleName + " to supported version", "convertBodypart2Hyperable", ["dragonpenishyperable", i])
-                                    print("old dragon hyperable")
-                                "breastshyperable":
-                                    addButton(GlobalRegistry.bodyparts["humanbreastshyperable"].visibleName, "Update " + bodypart.visibleName + " to supported version", "convertBodypart2Hyperable", ["humanbreastshyperable", i])
-                                    print("old breast hyperable")
+                        if (bodypartID in outdatedBodyparts):
+                            addButton(GlobalRegistry.bodyparts[outdatedBodyparts[bodypartID]].visibleName, "Update " + bodypart.visibleName + " to supported version", "convertBodypart", [outdatedBodyparts[bodypartID], i])
+                            printDebug(bodypartID + " is outdated, suggested "+outdatedBodyparts[bodypartID]+" instead")
                         else:
                             addDisabledButton(bodypart.visibleName, bodypart.visibleName + " is already hyperable")
-                            print("the " + str(bodypartID)+ " is already hyperable")
+                            printDebug("the " + str(bodypartID)+ " is already hyperable")
                     else:
                         addDisabledButton(bodypartID+"hyperable", "does not existed")
-                        print("no, "+str(bodypartID) + "hyperable" + " DOES NOT existed")
+                        printDebug("no, "+str(bodypartID) + "hyperable" + " DOES NOT existed")
                 else:
                     addDisabledButton(i + " empty", i+" slot does not have any bodypart")
-                    print("slot " + i + " does not have any bodypart")
+                    printDebug("slot " + i + " does not have any bodypart")
             saynn("WIP!!!! ToHyperable")
 
         "convertBodypartFromHyperableMenu":
-            saynn("WIP!!!! FromHyperable")
             addButton("Nevermind", "go back", "")
+            for i in slotsToCheck:
+                var bodypart = _receiver.getBodypart(i)
+                if bodypart != null:
+                    var bodypartID = bodypart.id
+                    if (checkHasHyperable(i, _receiver) && !(bodypartID in outdatedBodyparts)):
+                        if (bodypartID.trim_suffix("hyperable" in GlobalRegistry.bodyparts)):
+                            printDebug(i+" ("+bodypartID+") has hyperable, convertable to normal one")
+                        else:
+                            printDebug(i+" ("+bodypartID+") has hyperable but unable to convert to normal one")
+                    elif (bodypartID in outdatedBodyparts):
+                        printDebug(i+" ("+bodypartID+") is outdated")
+                    else:
+                        printDebug(i+" ("+bodypartID+") is already normal")
+            saynn("WIP!!!! FromHyperable")
        
         "endTurn":
             addButton("OK","Continue","endScene")
@@ -269,7 +283,7 @@ func _react(_action: String, _args):
             setState("")
         return
     
-    if _action == "convertBodypart2Hyperable":
+    if _action == "convertBodypart":
         var _toBodypart = _args[0]
         var _slot = _args[1]
         var _oldBodypart = _receiver.getBodypart(_slot).id
@@ -312,8 +326,6 @@ func checkHasHyperable(bodyslot, _who:BaseCharacter): # this checks if _who have
             if _who.bodypartHasTrait(bodyslot,"Hyperable"):
                 return true
     return false
-
-const slotsToCheck = [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Vagina, BodypartSlot.Anus]
 
 func checkHasAnyHyperable(_who):
     for i in slotsToCheck:

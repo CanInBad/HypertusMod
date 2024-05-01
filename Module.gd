@@ -214,7 +214,10 @@ func _init():
 # 	dialog.popup_centered()
 # 	dialog.show()
 
-var outdatedBodypart:Array = ["dragonpenismhyper","breastshyperable"]
+var outdatedBodyparts:Dictionary = {
+	"dragonpenismhyper": "dragonpenishyperable",
+	"breastshyperable": "humanbreastshyperable"
+	}
 
 var shouldLogPrint = false
 
