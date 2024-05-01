@@ -214,6 +214,8 @@ func _init():
 # 	dialog.popup_centered()
 # 	dialog.show()
 
+var outdatedBodypart:Array = ["dragonpenismhyper","breastshyperable"]
+
 var shouldLogPrint = false
 
 func logPrintOnDemand(txt):
