@@ -185,9 +185,28 @@ func _init():
 				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/TransBreasts.gd"
 			],
 		},
-		"":{
-
-		}
+		"Barbed Equine Penis": {
+			"moduleid": "Barbed Horse Cock",
+			"author": "AverageAce",
+			"files": [
+				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BarbedEquinePenis.gd"
+			],
+		},
+		"Crow Species": {
+			"moduleid": "CrowSpeciesModule",
+			"author": "AverageAce",
+			"files": [
+				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/CrowPenis.gd",
+				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/CrowPenisSlit.gd",
+			],
+		},
+		"Deer Species": {
+			"moduleid": "CrowSpeciesModule",
+			"author": "AverageAce/Fantos/Max-Maxou",
+			"files": [
+				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/DeerPenis.gd",
+			],
+		},
 		# "non test": _test,
 	}
 	# addEnableValue(_listBodyPartsCompactLayers)
@@ -260,51 +279,55 @@ func announceCurrentEnabledCompactLayer(theDict:Dictionary):
 
 func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 	for modindex in theDict.keys():
-		if theDict[modindex]["moduleid"] in GlobalRegistry.getModules():
-			var curIndex = theDict[modindex]
-			var moduleName = curIndex["moduleid"]
-			var files = curIndex["files"]
-			var sum = 0
-			var total:int
+		if theDict[modindex].has("moduleid"):
+			if theDict[modindex]["moduleid"] in GlobalRegistry.getModules():
+				var curIndex = theDict[modindex]
+				var moduleName = modindex
+				var moduleID = theDict[modindex]["moduleid"]
+				var files = curIndex["files"]
+				var sum = 0
+				var total:int
 
-			if len(files)>0:
-				total = len(files)
-			else:
-				logErrorOnDemand(id+": "+moduleName+": |BODYCOMPACT| there aren\'t any file paths in files array, will assume total -1")
-				total = -1
-
-			if total > 0:
-				for item in files:
-					var fileName = item.get_file()
-					if fileClass.file_exists(item):
-						if not(item in bodyparts):
-							bodyparts.append(item)
-							if item in bodyparts:
-								logPrintOnDemand(id+": "+moduleName+": "+fileName+" bodypart compatibility layer activated!")
-								sum += 1
-						else:
-							logErrorOnDemand(id+": "+moduleName+": "+fileName+" already exists in the bodyparts array!")
-							total -= 1
-					else:
-						logErrorOnDemand(id+": ERROR! "+moduleName+"\'s file: \""+item+"\" do not exist!")
-						total -= 1
-		
-		
-			if sum != total:
-				if sum == 0:
-					logErrorOnDemand(id+": ## "+moduleName+" bodypart(s) compatibility layer fail to load ##\n")
-					continue
-				if sum < total and sum > 0:
-					logErrorOnDemand(id+": ## "+moduleName+" bodypart(s) compatibility layer partially loaded ##\n")
-					continue
-				logErrorOnDemand(id+": ## "+moduleName+" bodypart(s) compatibility layer ..... you know you shouldn't set supposeTotal right? its there for me to learn default value in function\n")
-				continue
-			else:
-				if total == 1:
-					logPrintOnDemand(id+": ## "+moduleName+" a bodypart compatibility layer successfully activated! ##\n")
+				if len(files)>0:
+					total = len(files)
 				else:
-					logPrintOnDemand(id+": ## "+moduleName+" bodyparts compatibility layer successfully activated! ##\n")
-				curIndex["enabled"] = true
+					logErrorOnDemand(id+": "+moduleName+": |BODYCOMPACT| there aren\'t any file paths in files array, will assume total -1")
+					total = -1
+
+				if total > 0:
+					for item in files:
+						var fileName = item.get_file()
+						if fileClass.file_exists(item):
+							if not(item in bodyparts):
+								bodyparts.append(item)
+								if item in bodyparts:
+									logPrintOnDemand(id+": "+moduleName+" ("+moduleID+"): "+fileName+" bodypart compatibility layer activated!")
+									sum += 1
+							else:
+								logErrorOnDemand(id+": "+moduleName+" ("+moduleID+"): "+fileName+" already exists in the bodyparts array!")
+								total -= 1
+						else:
+							logErrorOnDemand(id+": ERROR! "+moduleName+"\'s ("+moduleID+") file: \""+item+"\" do not exist!")
+							total -= 1
+			
+			
+				if sum != total:
+					if sum == 0:
+						logErrorOnDemand(id+": ## "+moduleName+" ("+moduleID+"): bodypart(s) compatibility layer fail to load ##\n")
+						continue
+					if sum < total and sum > 0:
+						logErrorOnDemand(id+": ## "+moduleName+" ("+moduleID+"): bodypart(s) compatibility layer partially loaded ##\n")
+						continue
+					logErrorOnDemand(id+": ## "+moduleName+" ("+moduleID+"): bodypart(s) compatibility layer ..... you know you shouldn't set supposeTotal right? its there for me to learn default value in function\n")
+					continue
+				else:
+					if total == 1:
+						logPrintOnDemand(id+": ## "+moduleName+" ("+moduleID+"): a bodypart compatibility layer successfully activated! ##\n")
+					else:
+						logPrintOnDemand(id+": ## "+moduleName+" ("+moduleID+"): bodyparts compatibility layer successfully activated! ##\n")
+					curIndex["enabled"] = true
+		else:
+			logErrorOnDemand(id+": ## the index "+modindex+" ("+theDict[modindex]+") has no moduleid key")
 
 func moduleRegisterPartSkins():
 

@@ -10,7 +10,7 @@ func getCasualName():
     return "Raygun"
     
 func getDescription():
-    return "Tool that use to invoke bluespace on already existing anomalies"
+    return "Tool that used to invoke bluespace on already existing anomalies, upgraded to invoke bluespace on anyone"
 
 func canUseInCombat(): return true
 
