@@ -69,7 +69,6 @@ func _init():
 	]
 	skills = [
 		"res://Modules/Z_Hypertus/Skill/Hyper.gd",
-		# "res://Modules/Z_Hypertus/Skill/HyperSizes.gd",
 	]
 
 	buffs = [
@@ -102,14 +101,12 @@ func _init():
 	]
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
-		"res://Modules/Z_Hypertus/Scenes/HyperChangePPLength.gd",
 		"res://Modules/Z_Hypertus/Scenes/RayGunScene.gd"
 	]
 	events = [
 		"res://Modules/Z_Hypertus/Events/CustomizationButton.gd",
 		"res://Modules/Z_Hypertus/Events/NewDayGainHyperXP.gd",
 		"res://Modules/Z_Hypertus/Events/NewDayGainBackXP.gd",
-		"res://Modules/Z_Hypertus/Events/AfterGotHyperPenisLengthChange.gd",
 		"res://Modules/Z_Hypertus/Events/NoHyperablePart.gd",
 		"res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd",
 		
