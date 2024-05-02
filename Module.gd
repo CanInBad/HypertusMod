@@ -338,7 +338,7 @@ func moduleRegisterPartSkins():
 		"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable",
 		"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable",
 		"res://Modules/Z_Hypertus/Partskins/BarbedEquinePenis",
-		"res://Modules/Z_Hypertus/Partskins/deerpenishyperable",
+		"res://Modules/Z_Hypertus/Partskins/DeerPenis",
 		]
 
 	var skins = []
@@ -351,6 +351,8 @@ func moduleRegisterPartSkins():
 					skins.append(path+"/"+fileName)
 					logPrintOnDemand(id+": [SKINS] Added "+fileName+" to skins")
 				fileName = dirClass.get_next()
+		else:
+			logErrorOnDemand(id+": [SKINS] "+path+" does not exist!")
 
 	for i in skins: # I don't want to search recursively
 		GlobalRegistry.registerPartSkin(i,"AverageAce")
