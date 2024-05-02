@@ -176,7 +176,7 @@ func _run():
                 else:
                     addDisabledButton(slot + " empty", slot+" slot does not have any bodypart")
                     printDebug("slot " + slot + " does not have any bodypart")
-            saynn("Currently converting a bodypart to hyperable, which one do you pick?")
+            saynn("Currently converting a bodypart [b]to[/b] hyperable, which one do you pick?")
 
         "convertBodypartFromHyperableMenu":
             addButton("Nevermind", "go back", "")
@@ -200,11 +200,25 @@ func _run():
                 else:
                     addDisabledButton(slot + " empty", slot+" slot does not have any bodypart")
                     printDebug("slot " + slot + " does not have any bodypart")
-            saynn("Currently revertiing a bodypart from hyperable, which one do you pick?")
+            saynn("Currently reverting a bodypart [b]from[/b] hyperable, which one do you pick?")
 
         "clearOrifice":
             addButton("Nevermind", "go back", "")
-     
+            for slot in slotsToCheck:
+                var bodypart = _receiver.getBodypart(slot)
+                if bodypart != null:
+                    if checkHasHyperable(slot, _receiver):
+                        if bodypart.getOrifice() != null:
+                            addButton("Clear "+bodypart.visibleName, "Clear "+bodypart.visibleName, "clearOrificeAct", [slot])
+                            printDebug(slot+", "+bodypart.visibleName+" have orifice")
+                    else:
+                        addDisabledButton("Clear "+bodypart.visibleName, "Unable to clear "+bodypart.visibleName+" because its not hyperable")
+                        printDebug("skipped "+slot+" due to not have any hyperable")
+                else:
+                    if !(slot == BodypartSlot.Breasts || slot == BodypartSlot.Penis):
+                        printDebug(slot+", DOES NOT have a bodypart")
+
+            saynn("Select one you want to clear") 
        
         "endTurn":
             addButton("OK","Continue","endScene")
@@ -311,6 +325,16 @@ func _react(_action: String, _args):
         _receiver.getBodypart(_slot).loadData(dataToRestore)
         _receiver.updateAppearance()
         addMessage("Successfully changed "+GlobalRegistry.bodyparts[_oldBodypart].visibleName+" to "+GlobalRegistry.bodyparts[_toBodypart].visibleName)
+        if calledFrom != 0 : 
+            setState("endTurn") # end the scene if called from combat
+        else: 
+            setState("")
+        return
+
+    if _action == "clearOrificeAct":
+        var _slot = _args[0]
+        _receiver.getBodypart(_slot).clearOrificeFluids()
+        addMessage("Successfully cleared "+_receiver.getBodypart(_slot).visibleName+" of [color="+_receiver.getChatColor()+"][b]"+_receiver.getName()+"[/b][/color]")
         if calledFrom != 0 : 
             setState("endTurn") # end the scene if called from combat
         else: 
