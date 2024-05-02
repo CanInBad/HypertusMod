@@ -79,11 +79,18 @@ func _run():
                 addButton("Induce lactation", "Force "+_receiver.hisHer()+" breast to lactate", "induceLactation")
             else:
                 addDisabledButton("Induce lactation",_receiver.hisHer()+" does not have any hyperable breasts")
-            var isConvertable = (!hasHyperable || (!checkHasHyperable(BodypartSlot.Penis, _receiver) || !checkHasHyperable(BodypartSlot.Breasts, _receiver) || !checkHasHyperable(BodypartSlot.Vagina, _receiver) || !checkHasHyperable(BodypartSlot.Anus, _receiver)))
-            if isConvertable:
+            if ((!hasHyperable || (!checkHasHyperable(BodypartSlot.Penis, _receiver) || !checkHasHyperable(BodypartSlot.Breasts, _receiver) || !checkHasHyperable(BodypartSlot.Vagina, _receiver) || !checkHasHyperable(BodypartSlot.Anus, _receiver))) || checkHasOutdated(_receiver)):
                 addButton("Convert a body part", "Select which body part on "+_receiver.himHer()+" to convert to hyperable", "convertBodypart2HyperableMenu")
+            else:
+                addDisabledButton("Convert a body part", "There is no bodypart to convert")
             if hasHyperable:
                 addButton("Revert a body part", "Select which body part on "+_receiver.himHer()+" to revert from hyperable", "convertBodypartFromHyperableMenu")
+            else:
+                addDisabledButton("Revert a body part", "There is no bodypart to revert")
+            if hasHyperable && (checkHasHyperable(BodypartSlot.Anus, _receiver) || checkHasHyperable(BodypartSlot.Vagina, _receiver)):
+                addButton("Clear a orifice", "Select which orifice that hyperable to clear stuff", "clearOrifice") 
+            else:
+                addDisabledButton("Clear a orifice", "There is no applicable hyperable bodypart")
             
             # if checkHasHyperable(BodypartSlot.Vagina,_receiver):
             #     addButton("")
@@ -149,16 +156,16 @@ func _run():
         
         "convertBodypart2HyperableMenu":
             addButton("Nevermind", "go back", "")
-            for i in slotsToCheck:
-                var bodypart = _receiver.getBodypart(i)
+            for slot in slotsToCheck:
+                var bodypart = _receiver.getBodypart(slot)
                 if bodypart != null:
                     var bodypartID = bodypart.id
-                    if str(bodypartID) + "hyperable" in GlobalRegistry.bodyparts && !checkHasHyperable(i, _receiver):
-                        addButton(GlobalRegistry.bodyparts[bodypartID+"hyperable"].visibleName, "Convert " + bodypart.visibleName + " to hyperable", "convertBodypart", [bodypartID+"hyperable", i])
+                    if str(bodypartID) + "hyperable" in GlobalRegistry.bodyparts && !checkHasHyperable(slot, _receiver):
+                        addButton(GlobalRegistry.bodyparts[bodypartID+"hyperable"].visibleName, "Convert " + bodypart.visibleName + " to hyperable", "convertBodypart", [bodypartID+"hyperable", slot])
                         printDebug("yes, "+str(bodypartID) + "hyperable existed")
-                    elif checkHasHyperable(i, _receiver):
+                    elif checkHasHyperable(slot, _receiver):
                         if (bodypartID in outdatedBodyparts):
-                            addButton(GlobalRegistry.bodyparts[outdatedBodyparts[bodypartID]].visibleName, "Update " + bodypart.visibleName + " to supported version", "convertBodypart", [outdatedBodyparts[bodypartID], i])
+                            addButton(GlobalRegistry.bodyparts[outdatedBodyparts[bodypartID]].visibleName, "Update " + bodypart.visibleName + " to supported version", "convertBodypart", [outdatedBodyparts[bodypartID], slot])
                             printDebug(bodypartID + " is outdated, suggested "+outdatedBodyparts[bodypartID]+" instead")
                         else:
                             addDisabledButton(bodypart.visibleName, bodypart.visibleName + " is already hyperable")
@@ -167,26 +174,37 @@ func _run():
                         addDisabledButton(bodypartID+"hyperable", "does not existed")
                         printDebug("no, "+str(bodypartID) + "hyperable" + " DOES NOT existed")
                 else:
-                    addDisabledButton(i + " empty", i+" slot does not have any bodypart")
-                    printDebug("slot " + i + " does not have any bodypart")
-            saynn("WIP!!!! ToHyperable")
+                    addDisabledButton(slot + " empty", slot+" slot does not have any bodypart")
+                    printDebug("slot " + slot + " does not have any bodypart")
+            saynn("Currently converting a bodypart to hyperable, which one do you pick?")
 
         "convertBodypartFromHyperableMenu":
             addButton("Nevermind", "go back", "")
-            for i in slotsToCheck:
-                var bodypart = _receiver.getBodypart(i)
+            for slot in slotsToCheck:
+                var bodypart = _receiver.getBodypart(slot)
                 if bodypart != null:
                     var bodypartID = bodypart.id
-                    if (checkHasHyperable(i, _receiver) && !(bodypartID in outdatedBodyparts)):
+                    if (checkHasHyperable(slot, _receiver) && !(bodypartID in outdatedBodyparts)):
                         if (bodypartID.trim_suffix("hyperable" in GlobalRegistry.bodyparts)):
-                            printDebug(i+" ("+bodypartID+") has hyperable, convertable to normal one")
+                            addButton(GlobalRegistry.bodyparts[bodypartID.trim_suffix("hyperable")].visibleName, "revert " + bodypart.visibleName + " from hyperable", "convertBodypart", [bodypartID.trim_suffix("hyperable"), slot])
+                            printDebug(slot+" ("+bodypartID+") has hyperable, convertable to normal one")
                         else:
-                            printDebug(i+" ("+bodypartID+") has hyperable but unable to convert to normal one")
+                            addDisabledButton(bodypart.visibleName, "unable to revert back slot "+slot)
+                            printDebug(slot+" ("+bodypartID+") has hyperable but unable to convert to normal one")
                     elif (bodypartID in outdatedBodyparts):
-                        printDebug(i+" ("+bodypartID+") is outdated")
+                        addDisabledButton(GlobalRegistry.bodyparts[outdatedBodyparts[bodypartID]].visibleName, "unable to revert due to the bodypart being outdated, please update it with convert menu.")
+                        printDebug(slot+" ("+bodypartID+") is outdated")
                     else:
-                        printDebug(i+" ("+bodypartID+") is already normal")
-            saynn("WIP!!!! FromHyperable")
+                        addDisabledButton(bodypart.visibleName, bodypart.visibleName+" is already normal")
+                        printDebug(slot+" ("+bodypartID+") is already normal")
+                else:
+                    addDisabledButton(slot + " empty", slot+" slot does not have any bodypart")
+                    printDebug("slot " + slot + " does not have any bodypart")
+            saynn("Currently revertiing a bodypart from hyperable, which one do you pick?")
+
+        "clearOrifice":
+            addButton("Nevermind", "go back", "")
+     
        
         "endTurn":
             addButton("OK","Continue","endScene")
@@ -331,4 +349,12 @@ func checkHasAnyHyperable(_who):
     for i in slotsToCheck:
         if checkHasHyperable(i, _who):
             return true
+    return false
+
+func checkHasOutdated(_who):
+    if _who != null:
+        for i in slotsToCheck:
+            if _who.hasBodypart(i):
+                if _who.getBodypart(i).id in outdatedBodyparts:
+                    return true
     return false
