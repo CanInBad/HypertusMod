@@ -18,6 +18,11 @@ func getTooltipInfo():
 	
 	return Util.join(result, "\n")
 
+func getTraits():
+	return {
+		"Hyperable": true,
+	}
+
 func saveData():
 	var data = .saveData()
 	data["lengthCM"] = lengthCM

@@ -49,5 +49,10 @@ func getRevealMessage():
 	
 	return Util.capitalizeFirstLetter(orifice.getLoosenessString()) + " pussy got revealed."
 
+func getTraits():
+	return {
+		"Hyperable": true,
+	}
+
 func supportsSkin():
 	return false

@@ -56,7 +56,6 @@ func getLewdSizeAdjective():
 		return RNG.pick(["massive", "heavy", "enormous"]) 
 	return RNG.pick(["gigantic", "ginormous", "colossal"])
 		
-
 func getLewdAdjective():
 	return RNG.pick(["soft", "squishy", "nice"])
 	
@@ -119,6 +118,11 @@ func getCharCreatorData():
 	return [
 		["size", size],
 	]
+
+func getTraits():
+	return {
+		"Hyperable": true,
+	}
 
 func getBaseSize():
 	return size

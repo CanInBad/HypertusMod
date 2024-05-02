@@ -99,6 +99,7 @@ func _run():
         "resizeMenu":
             announceTargeting()
             saynn("What part would you like to resize?")
+            addButton("Back", "go back", "")
 
             if checkHasHyperable(BodypartSlot.Penis,_receiver):
                 addButton("Penis","resize "+_receiver.hisHer()+" shlong","penisSizeSelection")
@@ -111,8 +112,6 @@ func _run():
                 addButton("Breasts","resize "+_receiver.hisHer()+" boobies","boobSizeSelection")
             else:
                 addDisabledButton("Breasts","They don't have "+_receiver.hisHer()+" boobies hyperable")
-
-            addButton("Back", "go back", "")
 
         "boobSizeSelection":
             announceTargeting()
@@ -155,7 +154,8 @@ func _run():
                 addButton(str(int(i*100))+"%", "Select "+str(int(i*100))+"%", "ballsResize", [i])
         
         "convertBodypart2HyperableMenu":
-            addButton("Nevermind", "go back", "")
+            announceTargeting()
+            addButton("Back", "go back", "")
             for slot in slotsToCheck:
                 var bodypart = _receiver.getBodypart(slot)
                 if bodypart != null:
@@ -179,7 +179,8 @@ func _run():
             saynn("Currently converting a bodypart [b]to[/b] hyperable, which one do you pick?")
 
         "convertBodypartFromHyperableMenu":
-            addButton("Nevermind", "go back", "")
+            announceTargeting()
+            addButton("Back", "go back", "")
             for slot in slotsToCheck:
                 var bodypart = _receiver.getBodypart(slot)
                 if bodypart != null:
@@ -203,14 +204,19 @@ func _run():
             saynn("Currently reverting a bodypart [b]from[/b] hyperable, which one do you pick?")
 
         "clearOrifice":
-            addButton("Nevermind", "go back", "")
+            announceTargeting()
+            addButton("Back", "go back", "")
             for slot in slotsToCheck:
                 var bodypart = _receiver.getBodypart(slot)
                 if bodypart != null:
                     if checkHasHyperable(slot, _receiver):
                         if bodypart.getOrifice() != null:
-                            addButton("Clear "+bodypart.visibleName, "Clear "+bodypart.visibleName, "clearOrificeAct", [slot])
-                            printDebug(slot+", "+bodypart.visibleName+" have orifice")
+                            if !bodypart.getOrifice().isEmpty():
+                                addButton("Clear "+bodypart.visibleName, "Clear "+bodypart.visibleName, "clearOrificeAct", [slot])
+                                printDebug(slot+", "+bodypart.visibleName+" have orifice AND have something in them")
+                            else:
+                                addDisabledButton("Clear "+bodypart.visibleName, "Unable to clear "+bodypart.visibleName+" because its empty")
+                                printDebug(slot+", "+bodypart.visibleName+" have orifice BUT there is nothing in them")
                     else:
                         addDisabledButton("Clear "+bodypart.visibleName, "Unable to clear "+bodypart.visibleName+" because its not hyperable")
                         printDebug("skipped "+slot+" due to not have any hyperable")

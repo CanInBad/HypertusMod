@@ -1,5 +1,6 @@
 extends Module
 var fileClass = File.new()
+var dirClass = Directory.new()
 
 func getFlags():
 	return {
@@ -123,8 +124,9 @@ func _init():
 		"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfBreast.gd",
 	]
 
-	if OS.has_feature("editor"):
-		Log.print("\t/// "+id+": detect that we're in editor")
+	if OS.has_feature("debug"):
+		Log.print("\t/// "+id+": detect that we're in debug")
+		shouldLogPrint = true
 		events.append("res://Modules/Z_Hypertus/Events/debugPrintStuff.gd")
 		# events.append("res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd")
 		items.append("res://Modules/Z_Hypertus/Item/HyperPenisPump.gd")
@@ -182,6 +184,9 @@ func _init():
 			"files": [
 				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/TransBreasts.gd"
 			],
+		},
+		"":{
+
 		}
 		# "non test": _test,
 	}
@@ -242,12 +247,13 @@ func announceCurrentEnabledCompactLayer(theDict:Dictionary):
 				break
 	if isAnyEnabled:
 		var text:String = ""
-		Log.print("  ### "+id+": at least a compatibility layer is activated, in summary we have:")
+		text += "  ### "+id+": at least a compatibility layer is activated, in summary we have:\n"
 		for modindex in theDict.keys():
 			if theDict[modindex].get("enabled") != null:
 				if theDict[modindex]["enabled"]:
 					var modauthor = theDict[modindex]["author"]
 					text += "    - "+modindex+", by: "+modauthor+ "\n"
+		text = text.trim_suffix("\n")
 		Log.print(text)
 		return true
 	return false
@@ -301,28 +307,27 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 				curIndex["enabled"] = true
 
 func moduleRegisterPartSkins():
-	for i in [
-			"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable/Gradient.gd",
-			"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable/Lover.gd",
-			"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable/Piercing.gd",
-			"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable/Tribal.gd",
 
-			"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable/DragonGradient.gd",
-			"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable/DragonLover.gd",
-			"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable/DragonPiercing.gd",
-			"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable/DragonTribal.gd",
-			
-			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquineGradient.gd",
-			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquinePattern1.gd",
-			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquinePattern2.gd",
-			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquinePattern3.gd",
-			"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable/EquineTribal.gd",
+	var paths = [
+		"res://Modules/Z_Hypertus/Partskins/HumanPenisHyperable",
+		"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable",
+		"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable",
+		"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable",
+		"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable",
+		"res://Modules/Z_Hypertus/Partskins/BarbedEquinePenis",
+		"res://Modules/Z_Hypertus/Partskins/deerpenishyperable",
+		]
 
-			"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable/FelineGradient.gd",
-			"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable/FelinePierced.gd",
-			"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable/FelineTribal.gd",
+	var skins = []
+	for path in paths:
+		if dirClass.open(path) == OK:
+			dirClass.list_dir_begin()
+			var fileName = dirClass.get_next()
+			while fileName != "":
+				if !dirClass.current_is_dir():
+					skins.append(path+"/"+fileName)
+					logPrintOnDemand(id+": [SKINS] Added "+fileName+" to skins")
+				fileName = dirClass.get_next()
 
-			"res://Modules/Z_Hypertus/Partskins/HumanPenisHyperable/HumanTribal.gd",
-			"res://Modules/Z_Hypertus/Partskins/HumanPenisHyperable/HumanTwoTone.gd",
-			]:
+	for i in skins: # I don't want to search recursively
 		GlobalRegistry.registerPartSkin(i,"AverageAce")

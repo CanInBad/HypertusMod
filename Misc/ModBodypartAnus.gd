@@ -28,7 +28,12 @@ func getTooltipInfo():
 			text += "\nBreed chance: "+str(Util.roundF(menstrualCycle.getRoughChanceOfBecomingPregnant(), 1))+"%"
 			text += "\nFertility: "+str(Util.roundF(theChar.getFertility()*100.0, 1))+"%"
 	return text
-# 
+
+func getTraits():
+	return {
+		"Hyperable": true,
+	}
+
 func getAttributesText():
 	var curAttribute = .getAttributesText()
 	var toAdd = [
