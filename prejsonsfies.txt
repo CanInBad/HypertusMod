@@ -13,28 +13,25 @@ There is a draft of the story but it isn't complete in anyway and some glimpse o
 
 There are compatibility layers that make all species including the modded one have hyperable version of them
 
-You can transform your or your foe's parts to hyperable with Personal Bluespace Anomaly Emitter\™️. You need to finish the Alex's portal quest to get one from his shop
+You can transform your or your foe's parts to hyperable with Personal Bluespace Anomaly Emitter™️. You need to finish the Alex's portal quest to get one from his shop
 
 Has compatibility layer between these mods:
  - Synth Species
- - Knotted Horse Cock
  - Fluffy Bodyparts
  - Avali Species (both version)
  - Ace's Aviary Addon
  - Transgender Flat Chest
- - Barbed Equine Penis
  - Crow Species
  - Deer Species
+ - Knotted Horse Cock
+ - Barbed Equine Penis
+ - Spined Dragon Penis
 
 If you have any feedback send it in #mods-discussion and ping me,
 or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 # Changelog
- * Bump version
- * Added 3 new compact layers
- * Button to convert old bodypart to new in your cell
- * [b]REMOVED[/b] Legacy events
-# Raygun
- * Ability to transform normal bodypart to hyperable version and vise versa
- ↳ SexActivity is not done and will come at a later date, only use it in combat or normal item use for now.
- * Ability to clear hyperable orifices 
+ * a new compatibility layer
+## backend stuff
+ * added skinPathDir and skinPaths to either add skins of an entire folder or individually
+ * changes order of loading stuff to bodyparts then skins (used to be skins then bodypart)

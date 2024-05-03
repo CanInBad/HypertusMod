@@ -131,17 +131,8 @@ func _init():
 		# Engine.get_main_loop().get_root().add_child(load("res://Modules/Z_Hypertus/_popup/popup.gd"))
 		# GlobalRegistry.get_tree().quit()
 		# return
-
-	moduleRegisterPartSkins()
-
+	
 	var _listBodyPartsCompactLayers = {
-		"Knotted Horse Cock": {
-			"moduleid": "Knotted Horse Cock",
-			"author":   "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/KnottedEquinePenis.gd",
-			],
-		},
 		"Synth Species": {
 			"moduleid": "SynthSpecies",
 			"author":   "AverageAce",
@@ -182,13 +173,6 @@ func _init():
 				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/TransBreasts.gd"
 			],
 		},
-		"Barbed Equine Penis": {
-			"moduleid": "Barbed Horse Cock",
-			"author": "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BarbedEquinePenis.gd"
-			],
-		},
 		"Crow Species": {
 			"moduleid": "CrowSpeciesModule",
 			"author": "AverageAce",
@@ -203,11 +187,36 @@ func _init():
 			"files": [
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/DeerPenis.gd",
 			],
+			"skinPathDir": "res://Modules/Z_Hypertus/Partskins/DeerPenis",
+		},
+		"Knotted Horse Cock": {
+			"moduleid": "Knotted Horse Cock",
+			"author":   "AverageAce",
+			"files": [
+				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/KnottedEquinePenis.gd",
+			],
+		},
+		"Barbed Equine Penis": {
+			"moduleid": "Barbed Horse Cock",
+			"author": "AverageAce",
+			"files": [
+				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BarbedEquinePenis.gd"
+			],
+			"skinPathDir": "res://Modules/Z_Hypertus/Partskins/BarbedEquinePenis",
+		},
+		"Spined Dragon Penis": {
+			"moduleid": "Spined Dragon Penis",
+			"author": "AverageAce",
+			"files": [
+				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SpinedDragonPenis.gd",
+			],
+			"skinPathDir": "res://Modules/Z_Hypertus/Partskins/SpinedDragonPenis",
 		},
 		# "non test": _test,
 	}
 	# addEnableValue(_listBodyPartsCompactLayers)
 	universalBodyPartsCompactLayer(bodyparts,_listBodyPartsCompactLayers)
+	moduleRegisterPartSkins()
 	announceCurrentEnabledCompactLayer(_listBodyPartsCompactLayers)
 	# showingDialog()
 	
@@ -291,6 +300,14 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 					logErrorOnDemand(id+": "+moduleName+": |BODYCOMPACT| there aren\'t any file paths in files array, will assume total -1")
 					total = -1
 
+				if theDict[modindex].has("skinPathDir"):
+					if dirClass.dir_exists(theDict[modindex]["skinPathDir"]):
+						skinPathsDir.append(theDict[modindex]["skinPathDir"])
+				
+				if theDict[modindex].has("skinPaths"):
+					if fileClass.file_exists(theDict[modindex].get("skinPaths")):
+						skinPaths.append(theDict[modindex].get("skinPaths"))
+
 				if total > 0:
 					for item in files:
 						var fileName = item.get_file()
@@ -306,7 +323,6 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 						else:
 							logErrorOnDemand(id+": ERROR! "+moduleName+"\'s ("+moduleID+") file: \""+item+"\" do not exist!")
 							total -= 1
-			
 			
 				if sum != total:
 					if sum == 0:
@@ -326,19 +342,21 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 		else:
 			logErrorOnDemand(id+": ## the index "+modindex+" ("+theDict[modindex]+") has no moduleid key")
 
+var skinPathsDir = [
+	"res://Modules/Z_Hypertus/Partskins/HumanPenisHyperable",
+	"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable",
+	"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable",
+	"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable",
+	"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable",
+]
+var skinPaths = []
+
 func moduleRegisterPartSkins():
 
-	var paths = [
-		"res://Modules/Z_Hypertus/Partskins/HumanPenisHyperable",
-		"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable",
-		"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable",
-		"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable",
-		"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable",
-		"res://Modules/Z_Hypertus/Partskins/BarbedEquinePenis",
-		"res://Modules/Z_Hypertus/Partskins/DeerPenis",
-		]
+	var paths = skinPathsDir
 
-	var skins = []
+	var skins = skinPaths
+
 	for path in paths:
 		if dirClass.open(path) == OK:
 			dirClass.list_dir_begin()
