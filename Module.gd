@@ -195,6 +195,7 @@ func _init():
 			"files": [
 				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/KnottedEquinePenis.gd",
 			],
+			"skinPathDir": "res://Modules/Z_Hypertus/Partskins/KnottedEquinePenis"
 		},
 		"Barbed Equine Penis": {
 			"moduleid": "Barbed Horse Cock",
