@@ -381,6 +381,12 @@ func moduleRegisterPartSkins():
 
 	for pair in skins: # actually the part that register skins
 		if pair is Array:
-			GlobalRegistry.registerPartSkin(pair[0],pair[1])
+			var path:String = String(pair[0])
+			var skinAuthor = pair[1]
+			if skinAuthor == null || skinAuthor.empty():
+				skinAuthor = "Unknown"
+			if fileClass.file_exists(path):
+				GlobalRegistry.registerPartSkin(path,skinAuthor)
+			else: logErrorOnDemand(id+": [SKINS] "+ String(path) + " does not exist")
 		else:
 			logErrorOnDemand(id+": [SKINS] "+ String(pair) + " is still in old format")
