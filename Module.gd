@@ -290,6 +290,7 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 			if theDict[modindex]["moduleid"] in GlobalRegistry.getModules():
 				var curIndex = theDict[modindex]
 				var moduleName = modindex
+				var moduleAuthor = curIndex.get("author")
 				var moduleID = theDict[modindex]["moduleid"]
 				var files = curIndex["files"]
 				var sum = 0
@@ -301,13 +302,13 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 					logErrorOnDemand(id+": "+moduleName+": |BODYCOMPACT| there aren\'t any file paths in files array, will assume total -1")
 					total = -1
 
-				if theDict[modindex].has("skinPathDir"):
-					if dirClass.dir_exists(theDict[modindex]["skinPathDir"]):
-						skinPathsDir.append(theDict[modindex]["skinPathDir"])
+				if curIndex.has("skinPathDir"):
+					if dirClass.dir_exists(curIndex.get("skinPathDir")):
+						skinPathsDir.append([curIndex.get("skinPathDir"),String(moduleAuthor)])
 				
-				if theDict[modindex].has("skinPaths"):
-					if fileClass.file_exists(theDict[modindex].get("skinPaths")):
-						skinPaths.append(theDict[modindex].get("skinPaths"))
+				if curIndex.has("skinPaths"):
+					if fileClass.file_exists(curIndex.get("skinPaths")):
+						skinPaths.append([curIndex.get("skinPaths"),String(moduleAuthor)])
 
 				if total > 0:
 					for item in files:
@@ -344,31 +345,42 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 			logErrorOnDemand(id+": ## the index "+modindex+" ("+theDict[modindex]+") has no moduleid key")
 
 var skinPathsDir = [
-	"res://Modules/Z_Hypertus/Partskins/HumanPenisHyperable",
-	"res://Modules/Z_Hypertus/Partskins/FelinePenisHyperable",
-	"res://Modules/Z_Hypertus/Partskins/EquinePenisHyperable",
-	"res://Modules/Z_Hypertus/Partskins/DragonPenisHyperable",
-	"res://Modules/Z_Hypertus/Partskins/CaninePenisHyperable",
+	["res://Modules/Z_Hypertus/Partskins/HumanPenisHyperableAce", "AverageAce"],
+	["res://Modules/Z_Hypertus/Partskins/FelinePenisHyperableAce", "AverageAce"],
+	["res://Modules/Z_Hypertus/Partskins/EquinePenisHyperableAce", "AverageAce"],
+	["res://Modules/Z_Hypertus/Partskins/DragonPenisHyperableAce", "AverageAce"],
+	["res://Modules/Z_Hypertus/Partskins/CaninePenisHyperableAce", "AverageAce"],
 ]
 var skinPaths = []
 
 func moduleRegisterPartSkins():
 
-	var paths = skinPathsDir
+	var paths = skinPathsDir # directory
 
-	var skins = skinPaths
+	var skins = skinPaths # stright to the gd file
 
-	for path in paths:
-		if dirClass.open(path) == OK:
-			dirClass.list_dir_begin()
-			var fileName = dirClass.get_next()
-			while fileName != "":
-				if !dirClass.current_is_dir():
-					skins.append(path+"/"+fileName)
-					logPrintOnDemand(id+": [SKINS] Added "+fileName+" to skins")
-				fileName = dirClass.get_next()
+	for pair in paths: # resolve directory to path for skin files
+		if pair is Array:
+			var path = pair[0]
+			var skinAuthor = pair[1]
+			if dirClass.open(path) == OK:
+				dirClass.list_dir_begin()
+				var fileName = dirClass.get_next()
+				while fileName != "":
+					if !dirClass.current_is_dir():
+						var tempArray:Array = []
+						tempArray.append(path+"/"+fileName)
+						tempArray.append(skinAuthor)
+						skins.append(tempArray)
+						logPrintOnDemand(id+": [SKINS] Added "+fileName+" (by: "+skinAuthor+") to skins")
+					fileName = dirClass.get_next()
+			else:
+				logErrorOnDemand(id+": [SKINS] "+path+" does not exist!")
 		else:
-			logErrorOnDemand(id+": [SKINS] "+path+" does not exist!")
+			logErrorOnDemand(id+": [SKINS] "+ String(pair) + " is still in old format")
 
-	for i in skins: # I don't want to search recursively
-		GlobalRegistry.registerPartSkin(i,"AverageAce")
+	for pair in skins: # actually the part that register skins
+		if pair is Array:
+			GlobalRegistry.registerPartSkin(pair[0],pair[1])
+		else:
+			logErrorOnDemand(id+": [SKINS] "+ String(pair) + " is still in old format")
