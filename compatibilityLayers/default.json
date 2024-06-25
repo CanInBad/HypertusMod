@@ -1,0 +1,82 @@
+{
+    "Synth Species": {
+        "moduleid": "SynthSpecies",
+        "author": "AverageAce",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SynthEquinePenis.gd",
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SynthPenis.gd",
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SynthPenisHuman.gd"
+        ]
+    },
+    "Fluffy Bodyparts": {
+        "moduleid": "Fluffy Bodyparts",
+        "author": "AverageAce & Max-Maxou",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffBreasts.gd",
+            "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffMaleBreasts.gd"
+        ]
+    },
+    "Avali Species (both version)": {
+        "moduleid": "Avali Species",
+        "author": "AverageAce",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliBreasts.gd",
+            "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliMaleBreasts.gd"
+        ]
+    },
+    "Ace's Aviary Addon": {
+        "moduleid": "AcesAvairyAddon",
+        "author": "AverageAce",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis.gd",
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis2.gd"
+        ]
+    },
+    "Trans Scar Chest": {
+        "moduleid": "Trans Scar Chest",
+        "author": "AverageAce",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/TransBreasts.gd"
+        ]
+    },
+    "Crow Species": {
+        "moduleid": "CrowSpeciesModule",
+        "author": "AverageAce",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/CrowPenis.gd",
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/CrowPenisSlit.gd"
+        ]
+    },
+    "Deer Species": {
+        "moduleid": "CrowSpeciesModule",
+        "author": "AverageAce/Fantos/Max-Maxou",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/DeerPenis.gd"
+        ],
+        "skinPathDir": "res://Modules/Z_Hypertus/Partskins/DeerPenis"
+    },
+    "Knotted Horse Cock": {
+        "moduleid": "Knotted Horse Cock",
+        "author": "AverageAce",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/KnottedEquinePenis.gd"
+        ],
+        "skinPathDir": "res://Modules/Z_Hypertus/Partskins/KnottedEquinePenis"
+    },
+    "Barbed Equine Penis": {
+        "moduleid": "Barbed Horse Cock",
+        "author": "AverageAce",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BarbedEquinePenis.gd"
+        ],
+        "skinPathDir": "res://Modules/Z_Hypertus/Partskins/BarbedEquinePenis"
+    },
+    "Spined Dragon Penis": {
+        "moduleid": "Spined Dragon Penis",
+        "author": "AverageAce",
+        "files": [
+            "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SpinedDragonPenis.gd"
+        ],
+        "skinPathDir": "res://Modules/Z_Hypertus/Partskins/SpinedDragonPenis"
+    }
+}

@@ -12,12 +12,6 @@ func getCompatibleSpecies():
 func getCharacterCreatorDesc():
 	return "Required to experience the Hypertus mod"
 
-func getLewdSizeAdjective():
-	return ""
-
-func getLewdAdjective():
-	return ""
-
 func getLewdDescriptionAndName():
 	var text = getLewdSizeAdjective() + " " + getLewdAdjective() + " " + getLewdName()
 	return text

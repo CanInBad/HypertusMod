@@ -133,95 +133,22 @@ func _init():
 		# return
 	
 	var _listBodyPartsCompactLayers = {
-		"Synth Species": {
-			"moduleid": "SynthSpecies",
-			"author":   "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SynthEquinePenis.gd",
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SynthPenis.gd",
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SynthPenisHuman.gd",
-			],
-		},
-		"Fluffy Bodyparts": {
-			"moduleid": "Fluffy Bodyparts",
-			"author":   "AverageAce & Max-Maxou",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffBreasts.gd",
-				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffMaleBreasts.gd"
-			],
-		},
-		"Avali Species (both version)": {
-			"moduleid": "Avali Species",
-			"author":   "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliBreasts.gd",
-				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliMaleBreasts.gd"
-			],
-		},
-		"Ace's Aviary Addon": {
-			"moduleid": "AcesAvairyAddon",
-			"author": "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis.gd",
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BirdPenis2.gd"
-			],
-		},
-		"Trans Scar Chest": {
-			"moduleid": "Trans Scar Chest",
-			"author": "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/TransBreasts.gd"
-			],
-		},
-		"Crow Species": {
-			"moduleid": "CrowSpeciesModule",
-			"author": "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/CrowPenis.gd",
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/CrowPenisSlit.gd",
-			],
-		},
-		"Deer Species": {
-			"moduleid": "CrowSpeciesModule",
-			"author": "AverageAce/Fantos/Max-Maxou",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/DeerPenis.gd",
-			],
-			"skinPathDir": "res://Modules/Z_Hypertus/Partskins/DeerPenis",
-		},
-		"Knotted Horse Cock": {
-			"moduleid": "Knotted Horse Cock",
-			"author":   "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/KnottedEquinePenis.gd",
-			],
-			"skinPathDir": "res://Modules/Z_Hypertus/Partskins/KnottedEquinePenis"
-		},
-		"Barbed Equine Penis": {
-			"moduleid": "Barbed Horse Cock",
-			"author": "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/BarbedEquinePenis.gd"
-			],
-			"skinPathDir": "res://Modules/Z_Hypertus/Partskins/BarbedEquinePenis",
-		},
-		"Spined Dragon Penis": {
-			"moduleid": "Spined Dragon Penis",
-			"author": "AverageAce",
-			"files": [
-				"res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/SpinedDragonPenis.gd",
-			],
-			"skinPathDir": "res://Modules/Z_Hypertus/Partskins/SpinedDragonPenis",
-		},
 		# "non test": _test,
 	}
-	# addEnableValue(_listBodyPartsCompactLayers)
+	var toMerge:Array = readJsons()
+	if toMerge[0].size() > 0:
+		_listBodyPartsCompactLayers.merge(toMerge[0])
+		var text:String = id+": [JSON] There are at least a compatibility json file\n"
+		for i in toMerge[1]:
+			text += "\t- "+i+"\n"
+		text = text.trim_suffix("\n")
+		logPrintOnDemand(text)
+
 	universalBodyPartsCompactLayer(bodyparts,_listBodyPartsCompactLayers)
 	moduleRegisterPartSkins()
 	announceCurrentEnabledCompactLayer(_listBodyPartsCompactLayers)
 	# showingDialog()
 	
-
 # func showingDialog() -> void:
 # 	yield(GM.get_tree().current_scene, "tree_exited")
 # 	yield(GM.get_tree().create_timer(0.2), "timeout")
@@ -260,9 +187,36 @@ func logErrorOnDemand(txt):
 	if shouldLogPrint:
 		Log.error(txt)
 
-# func addEnableValue(theDict:Dictionary):
-# 	for i in theDict.keys():
-# 		theDict[i]["enabled"] = false
+const compatibilityDir = "res://Modules/Z_Hypertus/compatibilityLayers"
+
+func readJsons():
+	var toReturn:Array = []
+	var dictToReturn:Dictionary = {}
+	var filesContributed:Array = []
+	var _ok1 = dirClass.open(compatibilityDir)
+	if _ok1 == OK:
+		dirClass.list_dir_begin()
+		var fileName = dirClass.get_next()
+		while fileName != "":
+			var fullPath = compatibilityDir.plus_file(fileName)
+			if fileName.get_extension() == "json":
+				var _ok2 = fileClass.open(fullPath,File.READ)
+				if _ok2 != OK:
+					logErrorOnDemand("Something is wrong while opening file " + fileName + "!\nError code: " + String(_ok2.error))
+					continue
+				filesContributed.append(fileName)
+				var _jsonResult = JSON.parse(fileClass.get_as_text())
+				if _jsonResult.error != OK:
+					logErrorOnDemand("Parsing " + fullPath.get_file() + " encountered an error!\nError code: " + String(_jsonResult.error))
+					continue
+				dictToReturn.merge(_jsonResult.result)
+			fileName = dirClass.get_next()
+		toReturn = [dictToReturn,filesContributed]
+	else:
+		logErrorOnDemand("Something is wrong while opening directory "+compatibilityDir+"!\nError code: " + String(_ok1))
+		return []
+
+	return toReturn
 
 func announceCurrentEnabledCompactLayer(theDict:Dictionary):
 	var isAnyEnabled:bool = false
@@ -302,15 +256,17 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 					logErrorOnDemand(id+": "+moduleName+": |BODYCOMPACT| there aren\'t any file paths in files array, will assume total -1")
 					total = -1
 
-				if curIndex.has("skinPathDir"):
+				if curIndex.has("skinPathDir"): # Skins
 					if dirClass.dir_exists(curIndex.get("skinPathDir")):
 						skinPathsDir.append([curIndex.get("skinPathDir"),String(moduleAuthor)])
 				
 				if curIndex.has("skinPaths"):
-					if fileClass.file_exists(curIndex.get("skinPaths")):
-						skinPaths.append([curIndex.get("skinPaths"),String(moduleAuthor)])
+					var skinPathsCompat:Array = curIndex.get("skinPaths")
+					for path in skinPathsCompat:
+						if fileClass.file_exists(path):
+							skinPaths.append([path,String(moduleAuthor)])
 
-				if total > 0:
+				if total > 0: # bodyparts
 					for item in files:
 						var fileName = item.get_file()
 						if fileClass.file_exists(item):

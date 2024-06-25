@@ -2,3 +2,6 @@
 # so it turns out saving this file is better
 
 .vscode
+
+/compatibilityLayers/*
+!/compatibilityLayers/default.json
