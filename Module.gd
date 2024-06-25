@@ -199,17 +199,20 @@ func readJsons():
 		var fileName = dirClass.get_next()
 		while fileName != "":
 			var fullPath = compatibilityDir.plus_file(fileName)
-			if fileName.get_extension() == "json":
-				var _ok2 = fileClass.open(fullPath,File.READ)
-				if _ok2 != OK:
-					logErrorOnDemand("Something is wrong while opening file " + fileName + "!\nError code: " + String(_ok2.error))
-					continue
-				filesContributed.append(fileName)
-				var _jsonResult = JSON.parse(fileClass.get_as_text())
-				if _jsonResult.error != OK:
-					logErrorOnDemand("Parsing " + fullPath.get_file() + " encountered an error!\nError code: " + String(_jsonResult.error))
-					continue
-				dictToReturn.merge(_jsonResult.result)
+			if !dirClass.current_is_dir():
+				if fileName.get_extension() == "json":
+					var _ok2 = fileClass.open(fullPath,File.READ)
+					if _ok2 != OK:
+						logErrorOnDemand("Something is wrong while opening file " + fileName + "!\nError code: " + String(_ok2.error))
+						fileName = dirClass.get_next()
+						continue
+					filesContributed.append(fileName)
+					var _jsonResult = JSON.parse(fileClass.get_as_text())
+					if _jsonResult.error != OK:
+						logErrorOnDemand("Parsing " + fullPath.get_file() + " encountered an error!\nError code: " + String(_jsonResult.error))
+						fileName = dirClass.get_next()
+						continue
+					dictToReturn.merge(_jsonResult.result)
 			fileName = dirClass.get_next()
 		toReturn = [dictToReturn,filesContributed]
 	else:
