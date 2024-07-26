@@ -82,11 +82,12 @@ func getPickableAttributes():
 		[breastSizeModClass.FLAT, "Flat", "Flat breasts (hard mode)"],
 	]
 	for breastSize in breastSizeModClass.getAll():
-		if(GM.main.getCurrentScene().saveData()["debugMode"] == false):
-			if(breastSize <= breastSizeModClass.FLAT || breastSize > breastSizeModClass.T):
-				continue
-			if not breastSize in breastVariants:
-				breastVariants.append([breastSize, breastSizeModClass.breastSizeToString(breastSize), breastSizeModClass.breastSizeToCupString(breastSize)])
+		if GM.main != null:
+			if(GM.main.getCurrentScene().saveData()["debugMode"] == false):
+				if(breastSize <= breastSizeModClass.FLAT || breastSize > breastSizeModClass.T):
+					continue
+				if not breastSize in breastVariants:
+					breastVariants.append([breastSize, breastSizeModClass.breastSizeToString(breastSize), breastSizeModClass.breastSizeToCupString(breastSize)])
 		else: #(breastSize <= breastSizeModClass.FLAT || breastSize > breastSizeModClass.OMEGA): 
 			if not [breastSizeModClass.FOREVER_FLAT, "Forever Flat", "Your breasts will never produce milk or increase in size (why are you picking this)"] in breastVariants:
 				breastVariants.insert(0,[breastSizeModClass.FOREVER_FLAT, "Forever Flat", "Your breasts will never produce milk or increase in size (why are you picking this)"])
