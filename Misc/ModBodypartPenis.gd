@@ -86,7 +86,9 @@ func getPickableAttributes():
 			[70, Util.cmToString(70), "Pick this length"],
 			[85, Util.cmToString(85), "Pick this length"],
 			[100, Util.cmToString(100), "Pick this length (maybe too hyper)"],
-		]	# the customValue is already sanitised at the set size scene but just in case ppl use debug menu to go wrong
+		],	# the customValue is already sanitised at the set size scene but just in case ppl use debug menu to go wrong
+		"default": 25,
+		"floatinput": true,
 	}
 	if GM.main != null:
 		var customValue = float(GM.main.getFlag("Hypertus.HyperPenisCustomSize", "60"))
@@ -111,7 +113,9 @@ func getPickableAttributes():
 			[3.0, "300%", "Pick this scale"],
 			[4.0, "400%", "Pick this scale"],
 			[5.0, "500%", "Pick this scale"],
-		]
+		],
+		"default": 1.0,
+		"floatinput": true
 	}
 	return result
 	
