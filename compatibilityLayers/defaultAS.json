@@ -1,0 +1,9 @@
+{
+    "Vanilla Species": {
+        "moduleid": "*",
+        "author": "alexofp",
+        "speciesDir": [
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultAS"
+        ]
+    }
+}

@@ -5,3 +5,5 @@
 
 /compatibilityLayers/*
 !/compatibilityLayers/default.json
+!/compatibilityLayers/defaultAS**
+!/compatibilityLayers/defaultMS**

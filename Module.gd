@@ -1,6 +1,8 @@
 extends Module
 var fileClass = File.new()
 var dirClass = Directory.new()
+var shouldLogPrint = false
+var forceBreedEdition = false
 
 func getFlags():
 	return {
@@ -137,7 +139,7 @@ func _init():
 	}
 	var toMerge:Array = readJsons()
 	if toMerge[0].size() > 0:
-		_listBodyPartsCompactLayers.merge(toMerge[0])
+		_listBodyPartsCompactLayers.merge(toMerge[0], true)
 		var text:String = id+": [JSON] There are at least a compatibility json file\n"
 		for i in toMerge[1]:
 			text += "\t- "+i+"\n"
@@ -145,39 +147,20 @@ func _init():
 		logPrintOnDemand(text)
 
 	universalBodyPartsCompactLayer(bodyparts,_listBodyPartsCompactLayers)
+	registerCompatSpecies()
 	moduleRegisterPartSkins()
 	announceCurrentEnabledCompactLayer(_listBodyPartsCompactLayers)
-	# showingDialog()
-	
-# func showingDialog() -> void:
-# 	yield(GM.get_tree().current_scene, "tree_exited")
-# 	yield(GM.get_tree().create_timer(0.2), "timeout")
-# 	if GlobalRegistry.get_node("/root/MainMenu") != null:
-# 		theDialog()
+	freeMem()
 
-# func theDialog() -> void:
-# 	var text = "this\nis\na\ntest"
-# 	var dialog = AcceptDialog.new()
-# 	dialog.window_title = id + " by: "+author
-# 	dialog.dialog_text = text
-# 	dialog.connect('modal_closed', dialog, 'queue_free')
-# 	dialog.theme = load("res://GlobalTheme.tres")
-# 	dialog.rect_scale = Vector2(1.25, 1.25)
-# 	# dialog.anchor_top = 0.01
-# 	# dialog.anchor_right = 0.99
-# 	# dialog.anchor_bottom = 0.97
-# 	dialog.popup_exclusive = true
-# 	GlobalRegistry.get_node("/root/MainMenu/HBoxContainer/").add_child(dialog)
-# 	dialog.popup_centered_ratio(0.5)
-# 	dialog.popup_centered()
-# 	dialog.show()
+func freeMem():
+	skinPathsDir.clear()
+	skinPaths.clear()
+	_species.clear()
 
 var outdatedBodyparts:Dictionary = {
 	"dragonpenismhyper": "dragonpenishyperable",
 	"breastshyperable": "humanbreastshyperable"
 	}
-
-var shouldLogPrint = false
 
 func logPrintOnDemand(txt):
 	if shouldLogPrint:
@@ -212,7 +195,7 @@ func readJsons():
 						logErrorOnDemand("Parsing " + fullPath.get_file() + " encountered an error!\nError code: " + String(_jsonResult.error))
 						fileName = dirClass.get_next()
 						continue
-					dictToReturn.merge(_jsonResult.result)
+					dictToReturn.merge(_jsonResult.result, true)
 			fileName = dirClass.get_next()
 		toReturn = [dictToReturn,filesContributed]
 	else:
@@ -244,17 +227,25 @@ func announceCurrentEnabledCompactLayer(theDict:Dictionary):
 func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 	for modindex in theDict.keys():
 		if theDict[modindex].has("moduleid"):
-			if theDict[modindex]["moduleid"] in GlobalRegistry.getModules():
+			if theDict[modindex]["moduleid"] in GlobalRegistry.getModules() or theDict[modindex]["moduleid"] == "*": # the * is always
 				var curIndex = theDict[modindex]
 				var moduleName = modindex
 				var moduleAuthor = curIndex.get("author")
-				var moduleID = theDict[modindex]["moduleid"]
-				var files = curIndex["files"]
+				var moduleID = curIndex["moduleid"]
+				if moduleID == '*':
+					moduleID = "Vanilla"
+				var files = []
+				if curIndex.has("files"):
+					files = curIndex.get("files")
 				var sum = 0
 				var total:int
+				curIndex["enabled"] = false # no cheating
 
+				var _literallyEverythingElse = (curIndex.has("skinPathDir") || curIndex.has("skinPaths") || curIndex.has("species") || curIndex.has("speciesDir"))
 				if len(files)>0:
 					total = len(files)
+				elif _literallyEverythingElse:
+					total = 0
 				else:
 					logErrorOnDemand(id+": "+moduleName+": |BODYCOMPACT| there aren\'t any file paths in files array, will assume total -1")
 					total = -1
@@ -268,6 +259,46 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 					for path in skinPathsCompat:
 						if fileClass.file_exists(path):
 							skinPaths.append([path,String(moduleAuthor)])
+
+				# Those are used to checksum. Unfortunatly I made skins a sperate function. I guess I will try to rewrite that later.
+				var _processedSpecies11:int = 0 # Total - species
+				var _processedSpecies12:int = 0 # Sum - species
+				var _processedSpecies21:int = 0 # Total - speciesDir
+				var _processedSpecies22:int = 0 # Sum - speciesDir
+
+				if curIndex.has("species"):
+					_processedSpecies11 = curIndex.get("species").size()
+					_processedSpecies12 = processSpecies(curIndex.get("species").duplicate(true), moduleName, moduleID)
+				
+				if curIndex.has("speciesDir"):
+					var _dirClass = Directory.new()
+					var _arrayOfSpeciesPath = {}
+					for path in curIndex.get("speciesDir"):
+						var _ok1 = _dirClass.open(path)
+						if _ok1 == OK:
+							_dirClass.list_dir_begin(true)
+							var file_name = _dirClass.get_next()
+							while file_name != "":
+								if !_dirClass.current_is_dir():
+									if file_name.get_extension() == "gd":
+										var tempSpe = load(path.plus_file(file_name))
+										var speciesObject = tempSpe.new()
+										var speciesID = speciesObject.id
+										_arrayOfSpeciesPath[speciesID] = path.plus_file(file_name)
+										_processedSpecies21 += 1
+								file_name = _dirClass.get_next()
+					if _arrayOfSpeciesPath.size() > 0:
+						_processedSpecies22 += processSpecies(_arrayOfSpeciesPath, moduleName, moduleID)
+				
+				total += _processedSpecies11 + _processedSpecies21
+				sum += _processedSpecies12 + _processedSpecies22
+
+
+
+				if (_processedSpecies11 == _processedSpecies12) && (_processedSpecies11 != 0):
+					curIndex["enabled"] = true
+				if (_processedSpecies21 == _processedSpecies22) && (_processedSpecies21 != 0):
+					curIndex["enabled"]= true
 
 				if total > 0: # bodyparts
 					for item in files:
@@ -300,6 +331,7 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 					else:
 						logPrintOnDemand(id+": ## "+moduleName+" ("+moduleID+"): bodyparts compatibility layer successfully activated! ##\n")
 					curIndex["enabled"] = true
+				
 		else:
 			logErrorOnDemand(id+": ## the index "+modindex+" ("+theDict[modindex]+") has no moduleid key")
 
@@ -349,3 +381,52 @@ func moduleRegisterPartSkins():
 			else: logErrorOnDemand(id+": [SKINS] "+ String(path) + " does not exist")
 		else:
 			logErrorOnDemand(id+": [SKINS] "+ String(pair) + " is still in old format")
+
+var _species = {}
+
+func processSpecies(path:Dictionary = {}, moduleName:String = "", moduleID:String = "") -> int:
+	if path.size() < 1:
+		logErrorOnDemand("processSpecies is called but first argument is empty...."+" {0} ({1})".format([moduleName, moduleID]))
+		return 0
+	var toReturn:int = 0
+	var species:Dictionary = path
+	for idS in species:
+		if idS in GlobalRegistry.allSpecies:
+			if fileClass.file_exists(species[idS]):
+				if idS in _species:
+					logPrintOnDemand(id+": "+moduleName+" ("+moduleID+"): Overwritting key "+idS+" with "+ species[idS])
+				_species[idS] = [species[idS], false] # make them overwrite. we wil be processing this data later.
+				if GlobalRegistry.getSpecies(idS).getDefaultAnus(Gender.Male) == "anuswomb" || forceBreedEdition:
+					if !forceBreedEdition:
+						logPrintOnDemand(id+": "+moduleName+" ("+moduleID+"): Marking "+idS+" with "+ species[idS])
+					_species[idS][1] = true
+				logPrintOnDemand(id+": "+moduleName+" ("+moduleID+"): species "+ idS + " has been put up to processing")
+				toReturn += 1
+			else:
+				logErrorOnDemand(id+": "+moduleName+" ("+moduleID+"): species "+ idS + " does not have valid path. ("+species[idS]+")")
+		else:
+			logPrintOnDemand(id+": "+moduleName+" ("+moduleID+"): species "+ idS + " has not been registered, skipping....")
+	return toReturn
+
+func registerCompatSpecies():
+	if _species.empty():
+		logPrintOnDemand(id+": [SPECIES] == NO SPECIES IN LIST! SKIPPING === ")
+	else:
+		logPrintOnDemand(id+": [SPECIES]"+"\tBegain registering species.. this will break stuff for sure...")
+		if forceBreedEdition:
+			logPrintOnDemand(id+": [SPECIES]"+"\tFORCING ANUS WOMB AS DEFAULT FOR EVERY SPECIES THAT IS RE-REGISTERED")
+
+		for specie in _species: # R stands for RAW!!!!!, I sure hope people don't review my code....
+			if specie in GlobalRegistry.allSpecies:
+				if fileClass.file_exists(_species[specie][0]):
+					var _ok = GlobalRegistry.allSpecies.erase(specie)
+					logPrintOnDemand(id+": [SPECIES] Deleted "+specie+" from GlobalRegistry")
+					var _ok2 = GlobalRegistry.registerSpecies(_species[specie][0])
+					logPrintOnDemand(id+": [SPECIES] Registered "+specie+" to GlobalRegistry")
+					if _species[specie][1]:
+						if GlobalRegistry.getSpecies(specie).get("anus") != null:
+							GlobalRegistry.getSpecies(specie).set("anus", "anuswombhyperable")
+							if !(forceBreedEdition):
+								logPrintOnDemand(id+": [SPECIES] Set "+specie+" to have anuswomb")
+				else:
+					logErrorOnDemand(id+": [SPECIES] Filepath "+_species[specie]+" does not exist.")
