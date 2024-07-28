@@ -1,3 +1,165 @@
 {
-    
+    "Ampwave Species": {
+        "moduleid": "AmpwaveSpecies",
+        "author": "AverageAce",
+        "species": {
+            "ampwave": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Ampwave.gd"
+        }
+    },
+    "Avali Species": {
+        "moduleid": "Avali Species",
+        "author": "AverageAce",
+        "species": {
+            "avali": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Avali.gd"
+        }
+    },
+    "Aces Avairy Addon Species": {
+        "moduleid": "AcesAvairyAddon",
+        "author": "AverageAce",
+        "species": {
+            "avian": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Avian.gd",
+            "bird": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Bird.gd",
+            "gryphon": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Gryphon.gd",
+            "hippogriff": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Hippogriff.gd"
+        }
+    },
+    "Bovie Species": {
+        "moduleid": "BovineSpecies",
+        "author": "Code: Fantos Art: Max-Maxou",
+        "species": {
+            "bovine": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Bovine.gd"
+        }
+    },
+    "Deer Species": {
+        "moduleid": "DeerSpeciesModule",
+        "author": "Code: Fantos, Idea/Graphics: Max-Maxou, Updated: AverageAce",
+        "species": {
+            "deer": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Deer.gd"
+        }
+    },
+    "Espeon Species": {
+        "moduleid": "Espeon species",
+        "author": "Eurygrey and AverageAce",
+        "species": {
+            "espeon": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Espeon.gd"
+        }
+    },
+    "Houndoom Species": {
+        "moduleid": "Houndoom Species",
+        "author": "AverageAce",
+        "species": {
+            "houndoom": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Houndoom.gd"
+        }
+    },
+    "Laquine Species": {
+        "moduleid": "LaquineSpeciesModule",
+        "author": "Code: Fantos/Raznaak Graphics: Max-Maxou",
+        "species": {
+            "laquine": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Laquine.gd"
+        }
+    },
+    "Lopunny Species": {
+        "moduleid": "LopunnySpecies",
+        "author": "Souka",
+        "species": {
+            "lopunny": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Lopunny.gd"
+        }
+    },
+    "Lucario Species": {
+        "moduleid": "LucarioSpecies",
+        "author": "AverageAce",
+        "species": {
+            "lucario": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Lucario.gd"
+        }
+    },
+    "Protogen Species": {
+        "moduleid": "Protogen Species",
+        "author": "AverageAce",
+        "species": {
+            "protogen": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Protogen.gd"
+        }
+    },
+    "Rabbit Species": {
+        "moduleid": "RabbitSpeciesModule",
+        "author": "Code: Fantos Idea/Graphics: Max-Maxou",
+        "species": {
+            "rabbit": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Rabbit.gd"
+        }
+    },
+    "Racoon Species": {
+        "moduleid": "RacoonSpeciesModule",
+        "author": "Code:Fantos Art:Max-Maxou Update:AverageAce",
+        "species": {
+            "racoon": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Racoon.gd"
+        }
+    },
+    "Rat Species": {
+        "moduleid": "RatSpeciesModule",
+        "author": "Fantos",
+        "species": {
+            "rat": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Rat.gd"
+        }
+    },
+    "Scalie Expansion Species": {
+        "moduleid": "ScalieExpansion",
+        "author": "AverageAce",
+        "species": {
+            "easterndragon": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Easterndragon.gd",
+            "felkin": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Felkin.gd",
+            "kobold": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Kobold.gd",
+            "nightstalker": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Nightstalkers.gd",
+            "snake": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Snake.gd",
+            "wickerbeast": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Wickerbeast.gd"
+        }
+    },
+    "Seahorse Species": {
+        "moduleid": "SeahorseSpecies",
+        "author": "AverageAce",
+        "species": {
+            "seahorse": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Seahorse.gd"
+        }
+    },
+    "Sergal Species": {
+        "moduleid": "SergalSpeciesMod",
+        "author": "AverageAce",
+        "spceies": {
+            "sergal": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Sergal.gd"
+        }
+    },
+    "Shark Species": {
+        "moduleid": "SharkSpecies",
+        "author": "AverageAce",
+        "species": {
+            "shark": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Shark.gd"
+        }
+    },
+    "Skullwolf Species": {
+        "moduleid": "SkullwolfSpecies",
+        "author": "AverageAce",
+        "species": {
+            "skulldog": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Skullwolf.gd"
+        }
+    },
+    "Squirrel Species": {
+        "moduleid": "SquirrelSpecies",
+        "author": "AverageAce",
+        "species": {
+            "treenuts": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Treenuts.gd"
+        }
+    },
+    "Sylveon Species": {
+        "moduleid": "SylveonSpecies",
+        "author": "AverageAce",
+        "species": {
+            "sylveon": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Sylveon.gd"
+        }
+    },
+    "Synth Species": {
+        "moduleid": "SynthSpecies",
+        "author": "AverageAce",
+        "species": {
+            "synth": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Synth.gd"
+        }
+    }
+
 }

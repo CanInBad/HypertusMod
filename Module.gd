@@ -196,6 +196,13 @@ func readJsons():
 						fileName = dirClass.get_next()
 						continue
 					dictToReturn.merge(_jsonResult.result, true)
+				elif fileName.matchn("CONF_*"):
+					var _name = fileName.trim_prefix("CONF_")
+					match _name:
+						"speciesForceBreed":
+							if !forceBreedEdition:
+								forceBreedEdition = true
+								logPrintOnDemand("\t ENABLING FORCE BREED EDITION FROM CONFIG")
 			fileName = dirClass.get_next()
 		toReturn = [dictToReturn,filesContributed]
 	else:
@@ -318,18 +325,15 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 			
 				if sum != total:
 					if sum == 0:
-						logErrorOnDemand(id+": ## "+moduleName+" ("+moduleID+"): bodypart(s) compatibility layer fail to load ##\n")
+						logErrorOnDemand(id+": ## "+moduleName+" ("+moduleID+"): compatibility layer fail to load ##\n")
 						continue
 					if sum < total and sum > 0:
-						logErrorOnDemand(id+": ## "+moduleName+" ("+moduleID+"): bodypart(s) compatibility layer partially loaded ##\n")
+						logErrorOnDemand(id+": ## "+moduleName+" ("+moduleID+"): compatibility layer partially loaded ##\n")
 						continue
-					logErrorOnDemand(id+": ## "+moduleName+" ("+moduleID+"): bodypart(s) compatibility layer ..... you know you shouldn't set supposeTotal right? its there for me to learn default value in function\n")
+					logErrorOnDemand(id+": ## "+moduleName+" ("+moduleID+"): compatibility layer ..... you know you shouldn't set supposeTotal right? its there for me to learn default value in function\n")
 					continue
 				else:
-					if total == 1:
-						logPrintOnDemand(id+": ## "+moduleName+" ("+moduleID+"): a bodypart compatibility layer successfully activated! ##\n")
-					else:
-						logPrintOnDemand(id+": ## "+moduleName+" ("+moduleID+"): bodyparts compatibility layer successfully activated! ##\n")
+					logPrintOnDemand(id+": ## "+moduleName+" ("+moduleID+"): compatibility layer successfully activated! ##\n")
 					curIndex["enabled"] = true
 				
 		else:
@@ -394,7 +398,7 @@ func processSpecies(path:Dictionary = {}, moduleName:String = "", moduleID:Strin
 		if idS in GlobalRegistry.allSpecies:
 			if fileClass.file_exists(species[idS]):
 				if idS in _species:
-					logPrintOnDemand(id+": "+moduleName+" ("+moduleID+"): Overwritting key "+idS+" with "+ species[idS])
+					logPrintOnDemand(id+": "+moduleName+" ("+moduleID+"): Overwritting species "+idS+" with "+ species[idS])
 				_species[idS] = [species[idS], false] # make them overwrite. we wil be processing this data later.
 				if GlobalRegistry.getSpecies(idS).getDefaultAnus(Gender.Male) == "anuswomb" || forceBreedEdition:
 					if !forceBreedEdition:

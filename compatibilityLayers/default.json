@@ -1,5 +1,5 @@
 {
-    "Synth Species": {
+    "Synth Bodyparts": {
         "moduleid": "SynthSpecies",
         "author": "AverageAce",
         "files": [
@@ -16,7 +16,7 @@
             "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/FluffMaleBreasts.gd"
         ]
     },
-    "Avali Species (both version)": {
+    "Avali Species Bodyparts": {
         "moduleid": "Avali Species",
         "author": "AverageAce",
         "files": [
@@ -24,7 +24,7 @@
             "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/AvaliMaleBreasts.gd"
         ]
     },
-    "Ace's Aviary Addon": {
+    "Ace's Aviary Addon Bodyparts": {
         "moduleid": "AcesAvairyAddon",
         "author": "AverageAce",
         "files": [
@@ -39,7 +39,7 @@
             "res://Modules/Z_Hypertus/Bodyparts/Breasts/CompactLayer/TransBreasts.gd"
         ]
     },
-    "Crow Species": {
+    "Crow Species Bodyparts": {
         "moduleid": "CrowSpeciesModule",
         "author": "AverageAce",
         "files": [
@@ -47,7 +47,7 @@
             "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/CrowPenisSlit.gd"
         ]
     },
-    "Deer Species": {
+    "Deer Species Bodyparts": {
         "moduleid": "CrowSpeciesModule",
         "author": "AverageAce/Fantos/Max-Maxou",
         "files": [

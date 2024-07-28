@@ -1,0 +1,9 @@
+{
+    "HellHound": {
+        "moduleid": "*",
+        "author": "AverageAce",
+        "species": {
+            "demon": "res://Modules/Z_Hypertus/compatibilityLayers/hellhound/HyperHellhound.gd"
+        }
+    }
+}
