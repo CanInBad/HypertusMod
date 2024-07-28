@@ -203,6 +203,10 @@ func readJsons():
 							if !forceBreedEdition:
 								forceBreedEdition = true
 								logPrintOnDemand("\t ENABLING FORCE BREED EDITION FROM CONFIG")
+						"shouldPrint":
+							if !shouldLogPrint:
+								shouldLogPrint = true
+								logPrintOnDemand("\t ENABLING PRINT TO CONSOLE NO MATTER WHAT FROM CONFIG")
 			fileName = dirClass.get_next()
 		toReturn = [dictToReturn,filesContributed]
 	else:
@@ -275,11 +279,11 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 
 				if curIndex.has("species"):
 					_processedSpecies11 = curIndex.get("species").size()
-					_processedSpecies12 = processSpecies(curIndex.get("species").duplicate(true), moduleName, moduleID)
+					_processedSpecies12 = processSpeciesDict(curIndex.get("species").duplicate(true), moduleName, moduleID)
 				
 				if curIndex.has("speciesDir"):
 					var _dirClass = Directory.new()
-					var _arrayOfSpeciesPath = {}
+					var _dictOfSpeciesPath = {}
 					for path in curIndex.get("speciesDir"):
 						var _ok1 = _dirClass.open(path)
 						if _ok1 == OK:
@@ -291,11 +295,11 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 										var tempSpe = load(path.plus_file(file_name))
 										var speciesObject = tempSpe.new()
 										var speciesID = speciesObject.id
-										_arrayOfSpeciesPath[speciesID] = path.plus_file(file_name)
+										_dictOfSpeciesPath[speciesID] = path.plus_file(file_name)
 										_processedSpecies21 += 1
 								file_name = _dirClass.get_next()
-					if _arrayOfSpeciesPath.size() > 0:
-						_processedSpecies22 += processSpecies(_arrayOfSpeciesPath, moduleName, moduleID)
+					if _dictOfSpeciesPath.size() > 0:
+						_processedSpecies22 += processSpeciesDict(_dictOfSpeciesPath, moduleName, moduleID)
 				
 				total += _processedSpecies11 + _processedSpecies21
 				sum += _processedSpecies12 + _processedSpecies22
@@ -388,7 +392,7 @@ func moduleRegisterPartSkins():
 
 var _species = {}
 
-func processSpecies(path:Dictionary = {}, moduleName:String = "", moduleID:String = "") -> int:
+func processSpeciesDict(path:Dictionary = {}, moduleName:String = "", moduleID:String = "") -> int:
 	if path.size() < 1:
 		logErrorOnDemand("processSpecies is called but first argument is empty...."+" {0} ({1})".format([moduleName, moduleID]))
 		return 0
