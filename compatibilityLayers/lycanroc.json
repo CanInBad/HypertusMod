@@ -1,0 +1,15 @@
+{
+    "Lycanroc species":{
+        "moduleid": "LycanrocSpeciesBundle",
+        "author": "AverageAce",
+        "files": [
+            "res://Modules/Z_Hypertus/compatibilityLayers/lycanroc/bodyparts/MiddayBreasts.gd",
+            "res://Modules/Z_Hypertus/compatibilityLayers/lycanroc/bodyparts/MiddayMaleBreasts.gd"
+        ],
+        "species": {
+            "midnightlycan": "res://Modules/Z_Hypertus/compatibilityLayers/lycanroc/species/MidnightLycanroc.gd",
+            "middaylycan": "res://Modules/Z_Hypertus/compatibilityLayers/lycanroc/species/MiddayLycanroc.gd",
+            "dusklycan": "res://Modules/Z_Hypertus/compatibilityLayers/lycanroc/species/DuskLycanroc.gd"
+        }
+    }
+}
