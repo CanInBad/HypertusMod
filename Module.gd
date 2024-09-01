@@ -11,6 +11,7 @@ func getFlags():
 		"HyperPenisExpansionAmount": flag(FlagType.Number),
 		"HyperLevelMaxed": flag(FlagType.Bool),
 		"HyperLevelMaxedSeenMessage": flag(FlagType.Bool),
+		"ForceBreedEdition": flag(FlagType.Bool)
 		# "HyperHoleGainLubed": flag(FlagType.Bool),
 		# "HyperIntroPrompt": flag(FlagType.Bool),
 	}
@@ -130,6 +131,10 @@ func _init():
 		# events.append("res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd")
 		items.append("res://Modules/Z_Hypertus/Item/HyperPenisPump.gd")
 		items.append("res://Modules/Z_Hypertus/Item/HyperBreastPump.gd")
+		events.append("res://Modules/Z_Hypertus/Events/BreedEditionUpdateEvent.gd")
+		events.append("res://Modules/Z_Hypertus/Events/BreedEditionConfigEvent.gd")
+		scenes.append("res://Modules/Z_Hypertus/Scenes/BreedEditionConfigScene.gd")
+
 		# Engine.get_main_loop().get_root().add_child(load("res://Modules/Z_Hypertus/_popup/popup.gd"))
 		# GlobalRegistry.get_tree().quit()
 		# return
@@ -278,8 +283,14 @@ func universalBodyPartsCompactLayer(bodyparts:Array, theDict:Dictionary):
 				var _processedSpecies22:int = 0 # Sum - speciesDir
 
 				if curIndex.has("species"):
-					_processedSpecies11 = curIndex.get("species").size()
-					_processedSpecies12 = processSpeciesDict(curIndex.get("species").duplicate(true), moduleName, moduleID)
+					if curIndex.get("species") is Dictionary:
+						_processedSpecies11 = curIndex.get("species").size()
+						_processedSpecies12 = processSpeciesDict(curIndex.get("species").duplicate(true), moduleName, moduleID)
+					elif curIndex.get("species") is Array:
+						_processedSpecies11 = curIndex.get("species").size()
+						_processedSpecies12 = processSpeciesArray(curIndex.get("species").duplicate(true), moduleName, moduleID)
+					else:
+						logErrorOnDemand(id+": "+moduleName+" ("+moduleID+"): key \"species\" has other types than Dictionary or Array!")
 				
 				if curIndex.has("speciesDir"):
 					var _dirClass = Directory.new()
@@ -394,7 +405,7 @@ var _species = {}
 
 func processSpeciesDict(path:Dictionary = {}, moduleName:String = "", moduleID:String = "") -> int:
 	if path.size() < 1:
-		logErrorOnDemand("processSpecies is called but first argument is empty...."+" {0} ({1})".format([moduleName, moduleID]))
+		logErrorOnDemand("processSpeciesDict is called but first argument is empty...."+" {0} ({1})".format([moduleName, moduleID]))
 		return 0
 	var toReturn:int = 0
 	var species:Dictionary = path
@@ -415,6 +426,20 @@ func processSpeciesDict(path:Dictionary = {}, moduleName:String = "", moduleID:S
 		else:
 			logPrintOnDemand(id+": "+moduleName+" ("+moduleID+"): species "+ idS + " has not been registered, skipping....")
 	return toReturn
+
+func processSpeciesArray(path:Array = [], moduleName:String = "", moduleID:String = "") -> int:
+	if path.size() < 0:
+		logErrorOnDemand("processSpeciesArray is called but first argument is empty...."+" {0} ({1})".format([moduleName, moduleID]))
+		return 0
+	var species:Array = path
+	var speciesPass:Dictionary = {}
+	for specie in species: # bad naming scheme but whatever
+		if fileClass.file_exists(specie):
+			var tempSpecies = load(specie)
+			var speciesObject = tempSpecies.new()
+			speciesPass[speciesObject.id] = specie
+
+	return processSpeciesDict(speciesPass, moduleName, moduleID)
 
 func registerCompatSpecies():
 	if _species.empty():

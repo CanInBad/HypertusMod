@@ -16,12 +16,12 @@
     "Aces Avairy Addon Species": {
         "moduleid": "AcesAvairyAddon",
         "author": "AverageAce",
-        "species": {
-            "avian": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Avian.gd",
-            "bird": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Bird.gd",
-            "gryphon": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Gryphon.gd",
-            "hippogriff": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Hippogriff.gd"
-        }
+        "species": [
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Avian.gd",
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Bird.gd",
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Gryphon.gd",
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Hippogriff.gd"
+        ]
     },
     "Bovie Species": {
         "moduleid": "BovineSpecies",
@@ -103,14 +103,14 @@
     "Scalie Expansion Species": {
         "moduleid": "ScalieExpansion",
         "author": "AverageAce",
-        "species": {
-            "easterndragon": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Easterndragon.gd",
-            "felkin": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Felkin.gd",
-            "kobold": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Kobold.gd",
-            "nightstalker": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Nightstalkers.gd",
-            "snake": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Snake.gd",
-            "wickerbeast": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Wickerbeast.gd"
-        }
+        "species": [
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Easterndragon.gd",
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Felkin.gd",
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Kobold.gd",
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Nightstalkers.gd",
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Snake.gd",
+            "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Wickerbeast.gd"
+        ]
     },
     "Seahorse Species": {
         "moduleid": "SeahorseSpecies",

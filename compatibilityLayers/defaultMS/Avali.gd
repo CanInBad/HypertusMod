@@ -2,7 +2,6 @@ extends "res://Modules/Z_Hypertus/Misc/SpeciesExtend.gd"
 
 func _init():
 	id = "avali"
-	
 
 func getDefaultBreasts(_gender):
 	if(_gender == Gender.Male):
