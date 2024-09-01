@@ -17,7 +17,7 @@ func getMoreDescription():
 	+ "\nThere\'s something inside you")
 
 func getRequiredPerks():
-	return [Perk.BreedCumProductionV3]
+	return [Perk.BreedCumInflationHeat]
 
 func getSkillTier():
 	return 1

@@ -17,7 +17,7 @@ func getMoreDescription():
 	+ "Your milking potential is still not limited.")
 
 func getRequiredPerks():
-	return [Perk.MilkBiggerBreastsV3]
+	return [Perk.MilkBiggerBreastsV1]
 
 func getSkillTier():
 	return 1

@@ -20,7 +20,7 @@ func getMoreDescription():
 		+ "Just like the hoe next road.")
 
 func getRequiredPerks():
-	return [Perk.FertilityBetterOvulationV2]
+	return [Perk.FertilityBetterOvulation]
 
 func getSkillTier():
 	return 1

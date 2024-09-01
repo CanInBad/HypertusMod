@@ -13,15 +13,11 @@ func getVisibleDescription():
 	return "Read the description of the mod or this perk\'s before continuing"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]I am the dirty cheater?[/say]\n" \
-	+ "\nYou decided to install the mod without reading the mod\'s description and get the consequence by seeing this perk. "
-	+ "But again, you can try again :D\n\n"
-	+ "If you don\'t have access to the internet right now, its just telling you that while yes this mods has perks but they\'re hidden by lack of hyperable parts.\n"
+	return sayParser.processString("[say=pc]I am the dirty cheater?[/say]\n") \
+	+ "\nYou decided to install the mod without reading the mod\'s description and get the consequence by seeing this perk. "\
+	+ "But again, you can try again :D\n\n" \
+	+ "If you don\'t have access to the internet right now, its just telling you that while yes this mods has perks but they\'re hidden by lack of hyperable parts.\n" \
 	+ "Since you already see this message, use the debug mode to add those so called [b]Hyperable[/b] bodyparts"
-	)
-
-# func getRequiredPerks():
-# 	return []
 
 func getSkillTier():
 	return 0

@@ -17,7 +17,7 @@ func getMoreDescription():
 	+ "It\'s hard to explain")
 
 func getRequiredPerks():
-	return ["HyperVirility1"]
+	return ["HyperVirility1", Perk.BreedRapidConception]
 
 func getSkillTier():
 	return 2

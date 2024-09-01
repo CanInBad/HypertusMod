@@ -4,8 +4,11 @@
 .vscode
 
 /compatibilityLayers/*
-!/compatibilityLayers/default.json
-!/compatibilityLayers/defaultAS**
-!/compatibilityLayers/defaultMS**
+!/compatibilityLayers/0default.json
+!/compatibilityLayers/0defaultAS.json
+!/compatibilityLayers/defaultAS
+!/compatibilityLayers/0defaultMS.json
+!/compatibilityLayers/defaultMS
+
 !/compatibilityLayers/hellhound**
 !/compatibilityLayers/lycanroc**

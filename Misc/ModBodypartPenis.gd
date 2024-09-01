@@ -6,34 +6,20 @@ func _init():
 	fluidProduction.bodypart = weakref(self)
 	lengthCM = 30
 
-func getSlot():
-	return BodypartSlot.Penis
-
 func getTooltipInfo():
-	var result = []
-	result.append("length: " + Util.cmToString(lengthCM))
-	if(getFluidProduction() != null):
-		result.append("Capacity: " + str(round(getFluidProduction().getFluidAmount() * 10.0)/10.0)+"/"+ str(round(getFluidProduction().getCapacity() * 10.0)/10.0)+" ml")
-		result.append_array(getFluidProduction().getTooltipInfo())
-	
-	return Util.join(result, "\n")
+	var _toolTip:Array = .getTooltipInfo().split("\n",true)
+	return "\n".join(_toolTip) # me when I waste couple of CPU cycles just for future plan
 
 func getTraits():
-	return {
-		"Hyperable": true,
-	}
+	var traits:Dictionary = .getTraits()
+	traits["Hyperable"] = true
+	return traits
 
 func saveData():
 	var data = .saveData()
-	data["lengthCM"] = lengthCM
-	data["ballsScale"] = ballsScale
-	
 	return data
 
 func loadData(_data):
-	lengthCM = SAVE.loadVar(_data, "lengthCM", 15)
-	ballsScale = SAVE.loadVar(_data, "ballsScale", 1.0)
-	
 	.loadData(_data)
 
 func getLewdSizeAdjective():
@@ -60,12 +46,10 @@ func getLewdSizeAdjective():
 	return RNG.pick(["Short for hyper-endowed, as in, the character's anatomy (sexual and/or non-sexual) and amount of expelled substance (genital fluids and/or body waste) are unrealistically large, more than can be waved away with artistic license.", "Muse", "Better Call Saul", "https://youtu.be/458JYRJM2fc", "Yo Mista White", "Breaking Bad"])
 
 func getLewdAdjective():
-	return RNG.pick(["human"])
+	return .getLewdAdjective()
 	
 func getLewdName():
-	return RNG.pick(["cock", "cock", "dick", "dick", "member", "shaft"])
-
-# static func bruh():
+	return .getLewdName()
 
 func getPickableAttributes():
 	var result = .getPickableAttributes()
@@ -127,50 +111,33 @@ func applyAttribute(_attrID: String, _attrValue):
 		ballsScale = _attrValue
 
 func getAttributesText():
-	return [
-		["Penis length", Util.cmToString(lengthCM)],
-		["Balls scale", str(Util.roundF(ballsScale*100.0, 1))+"%"],
-		["Bluespace anomalies", "Yes"],
-	]
+	var attri = .getAttributesText()
+	attri.append(["Bluespace anomalies", "Yes"])
+	return attri
 	
 func getCharCreatorData():
-	return [
-		["lengthCM", lengthCM],
-		["ballsScale", ballsScale],
-	]
-
-func getLength():
-	return lengthCM
+	var toolTip = .getCharCreatorData()
+	return toolTip
 
 func safeWhenExposed():
 	return false
 
-func getPenisScale():
-	return max(0.5 + (lengthCM - 5.0) / 26.0, 0.5)
-
-func getBallsScale():
-	return ballsScale
-
-func getRevealMessage():
-	return Util.capitalizeFirstLetter(getLewdDescriptionAndName()) + " got revealed."
-
 func generateDataFor(_dynamicCharacter):
-	lengthCM = RNG.randf_range(25.0, 50.0)
+	lengthCM = RNG.randf_range(25.0, 50.0) # default case
 	if(RNG.chance(1)):
-		lengthCM = RNG.randf_range(5.0, 10.0)
+		lengthCM = RNG.randf_range(5.0, 10.0) # micro 1%
+	if(RNG.chance(5)):							#override the previous value
+		lengthCM = RNG.randf_range(10.0, 25.0) 	# 10cm - 25cm
 	if(RNG.chance(5)):
-		lengthCM = RNG.randf_range(10.0, 25.0)
+		lengthCM = RNG.randf_range(50.0, 75.0)  # 50cm - 75cm
 	if(RNG.chance(5)):
-		lengthCM = RNG.randf_range(50.0, 75.0)
-	if(RNG.chance(5)):
-		lengthCM = RNG.randf_range(75.0, 100.0)
-	lengthCM = Util.roundF(lengthCM, 1)
+		lengthCM = RNG.randf_range(75.0, 100.0) # 75cm - 100cm
+
+	lengthCM = Util.roundF(lengthCM, 1) # rounding to tenth
 	if(fluidProduction != null):
 		fluidProduction.fillPercent(min(1.0, RNG.randf_range(0.8, 1.2)))
 	generateRandomColors(_dynamicCharacter)
 
-func hasCustomSkinPattern():
-	return true
 
 func generateRandomColors(_dynamicCharacter):
 	var theHue = RNG.randf_range(0.0, 0.1)
@@ -196,6 +163,3 @@ func generateRandomColors(_dynamicCharacter):
 		pickedGColor = Color.from_hsv(theHue, RNG.randf_range(0.3, 0.6), RNG.randf_rangeX2(0.1, 0.3))
 		pickedBColor.v = RNG.randf_rangeX2(0.7, 0.95)
 		pickedBColor.s = RNG.randf_rangeX2(0.7, 0.95)
-
-func shouldUseBigPump():
-	return false

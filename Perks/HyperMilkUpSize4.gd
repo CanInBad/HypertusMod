@@ -28,7 +28,7 @@ func getMoreDescription():
 	)
 
 func getRequiredPerks():
-	return ["HyperMilkUpSize3"]
+	return ["HyperMilkUpSize3", Perk.MilkBiggerBreastsV3]
 
 func getSkillTier():
 	return 4

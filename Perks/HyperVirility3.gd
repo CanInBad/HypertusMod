@@ -17,7 +17,7 @@ func getMoreDescription():
 	+ "They\'re talking about you.")
 
 func getRequiredPerks():
-	return ["HyperVirility2"]
+	return ["HyperVirility2", Perk.BreedStreak]
 
 func hiddenWhenLocked() -> bool:
 	var penisPartHas:bool = false

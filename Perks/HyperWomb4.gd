@@ -16,7 +16,7 @@ func getMoreDescription():
 	return sayParser.processString("[say=pc]I am not surprised anymore...[/say]\n...")
 
 func getRequiredPerks():
-	return ["HyperWomb3"]
+	return ["HyperWomb3", Perk.FertilityBetterOvulationV3]
 
 func getSkillTier():
 	return 4

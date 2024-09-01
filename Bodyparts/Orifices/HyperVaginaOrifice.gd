@@ -1,5 +1,4 @@
 extends Orifice
-# class_name VaginaOrifice
 
 func _init():
 	orificeType = OrificeType.Vagina
@@ -34,28 +33,6 @@ func getComfortableInsertion() -> float:
 	# 	multi += pc.getCustomAttribute("HyperVaginaComfortableInsertion")
 	return 10.0 + pow(looseness, 2.0) #* multi
 
-# func hoursPassed(_howmuch): #recovery is defined by elasticity
-# 	var minLoose = getMinLooseness()
-	
-# 	if(abs(looseness - minLoose) <= 0.001):
-# 		looseness = minLoose
-# 		return
-	
-# 	var elast = getElasticity()
-# 	for _i in range(_howmuch):
-# 		var rem = pow(abs(looseness - minLoose), 0.1) / 50.0
-# 		if(rem < 0.005):
-# 			rem = 0.005
-# 		if(rem > abs(looseness - minLoose)):
-# 			rem = abs(looseness - minLoose)
-			
-# 		if(looseness > minLoose):
-# 			if(!isOrificeBlockedFromRecovering()):
-# 				looseness -= rem * elast
-# 		elif(looseness < minLoose):
-# 			looseness += rem / elast
-# 	if(looseness < 0.0):
-# 		looseness = 0.0
 
 func getNaturalDrain() -> float:
 	var pc = bodypart.get_ref().getCharacter()
@@ -78,8 +55,3 @@ func isClosedOff():
 	if(character.getOrificeBlocked(orificeType)):
 		return true
 	return false
-
-# func getAttributesText():
-# 	var currAttributes = .getAttributesText()
-# 	currAttributes.append(["Bluespace anomalies", "Yes"])
-# 	return currAttributes

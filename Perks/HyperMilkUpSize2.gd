@@ -17,7 +17,7 @@ func getMoreDescription():
 	+ "Milking is love, milking is life")
 
 func getRequiredPerks():
-	return ["HyperMilkUpSize1"]
+	return ["HyperMilkUpSize1", Perk.MilkBiggerBreastsV2]
 
 func getSkillTier():
 	return 2
