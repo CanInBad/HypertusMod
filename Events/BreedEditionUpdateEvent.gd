@@ -19,4 +19,4 @@ func react(_triggerID, _args):
                 for specie in GlobalRegistry.allSpecies:
                     if GlobalRegistry.allSpecies[specie].get("anus") != null:
                         GlobalRegistry.allSpecies[specie].set("anus","anushyperable")
-                GlobalRegistry.getModule("Hypertus").logPrintOnDemand("Hypertus: forceBreed set to true and canine anus is normal, changing to anuswomb")
+                GlobalRegistry.getModule("Hypertus").logPrintOnDemand("Hypertus: forceBreed set to false and canine anus is anus womb, changing to normal anus")
