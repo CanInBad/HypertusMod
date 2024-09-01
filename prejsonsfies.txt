@@ -31,10 +31,8 @@ If you have any feedback send it in #mods-discussion and ping me,
 or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 # Changelog
- * Fixed crashing when selecting hyperable bodyparts inside datapack character creator
- * Made all penises to use floatinput in datapack creator
- * Now has "configurable" settings, end users need to install additional mod(s) to enable/configure them. This is due to limitation of options menu itself.
- * Upgrade to 0.1.4
- * Bump version to release 5
-## Backend stuff
- * Now supports species in the json. Please note that this is rushed and requires some tweaking. To learn more please see [url=https://github.com/CanInBad/HypertusMod/]how it works in repo[/url]
+ * Fixed penis tooltip when having a perk to see them
+ * Minor adjustment to balancing skill tree
+ * Supports toggling off breed edition inside the game with Raznaak's mod configuration mod
+## Backend
+ * compatibility species key now support array, now you don't have to manually put in the id of the species

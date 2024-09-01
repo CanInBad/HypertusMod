@@ -1,0 +1,44 @@
+Hypertus is required for this mod to function.
+This mod will replace species based on installed mods.
+This mod replaces the following species:
+
+# Vanilla  
+ - Canine
+ - Demon
+ - Dragon
+ - Equine
+ - Feline
+ - Human
+
+# Modded  
+ - Ampwave
+ - Avali
+ - Avian
+ - Bird
+ - Bovine
+ - Crow
+ - Deer
+ - Eastern Dragon
+ - Espeon
+ - Gryphon
+ - Hippogriff
+ - Houndoom
+ - Kobold
+ - Laquine
+ - Leafeon
+ - Lopunny
+ - Lucario
+ - Nightstalkers
+ - Protogen
+ - Rabbit
+ - Racoon
+ - Rat
+ - Seahorse
+ - Sergal
+ - Shark
+ - Skullwolf
+ - Snake
+ - Sylveon
+ - Synth
+ - Treenuts
+ - Wickerbeast

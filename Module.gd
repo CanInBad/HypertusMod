@@ -104,7 +104,8 @@ func _init():
 	]
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
-		"res://Modules/Z_Hypertus/Scenes/RayGunScene.gd"
+		"res://Modules/Z_Hypertus/Scenes/RayGunScene.gd",
+		"res://Modules/Z_Hypertus/Scenes/BreedEditionConfigScene.gd"
 	]
 	events = [
 		"res://Modules/Z_Hypertus/Events/CustomizationButton.gd",
@@ -112,7 +113,8 @@ func _init():
 		"res://Modules/Z_Hypertus/Events/NewDayGainBackXP.gd",
 		"res://Modules/Z_Hypertus/Events/NoHyperablePart.gd",
 		"res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd",
-		
+		"res://Modules/Z_Hypertus/Events/BreedEditionUpdateEvent.gd",
+		"res://Modules/Z_Hypertus/Events/BreedEditionConfigEvent.gd"		
 	]
 	items = [
 		"res://Modules/Z_Hypertus/Item/Raygun.gd"
@@ -131,9 +133,6 @@ func _init():
 		# events.append("res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd")
 		items.append("res://Modules/Z_Hypertus/Item/HyperPenisPump.gd")
 		items.append("res://Modules/Z_Hypertus/Item/HyperBreastPump.gd")
-		events.append("res://Modules/Z_Hypertus/Events/BreedEditionUpdateEvent.gd")
-		events.append("res://Modules/Z_Hypertus/Events/BreedEditionConfigEvent.gd")
-		scenes.append("res://Modules/Z_Hypertus/Scenes/BreedEditionConfigScene.gd")
 
 		# Engine.get_main_loop().get_root().add_child(load("res://Modules/Z_Hypertus/_popup/popup.gd"))
 		# GlobalRegistry.get_tree().quit()
