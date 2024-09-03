@@ -29,7 +29,7 @@ func hiddenWhenLocked() -> bool:
 	var curNPC = GM.pc
 	var pussyPartHas:bool = false
 	var assPartHas:bool = false
-	if curNPC!=null:
+	if curNPC != null:
 		pussyPartHas = curNPC.bodypartHasTrait(BodypartSlot.Vagina,"Hyperable")
 		assPartHas = curNPC.bodypartHasTrait(BodypartSlot.Anus,"Hyperable")
 	if pussyPartHas or assPartHas:

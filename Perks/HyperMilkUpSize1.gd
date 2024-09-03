@@ -13,11 +13,11 @@ func getVisibleDescription():
 	return "Your breasts can get bigger by four additional sizes when lactating."
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]Moo[/say]\n" \
-	+ "Your milking potential is still not limited.")
+	return sayParser.processString("[say=pc]Moo[/say]\n") \
+	+ "Your milking potential is still not limited."
 
 func getRequiredPerks():
-	return [Perk.MilkBiggerBreastsV1]
+	return [Perk.MilkBiggerBreasts]
 
 func getSkillTier():
 	return 1

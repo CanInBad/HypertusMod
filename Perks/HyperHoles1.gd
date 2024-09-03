@@ -21,8 +21,8 @@ func getVisibleDescription(): # boy I sure hope npc wont crash you with this
 	return "Your hole recovers faster and strech less, Has natural lube on sex"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]I have a built in lube?[/say]\n" \
-	+ "They will update every in game hour")
+	return sayParser.processString("[say=pc]I have a built in lube?[/say]") \
+	+ "\nThe lube effect will scale based on your sexiness points x² and will be removed after SexEngine has ended"
 
 # func getRequiredPerks():
 # 	return [Perk.CumUniqueBiology]
@@ -60,10 +60,13 @@ func getBuffs():
 func onSexStarted(_context = {}):
 	if !npc.hasEffect(StatusEffect.LubedUp):
 		gainLube = true
-		npc.addEffect(StatusEffect.LubedUp, [10*60])
+		npc.addEffect(StatusEffect.LubedUp, [10*60*max(1,int(npc.getStat(Stat.Sexiness)/2))])
 
 func onSexEnded(_context = {}):
 	if gainLube:
-		if npc.hasEffect(StatusEffect.LubedUp):
-			npc.removeEffect(StatusEffect.LubedUp)
 		gainLube = false
+		if !npc.hasPerk("HyperHoles3"):
+			if npc.hasEffect(StatusEffect.LubedUp):
+				npc.removeEffect(StatusEffect.LubedUp)
+		else:
+			GM.main.addMessage("\nYou have the \"The Ultimate Fuck Toy\" perk, you get lubed after sex!\n")

@@ -13,8 +13,8 @@ func getVisibleDescription():
 	return "Slows natual spill of your hyper holes"
 
 func getMoreDescription():
-	return sayParser.processString("[say=pc]I notice my holes are leaking out less...[/say]\n" \
-	+ "...")
+	return sayParser.processString("[say=pc]I notice my holes are leaking out less...[/say]\n") \
+	+ "..."
 
 # func getRequiredPerks():
 # 	return []
