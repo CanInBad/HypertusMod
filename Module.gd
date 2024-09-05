@@ -16,6 +16,9 @@ func getFlags():
 		# "HyperIntroPrompt": flag(FlagType.Bool),
 	}
 
+func registerEventTriggers():
+	GM.ES.registerEventTrigger("HypertusNewDay", EventTriggerWeighted.new())
+
 # func resetFlagsOnNewDay(): # so it turns out that sleeping always set to the new day
 # 	if GM.main.getModuleFlag(id,"HyperPenisExpansionAmount",0)!=0: # I kinda want to just if GM.main.getModuleFlag(id,"HyperPenisExpansionAmount",0): but idk if it is true or not
 # 		GM.main.setModuleFlag(id, "HyperPenisExpansionAmount", 0)
@@ -36,12 +39,12 @@ func _init():
 		"res://Modules/Z_Hypertus/Perks/HyperVirility3.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperVirility4.gd",
 
-		"res://Modules/Z_Hypertus/Perks/HyperPenisIncrease1.gd",
-		"res://Modules/Z_Hypertus/Perks/HyperPenisIncrease2.gd",
-		"res://Modules/Z_Hypertus/Perks/HyperPenisIncrease3.gd",
-		"res://Modules/Z_Hypertus/Perks/HyperPenisDecrease1.gd",
-		"res://Modules/Z_Hypertus/Perks/HyperPenisDecrease2.gd",
-		"res://Modules/Z_Hypertus/Perks/HyperPenisDecrease3.gd",
+		# "res://Modules/Z_Hypertus/Perks/HyperPenisIncrease1.gd",
+		# "res://Modules/Z_Hypertus/Perks/HyperPenisIncrease2.gd",
+		# "res://Modules/Z_Hypertus/Perks/HyperPenisIncrease3.gd",
+		# "res://Modules/Z_Hypertus/Perks/HyperPenisDecrease1.gd",
+		# "res://Modules/Z_Hypertus/Perks/HyperPenisDecrease2.gd",
+		# "res://Modules/Z_Hypertus/Perks/HyperPenisDecrease3.gd",
 
 		"res://Modules/Z_Hypertus/Perks/HyperMilkUpSize1.gd",
 		"res://Modules/Z_Hypertus/Perks/HyperMilkUpSize2.gd",

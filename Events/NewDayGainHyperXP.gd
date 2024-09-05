@@ -4,11 +4,12 @@ func _init():
 	id = "NewDayGainHyperXP"
 
 func registerTriggers(es):
-	es.addTrigger(self, Trigger.WakeUpInCell)
+	es.addTrigger(self, "HypertusNewDay")
 
 var jiggleStr = RNG.pick(["vibrates","shakes","rumbles"])
 
 func react(_triggerID, _args):
+	addMessage("YES!")
 	var penis = null
 	var player = GM.pc
 	var sum:int = 0

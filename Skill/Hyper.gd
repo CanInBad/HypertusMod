@@ -15,18 +15,13 @@ func getVisibleDescription():
 func getLevelCap():
 	return 1e3
 
-static func getRequiredExperience(_level) -> int:
-	if _level>768:
-		return 3000
-	elif _level>576:
-		return 2000
-	elif _level>384:
-		return 1500
-	elif _level>192:
-		return 1000
-	elif _level>48:
-		return 650
-	return 100 + _level * 10 + int(sqrt(max(0,_level))) * 10
+static func getRequiredExperience(_level) -> int: # https://www.desmos.com/calculator/ux5ausxblm
+	if _level < 300:
+		return 100 + int(ceil(_level * _level * 0.05)) # parabola
+	elif _level < 950:
+		return 450 + int(ceil( sqrt(-275 + _level) ) * 21.16 ) # sqrt root
+	return int(max(1000, ( _level * 10 ) + 8500)) # linear
+		  #int is here because function max returns float
 
 func getPerkTiers():
 	return [
@@ -37,7 +32,9 @@ func getPerkTiers():
 		[50] # 5 | 4
 	]
 
-# func onNewDay():
-# 	.onNewDay()
+func onNewDay():
+	.onNewDay()
+	GM.ES.triggerReact("HypertusNewDay")
+	return
 # 	if "HyperSizes" in GlobalRegistry.getSkills():
 # 		GM.pc.getSkillsHolder().getSkill("HyperSizes").setLevel(getLevel())

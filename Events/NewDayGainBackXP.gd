@@ -4,11 +4,13 @@ func _init():
 	id = "NewDayGainBackXP"
 
 func registerTriggers(es):
-	es.addTrigger(self, Trigger.WakeUpInCell)
+	es.addTrigger(self, "HypertusNewDay")
 
 func react(_triggerID, _args):
+	addMessage("YES!")
 	var player = GM.pc
 	var alreadyHad = []
+	var toGrant:int
 	if player.hasBodypart(BodypartSlot.Penis):
 		if player.getBodypart(BodypartSlot.Penis).getTraits() != null:
 			if "Hyperable" in player.getBodypart(BodypartSlot.Penis).getTraits():
@@ -29,9 +31,10 @@ func react(_triggerID, _args):
 					if player.hasPerk(i):
 						sum += 1
 						
-				player.addSkillExperience(Skill.Breeder, sum * sum * 2)
 				if sum * sum * 2 > 0:
-					addMessage("You have been granted " + str(sum * sum * 2) + " XP in the breeder tree")
+					toGrant = sum * sum * 2
+					player.addSkillExperience(Skill.Breeder, toGrant)
+					addMessage("You have been granted " + str(toGrant) + " XP in the breeder tree")
 			
 	if player.hasBodypart(BodypartSlot.Breasts):
 		if player.getBodypart(BodypartSlot.Breasts).getTraits() != null:
@@ -54,9 +57,10 @@ func react(_triggerID, _args):
 					if player.getSkillsHolder().hasPerk(i):
 						sum += 1
 
-				player.addSkillExperience(Skill.Milking, sum * sum * 2)
 				if sum * sum * 2 > 0:
-					addMessage("You have been granted " + str(sum * sum * 2) + " XP in the milking tree")
+					toGrant = sum * sum * 2
+					player.addSkillExperience(Skill.Milking, toGrant)
+					addMessage("You have been granted " + str(toGrant) + " XP in the milking tree")
 
 	var sumHole:int = 0
 
@@ -96,8 +100,9 @@ func react(_triggerID, _args):
 							sumHole += 1
 	
 	if sumHole * sumHole * 2 > 0:
-		player.addSkillExperience(Skill.CumLover, sumHole * sumHole * 2)
-		addMessage("You have been granted " + str(sumHole * sumHole * 2) + " XP in the cum lover tree")
+		toGrant = sumHole * sumHole * 2
+		player.addSkillExperience(Skill.CumLover, toGrant)
+		addMessage("You have been granted " + str(toGrant) + " XP in the cum lover tree")
 
 	alreadyHad.clear()
 	var sumWomb:int = 0
@@ -131,5 +136,6 @@ func react(_triggerID, _args):
 							sumWomb += 1
 
 	if sumWomb * sumWomb * 3 > 0:
-		player.addSkillExperience(Skill.Fertility, sumWomb * sumWomb * 3)
-		addMessage("You have been granted " + str(sumWomb * sumWomb * 3) + " XP in the fertility tree")
+		toGrant = sumWomb * sumWomb * 3
+		player.addSkillExperience(Skill.Fertility, toGrant)
+		addMessage("You have been granted " + str(toGrant) + " XP in the fertility tree")
