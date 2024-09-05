@@ -7,7 +7,6 @@ func registerTriggers(es):
 	es.addTrigger(self, "HypertusNewDay")
 
 func react(_triggerID, _args):
-	addMessage("YES!")
 	var player = GM.pc
 	var alreadyHad = []
 	var toGrant:int

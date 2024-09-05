@@ -9,7 +9,6 @@ func registerTriggers(es):
 var jiggleStr = RNG.pick(["vibrates","shakes","rumbles"])
 
 func react(_triggerID, _args):
-	addMessage("YES!")
 	var penis = null
 	var player = GM.pc
 	var sum:int = 0
