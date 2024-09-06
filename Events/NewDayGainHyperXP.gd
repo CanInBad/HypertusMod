@@ -9,6 +9,7 @@ func registerTriggers(es):
 var jiggleStr = RNG.pick(["vibrates","shakes","rumbles"])
 
 func react(_triggerID, _args):
+	var module = getModule("Hypertus")
 	var penis = null
 	var player = GM.pc
 	var sum:int = 0
@@ -165,6 +166,9 @@ func react(_triggerID, _args):
 		
 		if (GM.main.getDays()>5 and GM.main.getDays()<8) and hadPartsN>0:
 			addMessage("")
+
+		if module.shouldLogPrint:
+			module.logPrintOnDemand(module.id+"\thadPartsN: "+str(hadPartsN)+"\tsum: "+str(sum)+"\tPotentialGain: "+str(sum*sum*3*hadPartsN))
 
 		if   hadPartsN >= 1 and sum >= 1:
 			addMessage("Received Hyper XP: "+ str((sum * sum * 3 * hadPartsN))+"\n")

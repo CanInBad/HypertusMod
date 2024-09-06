@@ -23,6 +23,10 @@ func registerEventTriggers():
 # 	if GM.main.getModuleFlag(id,"HyperPenisExpansionAmount",0)!=0: # I kinda want to just if GM.main.getModuleFlag(id,"HyperPenisExpansionAmount",0): but idk if it is true or not
 # 		GM.main.setModuleFlag(id, "HyperPenisExpansionAmount", 0)
 
+func resetFlagsOnNewDay():
+	GM.ES.triggerReact("HypertusNewDay")
+	return
+
 func _init():
 	id = "Hypertus"
 	author = "CanInBad"

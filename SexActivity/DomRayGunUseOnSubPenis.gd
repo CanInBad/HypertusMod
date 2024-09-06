@@ -49,10 +49,13 @@ func getStartActions(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexS
     var sub:BaseCharacter = _subInfo.getChar()
     oldSize = sub.getBodypart(BodypartSlot.Penis).getLength()
 
+    # var count:int = 0
     if dom.isPlayer():
         # if checkHasHyperable(BodypartSlot.Penis, sub):
         for gun in dom.getInventory().getAllOf("hypertusRayGun"):
             for amount in range(sub.getBodypart(BodypartSlot.Penis).getLength()+20.0,max(sub.getBodypart(BodypartSlot.Penis).getLength()-21.0,1.0),-5.0):
+                # count += 1
+                # GlobalRegistry.getModule("Hypertus").logPrintOnDemand("{0}:\tc{1}: amount:{2}\toldsize: {3}\tamount-oldsize: {4}".format(["Hypertus",count,amount,oldSize,amount-oldSize]))
                 var toName = ""
                 var toDesc = ""
                 if amount-oldSize>0:
@@ -68,6 +71,7 @@ func getStartActions(_sexEngine: SexEngine, _domInfo: SexDomInfo, _subInfo: SexS
                     score = 0.0,
                     category = ["Use", "Resize Penis on Sub"]
                 })
+            # GlobalRegistry.getModule("Hypertus").logPrintOnDemand(str(actions))
     else:
         # for id in allRaygunIDs:
         #     var gun:ItemBase = GlobalRegistry.getItemRef(id)

@@ -27,18 +27,6 @@ func getDefaultArms(_gender):
 func getDefaultEars(_gender):
 	return "avianears2"
 
-func getDefaultBreasts(_gender):
-	if(_gender in [Gender.Male]):
-		return "malebreastshyperable"
-	
-	return "humanbreastshyperable"
-
-func getDefaultVagina(_gender):
-	if(_gender in [Gender.Female, Gender.Androgynous]):
-		return "vaginahyperable"
-	else:
-		return null
-
 func getDefaultPenis(_gender):
 	if(_gender in [Gender.Male, Gender.Androgynous]):
 		return "ACEavianpenishyperable"

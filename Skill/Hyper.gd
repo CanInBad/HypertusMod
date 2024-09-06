@@ -32,9 +32,9 @@ func getPerkTiers():
 		[50] # 5 | 4
 	]
 
-func onNewDay():
-	.onNewDay()
-	GM.ES.triggerReact("HypertusNewDay")
-	return
+# func onNewDay():
+# 	.onNewDay()
+# 	GM.ES.triggerReact("HypertusNewDay")
+# 	return
 # 	if "HyperSizes" in GlobalRegistry.getSkills():
 # 		GM.pc.getSkillsHolder().getSkill("HyperSizes").setLevel(getLevel())

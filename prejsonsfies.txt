@@ -32,3 +32,5 @@ or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 # Changelog
  * fixed debug print
+ * fixed trigger HypertusNewDay doesn't trigger if user doesn't have the skill tree in the first place
+ * added warning about big bug in toggling breed edition in game

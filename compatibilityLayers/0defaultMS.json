@@ -30,6 +30,11 @@
             "bovine": "res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Bovine.gd"
         }
     },
+    "Crow Species": {
+        "moduleid": "CrowSpeciesModule",
+        "author": "AverageAce",
+        "species": ["res://Modules/Z_Hypertus/compatibilityLayers/defaultMS/Crow.gd"]
+    },
     "Deer Species": {
         "moduleid": "DeerSpeciesModule",
         "author": "Code: Fantos, Idea/Graphics: Max-Maxou, Updated: AverageAce",
