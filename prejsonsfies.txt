@@ -31,6 +31,5 @@ If you have any feedback send it in #mods-discussion and ping me,
 or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 # Changelog
- * fixed debug print
- * fixed trigger HypertusNewDay doesn't trigger if user doesn't have the skill tree in the first place
- * added warning about big bug in toggling breed edition in game
+ * fixed deer species using the wrong module id #8
+ * fixed skin path since it is case senstive #9

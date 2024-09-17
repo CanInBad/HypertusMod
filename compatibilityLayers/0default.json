@@ -48,7 +48,7 @@
         ]
     },
     "Deer Species Bodyparts": {
-        "moduleid": "CrowSpeciesModule",
+        "moduleid": "DeerSpeciesModule",
         "author": "AverageAce/Fantos/Max-Maxou",
         "files": [
             "res://Modules/Z_Hypertus/Bodyparts/Penises/CompactLayer/DeerPenis.gd"

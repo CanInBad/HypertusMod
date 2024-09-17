@@ -9,7 +9,7 @@ func getName():
 
 func getPatternTexture():
 	return {
-		"": preload("res://Player/Player3D/SkinsPartsByAuthor/AverageAce/Penis/barbedequinepenis/BarbedEquinePenis_pierced.png"),
+		"": preload("res://Player/Player3D/SkinsPartsByAuthor/AverageAce/Penis/BarbedEquinePenis/BarbedEquinePenis_pierced.png"),
 	}
 	
 	 
