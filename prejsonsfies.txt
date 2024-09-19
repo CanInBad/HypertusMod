@@ -1,19 +1,14 @@
 
 [b]WARNING: This contains hyper stuff, if you dislike it then leave[/b]
 
-This mods [b]adds[b] [i](not replace)[/i] new body parts that just are like the normal ones but you can upgrade them in a new skill tree that comes with this mod.
-Said body parts are in form of breast, penises, vagina, and anus.
-This mod also have capability layers that use the looks of your favorite body parts mod, including ones from species mod that add one of the 4 body part categories mentioned.
+Hypertus (AKA big numbers goes brrrr) adds new bodyparts that mirror the looks of bodyparts and have new features to play with.
 
-You can gain experience points of said skill tree by invest in vanilla perks and then sleep, each time you wake up you will be notified how much of them you get.
-You can then spend those point to add ridiculous amount of perks to your body parts.
-Please do note that some perks might be hidden due to not meeting the requirement for the perk.
+These features includes:
+ * New skill tree and perks for categories of bodyparts. Gain XP everyday!
+ * Go beyond the limit vanilla gives.
+ * Compatibility layers to add additional bodyparts and override species with easy JSON format!
 
-There is a draft of the story but it isn't complete in anyway and some glimpse of it can be read in the perks' description.
-
-There are compatibility layers that make all species including the modded one have hyperable version of them
-
-You can transform your or your foe's parts to hyperable with Personal Bluespace Anomaly Emitter™️. You need to finish the Alex's portal quest to get one from his shop
+If you want NPC to have those bodyparts then please install additional mod; Hypertus Species Compatibility Layers.
 
 Has compatibility layer between these mods:
  - Synth Bodyparts
@@ -22,7 +17,7 @@ Has compatibility layer between these mods:
  - Ace's Aviary Addon Bodyparts
  - Trans Scar Chest
  - Crow Species Bodyparts
- - Deer Species Bodyparts
+ - Deer Species Bodypart
  - Knotted Horse Cock
  - Barbed Equine Penis
  - Spined Dragon Penis
@@ -33,3 +28,4 @@ or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 # Changelog
  * fixed deer species using the wrong module id #8
  * fixed skin path since it is case senstive #9
+ * bump version
