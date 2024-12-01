@@ -24,7 +24,7 @@ func canSell():
 
 func getTags():
 	if GM.pc != null:
-		return
+		return []
 	return [ItemTag.SoldByMedicalVendomat, ItemTag.PenisPump]
 
 func generateFluids():
