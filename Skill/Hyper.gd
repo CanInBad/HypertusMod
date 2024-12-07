@@ -17,7 +17,7 @@ func getLevelCap():
 
 static func getRequiredExperience(_level) -> int: # https://www.desmos.com/calculator/ux5ausxblm
 	if _level < 300:
-		return 100 + int(ceil(_level * _level * 0.05)) # parabola
+		return 100 + int(ceil(_level * _level * 0.005)) # parabola
 	elif _level < 950:
 		return 450 + int(ceil( sqrt(-275 + _level) ) * 21.16 ) # sqrt root
 	return int(max(1000, ( _level * 10 ) + 8500)) # linear
