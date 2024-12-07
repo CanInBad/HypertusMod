@@ -11,7 +11,8 @@ func getFlags():
 		"HyperPenisExpansionAmount": flag(FlagType.Number),
 		"HyperLevelMaxed": flag(FlagType.Bool),
 		"HyperLevelMaxedSeenMessage": flag(FlagType.Bool),
-		"ForceBreedEdition": flag(FlagType.Bool)
+		"DayInstall": flag(FlagType.Number),
+		# "ForceBreedEdition": flag(FlagType.Bool)
 		# "HyperHoleGainLubed": flag(FlagType.Bool),
 		# "HyperIntroPrompt": flag(FlagType.Bool),
 	}
@@ -120,8 +121,8 @@ func _init():
 		"res://Modules/Z_Hypertus/Events/NewDayGainBackXP.gd",
 		"res://Modules/Z_Hypertus/Events/NoHyperablePart.gd",
 		"res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd",
-		"res://Modules/Z_Hypertus/Events/BreedEditionUpdateEvent.gd",
-		"res://Modules/Z_Hypertus/Events/BreedEditionConfigEvent.gd"		
+		# "res://Modules/Z_Hypertus/Events/BreedEditionUpdateEvent.gd",
+		# "res://Modules/Z_Hypertus/Events/BreedEditionConfigEvent.gd"		
 	]
 	items = [
 		"res://Modules/Z_Hypertus/Item/Raygun.gd"
