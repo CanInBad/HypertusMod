@@ -9,6 +9,11 @@ func registerTriggers(es):
 var jiggleStr = RNG.pick(["vibrates","shakes","rumbles"])
 
 func react(_triggerID, _args):
+	if getFlag("Hypertus.DayInstall",-1) == -1:
+		setFlag("Hypertus.DayInstall", GM.main.getDays())
+	var daySince:int = GM.main.getDays() - min(getFlag("Hypertus.DayInstall",0) ,0) # if by logic, the if statement should set the value anything higher than -1 anyways but this is here because ¯\_(ツ)_/¯
+																					# its here because of the message notifing player WITHOUT hyperable parts that they need it for the mod.
+
 	var module = getModule("Hypertus")
 	var penis = null
 	var player = GM.pc
@@ -143,9 +148,9 @@ func react(_triggerID, _args):
 
 	if player.getSkillsHolder().getSkill("Hyper") != null:
 		if player.getSkillLevel("Hyper") == player.getSkillsHolder().getSkill("Hyper").getLevelCap():
-			GM.main.setModuleFlag("Hypertus","HyperLevelMaxed",true)
-	# else:
-	# 	Log.printerr("Hyper tree is null???? send save file to the dev -CanInBad")
+			setModuleFlag("Hypertus","HyperLevelMaxed",true)
+	else:
+		Log.printerr("Hyper tree is null???? send save file to the dev -CanInBad")
 		
 	if not GM.main.getFlag("Hypertus.HyperLevelMaxed",false):
 		var hadPartsN = 0
@@ -161,22 +166,22 @@ func react(_triggerID, _args):
 					addMessage("Your hyper "+i+" "+jiggleStr+".")
 					# addMessage("+x1 Extra hyper gain for total: x"+str(hadPartsN))
 		
-		if GM.main.getDays()<5 and hadPartsN>0:
+		if daySince<5 and hadPartsN>0:
 			addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
 		
-		if (GM.main.getDays()>5 and GM.main.getDays()<8) and hadPartsN>0:
-			addMessage("")
+		if hadPartsN == 0 && player.getSkillLevel("Hyper")<0:
+			if (getModuleFlag("PortalPantiesModule", "Panties_PcDenied") || getModuleFlag("PortalPantiesModule", "Panties_FleshlightsReturnedToAlex")):
+				addMessage("You don't have any hyperable bodyparts equipped. please get the BPAE from Alex near engineering on mining floor.")
+			else: addMessage("You don't have any hyperable bodyparts equipped. Please do so next playthrough.")
+			setFlag("Hypertus.DayInstall",-1)
 
-		if module.shouldLogPrint:
-			module.logPrintOnDemand(module.id+"\thadPartsN: "+str(hadPartsN)+"\tsum: "+str(sum)+"\tPotentialGain: "+str(sum*sum*3*hadPartsN))
+		module.logPrintOnDemand(module.id+"\thadPartsN: "+str(hadPartsN)+"\tsum: "+str(sum)+"\tPotentialGain: "+str(sum*sum*3*hadPartsN))
 
 		if   hadPartsN >= 1 and sum >= 1:
 			addMessage("Received Hyper XP: "+ str((sum * sum * 3 * hadPartsN))+"\n")
 			player.addSkillExperience("Hyper", sum * sum * 3 * hadPartsN)
-			# player.addSkillExperience("HyperSize", sum * sum * 3 * hadPartsN)
-		# elif hadPartsN >= 1 and sum == 0:
 	else:
 		if !GM.main.getModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",false):
 			sayn("Wow! You actually got this far? I mean its pretty easy to gain experience for the skill trees but how long did you do it?" \
 				+ "\nCan you send the screenshot of the skills menu and send it to mod discussion?")
-		GM.main.setModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",true)
+		setModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",true)
