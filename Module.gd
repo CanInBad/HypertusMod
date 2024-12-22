@@ -145,7 +145,11 @@ func _init():
 		# Engine.get_main_loop().get_root().add_child(load("res://Modules/Z_Hypertus/_popup/popup.gd"))
 		# GlobalRegistry.get_tree().quit()
 		# return
+
 	
+	
+
+func postInit():
 	var _listBodyPartsCompactLayers = {
 		# "non test": _test,
 	}
@@ -157,12 +161,11 @@ func _init():
 			text += "\t- "+i+"\n"
 		text = text.trim_suffix("\n")
 		logPrintOnDemand(text)
-
+		
 	universalBodyPartsCompactLayer(bodyparts,_listBodyPartsCompactLayers)
 	registerCompatSpecies()
 	moduleRegisterPartSkins()
 	announceCurrentEnabledCompactLayer(_listBodyPartsCompactLayers)
-	freeMem()
 
 func freeMem():
 	skinPathsDir.clear()
