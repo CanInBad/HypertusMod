@@ -26,6 +26,7 @@ If you have any feedback send it in #mods-discussion and ping me,
 or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 # Changelog
- * fixed deer species using the wrong module id #8
- * fixed skin path since it is case senstive #9
- * bump version
+ * fixed debug hyperable breast sizes to not appear (#11)
+ * fixed first stage of gaining XP to be impossible (#13)
+ * added tutorial based on install date instead of in game day (#12)
+ - removed Raznaak's breed edition ingame configuration (b106d7e)
