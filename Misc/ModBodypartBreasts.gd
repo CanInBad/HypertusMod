@@ -3,6 +3,7 @@ extends BodypartBreasts
 var breastSizeModClass = load("res://Modules/Z_Hypertus/Misc/BreastsSizeModi.gd")
 
 func _init():
+	size = breastSizeModClass.G
 	limbSlot = LimbTypes.Breasts
 	var lactationModClass = load("res://Modules/Z_Hypertus/Misc/LactationMod.gd")
 	fluidProduction = lactationModClass.new()

@@ -146,13 +146,11 @@ func _init():
 		# GlobalRegistry.get_tree().quit()
 		# return
 
-	
-	
-
-func postInit():
-	var _listBodyPartsCompactLayers = {
+var _listBodyPartsCompactLayers = {
 		# "non test": _test,
 	}
+
+func register():
 	var toMerge:Array = readJsons()
 	if toMerge[0].size() > 0:
 		_listBodyPartsCompactLayers.merge(toMerge[0], true)
@@ -161,8 +159,11 @@ func postInit():
 			text += "\t- "+i+"\n"
 		text = text.trim_suffix("\n")
 		logPrintOnDemand(text)
-		
+
 	universalBodyPartsCompactLayer(bodyparts,_listBodyPartsCompactLayers)
+	.register()
+
+func postInit():
 	registerCompatSpecies()
 	moduleRegisterPartSkins()
 	announceCurrentEnabledCompactLayer(_listBodyPartsCompactLayers)
