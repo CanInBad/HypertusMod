@@ -150,7 +150,8 @@ func react(_triggerID, _args):
 		if player.getSkillLevel("Hyper") == player.getSkillsHolder().getSkill("Hyper").getLevelCap():
 			setModuleFlag("Hypertus","HyperLevelMaxed",true)
 	else:
-		Log.printerr("Hyper tree is null???? send save file to the dev -CanInBad")
+		if daySince > 2: # to prevent actually new player to see it
+			Log.printerr("Hyper tree is null when giving XP, this is non issue if you didn't have any XP in the skill tree. else; please send in your save and modlist.")
 		
 	if not GM.main.getFlag("Hypertus.HyperLevelMaxed",false):
 		var hadPartsN = 0

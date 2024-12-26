@@ -1,7 +1,7 @@
 
 [b]WARNING: This contains hyper stuff, if you dislike it then leave[/b]
 
-Hypertus (AKA big numbers goes brrrr) adds new bodyparts that mirror the looks of bodyparts and have new features to play with.
+Hypertus adds new bodyparts that mirror the looks of bodyparts and have new features to play with.
 
 These features includes:
  * New skill tree and perks for categories of bodyparts. Gain XP everyday!
@@ -30,3 +30,5 @@ or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
  * fixed first stage of gaining XP to be impossible (#13)
  * added tutorial based on install date instead of in game day (#12)
  - removed Raznaak's breed edition ingame configuration (b106d7e)
+ * fixed bodyparts compatibility layers not working (d01f72b)
+ * add an extra check before throwing out error when checking if player has max level on the skill tree (hides the "Hyper tree is null???? send save file to the dev -CanInBad" error) (#19)
