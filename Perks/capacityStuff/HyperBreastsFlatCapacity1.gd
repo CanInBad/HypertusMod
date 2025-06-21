@@ -17,7 +17,7 @@ func getMoreDescription():
 	+ "Your breasts can hold 50% more")
 
 func getRequiredPerks():
-	return [Perk.MilkBiggerBreasts]
+	return [Perk.MilkFasterProduction]
 
 func getSkillTier():
 	return 1

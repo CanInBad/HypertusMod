@@ -127,12 +127,13 @@ func _init():
 	items = [
 		"res://Modules/Z_Hypertus/Item/Raygun.gd"
 	]
-	sexActivities = [
-		"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubPenis.gd",
-		"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfPenis.gd",
-		"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubBreast.gd",
-		"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfBreast.gd",
-	]
+	
+	# sexActivities = [
+	# 	"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubPenis.gd",
+	# 	"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfPenis.gd",
+	# 	"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSubBreast.gd",
+	# 	"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfBreast.gd",
+	# ]
 
 	if OS.has_feature("debug"):
 		Log.print("\t/// "+id+": detect that we're in debug")

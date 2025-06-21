@@ -18,7 +18,7 @@ func getMoreDescription():
 	+ "Better call your cousin")
 
 func getRequiredPerks():
-	return [Perk.MilkBiggerBreastsV2]
+	return ["HyperBreastsFlatCapacity3"]
 
 func getSkillTier():
 	return 4

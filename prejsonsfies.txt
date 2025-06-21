@@ -26,9 +26,5 @@ If you have any feedback send it in #mods-discussion and ping me,
 or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 # Changelog
- * fixed debug hyperable breast sizes to not appear (#11)
- * fixed first stage of gaining XP to be impossible (#13)
- * added tutorial based on install date instead of in game day (#12)
- - removed Raznaak's breed edition ingame configuration (b106d7e)
- * fixed bodyparts compatibility layers not working (d01f72b)
- * add an extra check before throwing out error when checking if player has max level on the skill tree (hides the "Hyper tree is null???? send save file to the dev -CanInBad" error) (#19)
+ * hotfix for 0.1.9 by removing the sexactivity, this means that you won't able to change the attrubute while doing the deed. This feature will come back next update
+ * possible fix for #20 by removing requirement for perks
