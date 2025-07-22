@@ -16,7 +16,7 @@ func getLewdAdjective():
 	return RNG.pick(["knotted", "avian"])
 
 func getDoll3DScene():
-	return "res://Modules/Ace'sAvairyMod/Bodyparts/BirdDick/BirdPenis.tscn"
+	return "res://Modules/Anon'sAviaryMod/Bodyparts/BirdDick/BirdPenis.tscn"
 
 func getTraits():
 	return {
