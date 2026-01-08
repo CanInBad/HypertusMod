@@ -1,16 +1,13 @@
 
 [b]WARNING: This contains hyper stuff, if you dislike it then leave[/b]
 
-Hypertus adds new bodyparts that mirror the looks of bodyparts and have new features to play with.
+Hypertus adds hyper-sized bodyparts (breast, penises, vagina, and anus.) to BDCC, along with several new features!
 
-These features includes:
- * New skill tree and perks for categories of bodyparts. Gain XP everyday!
- * Go beyond the limit vanilla gives.
- * Compatibility layers to add additional bodyparts and override species with easy JSON format!
-
-If you want NPC to have those bodyparts then please install additional mod; Hypertus Species Compatibility Layers.
-
-Has compatibility layer between these mods:
+These features include:
+* New skill tree and perks. Get bonuses as your hyper bodyparts grow!
+* Go beyond vanilla size limits. Dicks as big as a person! Or even larger!
+* NPC support! (Requires additional mod - Hypertus Species Compatibility Layers)
+* Compatible with several modded species and bodyparts! (see list below)
  - Synth Bodyparts
  - Fluffy Bodyparts
  - Avali Species Bodyparts
@@ -26,5 +23,7 @@ If you have any feedback send it in #mods-discussion and ping me,
 or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 # Changelog
- * hotfix for 0.1.9 by removing the sexactivity, this means that you won't able to change the attrubute while doing the deed. This feature will come back next update
- * possible fix for #20 by removing requirement for perks
+ * change metadata to newer version.
+ * change checking editor logic, only meant to load stuff when in editor only as the mod is shipped without those files.
+ * change description. Thanks lucci1138. [url=https://github.com/CanInBad/HypertusMod/issues/10]#10[/url]
+ * fixes not able to buy the raygun with no hyperable breast or penis [url=https://github.com/CanInBad/HypertusMod/issues/21]#21[/url]

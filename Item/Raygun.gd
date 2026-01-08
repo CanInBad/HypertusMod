@@ -33,14 +33,14 @@ func getPossibleActions():
 func useInCombat(_attacker, _receiver):
     var _receiverHas:bool = false
     if _receiver !=null:
-        for i in [BodypartSlot.Breasts, BodypartSlot.Penis,]: # BodypartSlot.Anus, BodypartSlot.Vagina]: # there are only 2 for now
+        for i in [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Anus, BodypartSlot.Vagina]: 
             if checkHas(i, _receiver):
                 _receiverHas = true
                 break
         GM.main.getCurrentFightScene().runScene("RayGunUse", [_receiverHas])
         return "{pc.You} quickly holster {pc.your} energy weapon.\n[i]You only got one shot[/i]"
     else:
-        for i in [BodypartSlot.Breasts, BodypartSlot.Penis,]: # BodypartSlot.Anus, BodypartSlot.Vagina]: # there are only 2 for now
+        for i in [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Anus, BodypartSlot.Vagina]:
             if checkHas(i, GM.pc):
                 _receiverHas = true
                 break
@@ -55,7 +55,7 @@ func checkHas(bodyslot, _who:BaseCharacter): # this checks if _who have hyperabl
     return false
 
 func getTags():
-    for i in [BodypartSlot.Breasts, BodypartSlot.Penis,]: # BodypartSlot.Anus, BodypartSlot.Vagina]: #there is only 2 sizes for now
+    for i in [BodypartSlot.Breasts, BodypartSlot.Penis, BodypartSlot.Anus, BodypartSlot.Vagina]:
         if checkHas(i, GM.pc):
             return [ItemTag.SoldByAlexRynard]
     return []
