@@ -135,8 +135,8 @@ func _init():
 	# 	"res://Modules/Z_Hypertus/SexActivity/DomRayGunUseOnSelfBreast.gd",
 	# ]
 
-	if OS.has_feature("debug"):
-		Log.print("\t/// "+id+": detect that we're in debug")
+	if OS.has_feature("editor"):
+		Log.print("\t/// "+id+": detect that we're in editor")
 		shouldLogPrint = true
 		events.append("res://Modules/Z_Hypertus/Events/debugPrintStuff.gd")
 		# events.append("res://Modules/Z_Hypertus/Events/ConvertOldToNew.gd")

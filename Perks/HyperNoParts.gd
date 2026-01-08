@@ -41,3 +41,6 @@ func hiddenWhenLocked() -> bool:
 			return true
 
 	return false
+
+func canAppearInDungeons() -> bool:
+	return false
