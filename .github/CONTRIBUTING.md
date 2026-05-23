@@ -8,6 +8,8 @@ If you have the problem with the project, search the issue if it already existed
 
 Before submitting an issue make sure to add prefix to the name properly. Like for example: Requesting a feature, you must add prefix `[FEATURE REQUEST]`. and for bugs you must add prefix `[BUG]`
 
+All issues sent by me aren't affect by above.
+
 ***DO NOT* ADD MULTIPLE THINGS AT ONCE**, like putting suggestion and reporting a bug in the same issue
 
 ## PULL REQUESTs

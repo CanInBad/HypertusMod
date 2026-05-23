@@ -7,9 +7,6 @@ func _init():
 func getCompatibleSpecies():
 	return [Species.Any]
 
-# func hasWomb():
-# 	return true
-
 func getCharacterCreatorName():
 	return "Hyperable Anus" #THIS EXISTED????? if i know this faster i would 🥰
 

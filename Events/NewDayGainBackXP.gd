@@ -7,7 +7,9 @@ func registerTriggers(es):
 	es.addTrigger(self, "HypertusNewDay")
 
 func react(_triggerID, _args):
-	var player = GM.pc
+	var player:BaseCharacter = GM.pc
+	var module:Module = getModule("Hypertus")
+	module.logPrintOnDemand("[Hypertus]: Gain back XP event triggered; if you do see this then its fine.")
 	var alreadyHad = []
 	var toGrant:int
 	if player.hasBodypart(BodypartSlot.Penis):

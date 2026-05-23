@@ -11,12 +11,13 @@ var jiggleStr = RNG.pick(["vibrates","shakes","rumbles"])
 func react(_triggerID, _args):
 	if getFlag("Hypertus.DayInstall",-1) == -1:
 		setFlag("Hypertus.DayInstall", GM.main.getDays())
-	var daySince:int = GM.main.getDays() - min(getFlag("Hypertus.DayInstall",0) ,0) # if by logic, the if statement should set the value anything higher than -1 anyways but this is here because ¯\_(ツ)_/¯
+	var daySince:int = GM.main.getDays() - int(min(getFlag("Hypertus.DayInstall",0) ,0)) # if by logic, the if statement should set the value anything higher than -1 anyways but this is here because ¯\_(ツ)_/¯
 																					# its here because of the message notifing player WITHOUT hyperable parts that they need it for the mod.
 
 	var module = getModule("Hypertus")
-	var penis = null
-	var player = GM.pc
+	module.logPrintOnDemand("[Hypertus]: Gain hyper XP event triggered; if you do see this then its fine.")
+	var penis:Bodypart = null
+	var player:BaseCharacter = GM.pc
 	var sum:int = 0
 	var hadParts = {
 		"penis"   : false,
@@ -25,6 +26,7 @@ func react(_triggerID, _args):
 		"anus"    : false,
 		"anuswomb": false,
 	}
+
 	if player.hasBodypart(BodypartSlot.Penis):
 		if player.getBodypart(BodypartSlot.Penis).getTraits() != null:
 			if "Hyperable" in player.getBodypart(BodypartSlot.Penis).getTraits():
@@ -170,7 +172,7 @@ func react(_triggerID, _args):
 		if daySince<5 and hadPartsN>0:
 			addMessage("You have the potential to get Hyper XP, you get them by spending points in various skills then waking up.\nThe more perks you have the more XP you gain each day")
 		
-		if hadPartsN == 0 && player.getSkillLevel("Hyper")<0:
+		if hadPartsN == 0 && player.getSkillLevel("Hyper")<1:
 			if (getModuleFlag("PortalPantiesModule", "Panties_PcDenied") || getModuleFlag("PortalPantiesModule", "Panties_FleshlightsReturnedToAlex")):
 				addMessage("You don't have any hyperable bodyparts equipped. please get the BPAE from Alex near engineering on mining floor.")
 			else: addMessage("You don't have any hyperable bodyparts equipped. Please do so next playthrough.")
@@ -178,9 +180,16 @@ func react(_triggerID, _args):
 
 		module.logPrintOnDemand(module.id+"\thadPartsN: "+str(hadPartsN)+"\tsum: "+str(sum)+"\tPotentialGain: "+str(sum*sum*3*hadPartsN))
 
-		if   hadPartsN >= 1 and sum >= 1:
+		if hadPartsN >= 1 and sum >= 1:
 			addMessage("Received Hyper XP: "+ str((sum * sum * 3 * hadPartsN))+"\n")
 			player.addSkillExperience("Hyper", sum * sum * 3 * hadPartsN)
+		# potential next update
+		# var xpGained:float = floor(pow(sum,1+(0.7/hadPartsN+1))+(hadPartsN+1)/0.2 )
+		# if hadPartsN >= 1 and sum >= 1:
+		# 	addMessage("Received Hyper XP: "+ String(xpGained) +"\n")
+		# 	player.addSkillExperience("Hyper", int(xpGained))
+		# else:
+		# 	module.logPrintOnDemand("potential hyper Xp gain:"+ String(xpGained))
 	else:
 		if !GM.main.getModuleFlag("Hypertus","HyperLevelMaxedSeenMessage",false):
 			sayn("Wow! You actually got this far? I mean its pretty easy to gain experience for the skill trees but how long did you do it?" \

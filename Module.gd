@@ -174,7 +174,7 @@ func freeMem():
 	skinPaths.clear()
 	_species.clear()
 
-var outdatedBodyparts:Dictionary = {
+const outdatedBodyparts:Dictionary = {
 	"dragonpenismhyper": "dragonpenishyperable",
 	"breastshyperable": "humanbreastshyperable"
 	}

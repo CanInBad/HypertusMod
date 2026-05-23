@@ -1,24 +1,6 @@
-extends Object
-# class_name BreastsSize
+extends BreastsSize
 
 enum {
-    FOREVER_FLAT = -1,
-    FLAT = 0,
-    A = 1,
-    B = 2,
-    C = 3,
-    D = 4,
-    DD = 5,
-    DDD = 6,
-    G = 7,
-    H = 8,
-    I = 9,
-    J = 10,
-    K = 11,
-    L = 12,
-    M = 13,
-    N = 14,
-    O = 15,
     P = 16,
     Q = 17,
     R = 18,
@@ -58,23 +40,6 @@ enum {
 
 static func getAll():
     return [
-        FOREVER_FLAT, 
-        FLAT, 
-        A, 
-        B, 
-        C, 
-        D, 
-        DD, 
-        DDD, 
-        G, 
-        H, 
-        I, 
-        J, 
-        K, 
-        L, 
-        M, 
-        N, 
-        O, 
         P, 
         Q, 
         R,
@@ -113,23 +78,6 @@ static func getAll():
 
 static func breastSizeToString(bsize:int):
     var names = {
-        FOREVER_FLAT:"Forever flat", 
-        FLAT:"Flat", 
-        A:"A", 
-        B:"B", 
-        C:"C", 
-        D:"D", 
-        DD:"DD", 
-        DDD:"DDD", 
-        G:"G", 
-        H:"H", 
-        I:"I", 
-        J:"J", 
-        K:"K", 
-        L:"L", 
-        M:"M", 
-        N:"N", 
-        O:"O",
         P:"P", 
         Q:"Q", 
         R:"R",
@@ -182,23 +130,23 @@ static func breastSizeToCupString(bsize:int): # so I have been googling and
 
 static func breastSizeToMilkAmount(bsize:int):
     var amounts = {
-        FOREVER_FLAT: 0.0, 
-        FLAT: 0.0, 
-        A: 1.0, 
-        B: 1.5, 
-        C: 3.0, 
-        D: 5.0, 
-        DD: 8.0, 
-        DDD: 10.0, 
-        G: 12.0, 
-        H: 15.0, 
-        I: 20.0, 
-        J: 25.0, 
-        K: 32.0, 
-        L: 40.0, 
-        M: 50.0, 
-        N: 65.0, 
-        O: 80.0,
+        BreastsSize.FOREVER_FLAT: 0.0, 
+        BreastsSize.FLAT: 0.0, 
+        BreastsSize.A: 1.0, 
+        BreastsSize.B: 1.5, 
+        BreastsSize.C: 3.0, 
+        BreastsSize.D: 5.0, 
+        BreastsSize.DD: 8.0, 
+        BreastsSize.DDD: 10.0, 
+        BreastsSize.G: 12.0, 
+        BreastsSize.H: 15.0, 
+        BreastsSize.I: 20.0, 
+        BreastsSize.J: 25.0, 
+        BreastsSize.K: 32.0, 
+        BreastsSize.L: 40.0, 
+        BreastsSize.M: 50.0, 
+        BreastsSize.N: 65.0, 
+        BreastsSize.O: 80.0,
         P: 80.0+(15.0*1.0), 
         Q: 80.0+(15.0*2.0), 
         R: 80.0+(15.0*3.0),
@@ -245,23 +193,23 @@ static func breastSizeToMilkAmount(bsize:int):
 
 static func breastSizeToBoneScale(bsize:int):
     var sizes = {
-        FOREVER_FLAT: 1.0, 
-        FLAT: 1.0, 
-        A: 0.5, 
-        B: 0.6, 
-        C: 0.8, 
-        D: 1.0, 
-        DD: 1.1, 
-        DDD: 1.2, 
-        G: 1.3, 
-        H: 1.4, 
-        I: 1.5, 
-        J: 1.6, 
-        K: 1.7, 
-        L: 1.8, 
-        M: 1.9, 
-        N: 2.0, 
-        O: 2.1,
+        BreastsSize.FOREVER_FLAT: 1.0, 
+        BreastsSize.FLAT: 1.0, 
+        BreastsSize.A: 0.5, 
+        BreastsSize.B: 0.6, 
+        BreastsSize.C: 0.8, 
+        BreastsSize.D: 1.0, 
+        BreastsSize.DD: 1.1, 
+        BreastsSize.DDD: 1.2, 
+        BreastsSize.G: 1.3, 
+        BreastsSize.H: 1.4, 
+        BreastsSize.I: 1.5, 
+        BreastsSize.J: 1.6, 
+        BreastsSize.K: 1.7, 
+        BreastsSize.L: 1.8, 
+        BreastsSize.M: 1.9, 
+        BreastsSize.N: 2.0, 
+        BreastsSize.O: 2.1,
         Q: 2.2, 
         R: 2.3,
         S: 2.4,
@@ -306,3 +254,23 @@ static func breastSizeToBoneScale(bsize:int):
     var lastKey = OMEGA
     return sizes[lastKey] + float(bsize - lastKey) / 10.0
     
+
+static func breastSizeToNameProcedural(bsize:int, cupEnding:String="-cup"):
+	if(bsize <= -1):
+		return "Forever flat"
+	if(bsize <= 0):
+		return "Flat"
+	
+	var names:Dictionary = {BreastsSize.A:"A", BreastsSize.B:"B", BreastsSize.C:"C", BreastsSize.D:"D", BreastsSize.DD:"DD", BreastsSize.DDD:"DDD"}
+	if(names.has(bsize)):
+		return names[bsize]+cupEnding
+	
+	var base_char:int = ord('A')
+	var cup_char_ind:int = (bsize)
+	var finalCupLetter:String = ""
+	while(cup_char_ind >= 26):
+		cup_char_ind -= 26
+		finalCupLetter += "Z"
+	if(cup_char_ind > 0):
+		finalCupLetter += char(base_char - 1 + cup_char_ind)
+	return finalCupLetter + cupEnding

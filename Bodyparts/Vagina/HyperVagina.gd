@@ -7,17 +7,8 @@ func _init():
 func getCompatibleSpecies():
 	return [Species.Any]
 
-# currently does nothing, will have interaction with perks later
-
 func getCharacterCreatorDesc():
 	return "Required to experience the Hypertus mod"
 
-func getLewdDescriptionAndName():
-	var text = getLewdSizeAdjective() + " " + getLewdAdjective() + " " + getLewdName()
-	return text
-	# return "hyper dimensional vagina"
-
 func getTraits():
-	return {
-		"Hyperable": true,
-	}
+	return .getTraits()

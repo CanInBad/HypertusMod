@@ -23,7 +23,5 @@ If you have any feedback send it in #mods-discussion and ping me,
 or open an issue on [url]https://github.com/CanInBad/HypertusMod/issues[/url].
 
 # Changelog
- * change metadata to newer version.
- * change checking editor logic, only meant to load stuff when in editor only as the mod is shipped without those files.
- * change description. Thanks lucci1138. [url=https://github.com/CanInBad/HypertusMod/issues/10]#10[/url]
- * fixes not able to buy the raygun with no hyperable breast or penis [url=https://github.com/CanInBad/HypertusMod/issues/21]#21[/url]
+ * add egg laying bodyparts (not tested)
+ * hadPerk -> hasPerk

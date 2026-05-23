@@ -35,6 +35,8 @@ func getTooltipInfo():
 	if(getFluidProduction() != null):
 		result.append("Capacity: " + str(round(getFluidProduction().getFluidAmount() * 10.0)/10.0)+"/"+ str(round(getFluidProduction().getCapacity() * 10.0)/10.0)+" ml")
 		result.append_array(getFluidProduction().getTooltipInfo())
+	if(sensitiveZone != null):
+		result.append_array(sensitiveZone.getInfo())
 	
 	return Util.join(result, "\n")
 
@@ -124,6 +126,7 @@ func getCharCreatorData():
 func getTraits():
 	return {
 		"Hyperable": true,
+		PartTrait.BreastsFemale: true,
 	}
 
 func getBaseSize():
