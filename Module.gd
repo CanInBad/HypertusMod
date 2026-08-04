@@ -116,7 +116,7 @@ func _init():
 	scenes = [
 		"res://Modules/Z_Hypertus/Scenes/CustomInputCustomizationPenis.gd",
 		"res://Modules/Z_Hypertus/Scenes/RayGunScene.gd",
-		"res://Modules/Z_Hypertus/Scenes/BreedEditionConfigScene.gd"
+		# "res://Modules/Z_Hypertus/Scenes/BreedEditionConfigScene.gd"
 	]
 	events = [
 		"res://Modules/Z_Hypertus/Events/CustomizationButton.gd",
